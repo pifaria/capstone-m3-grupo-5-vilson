@@ -15,4 +15,5 @@ export const Container = styled.button`
   font-size: 16px;
   line-height: 26px;
   color: var(--black);
+  margin: 0px 5px;
 `;

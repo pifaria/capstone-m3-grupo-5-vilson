@@ -1,6 +1,7 @@
 import { Container, Content } from "./styles";
 import LogoDark from "../../assets/LogoDark.svg";
 import { useHistory } from "react-router-dom";
+import Button from "../../components/Button"
 
 const LandingPage = () => {
   const history = useHistory();
@@ -18,10 +19,10 @@ const LandingPage = () => {
           <p>Encontra clientes para seus ensaios</p>
         </div>
         <div className="buttons">
-          <button onClick={() => handleNavigation("/login")}>Login</button>
-          <button onClick={() => handleNavigation("/signup")}>
-            Cadastre-se
-          </button>
+          <Button beigeSchema onClick={() => handleNavigation("/login")}><h5>Login</h5></Button>
+          <Button onClick={() => handleNavigation("/signup")}>
+          <h5>Cadastre-se</h5>
+          </Button>
         </div>
       </Content>
     </Container>
