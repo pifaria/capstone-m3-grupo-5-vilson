@@ -1,7 +1,9 @@
 import { Container, Content, Header, FormContainer } from "./styles";
 import { useForm } from "react-hook-form";
+import { useRegisterModal } from "../../providers/RegisterModal";
 
 const EventsModal = () => {
+  const { closeModal } = useRegisterModal()
   const { register, handleSubmit } = useForm();
 
   const onSubmitFunction = (data) => {
@@ -13,7 +15,7 @@ const EventsModal = () => {
       <Content>
         <Header>
           <h3>Listar eventos</h3>
-          <button>X</button>
+          <button onClick={() => closeModal()}>X</button>
         </Header>
         <FormContainer>
           <form onSubmit={handleSubmit(onSubmitFunction)}>

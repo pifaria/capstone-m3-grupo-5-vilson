@@ -1,8 +1,10 @@
+import { RegisterModalProvider } from "./RegisterModal"
+
 const Providers = ({ children }) => {
     return (
-        <div>
+        <RegisterModalProvider>
             {children}
-        </div>
+        </RegisterModalProvider>
     )
 }
 
