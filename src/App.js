@@ -1,8 +1,8 @@
 import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./styles/global";
 import Modal from "react-modal";
-import { useState } from "react";
 import EventsModal from "./components/EventsModal";
+import { useRegisterModal } from "./providers/RegisterModal";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -24,21 +24,12 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 function App() {
-  //state do modal (aberto / fechado)
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  //Funções do modal (abrir / fechar)
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const { modalIsOpen, closeModal, openModal } = useRegisterModal()
 
   return (
     <div className="App">
       <GlobalStyle />
+      <button onClick={() => openModal()}>teste</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
