@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 //Setando o pai do Modal, no nosso caso #root
 Modal.setAppElement("#root");
 
+
 function App() {
   const { modalIsOpen, closeModal, openModal } = useRegisterModal()
 
