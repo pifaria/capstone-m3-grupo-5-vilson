@@ -16,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <button onClick={() => openModal()}>teste</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
