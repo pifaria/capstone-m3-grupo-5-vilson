@@ -7,4 +7,25 @@ export default createGlobalStyle`
         box-sizing: border-box;
         outline: 0;
     }
+
+    :root {
+        --orange: #EB5E28;
+        --vanilla: #FFFCF2;
+        --black: #252422;
+        --grey: #403D39;
+        --beige: #CCC5B9;
+        --green: #28EB53;
+        --red: #EC3E26;
+}
 `
+export const customStyles = {
+    content: {
+      padding: "0px",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+};

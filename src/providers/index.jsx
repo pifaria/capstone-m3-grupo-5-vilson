@@ -1,10 +1,13 @@
 import { UserInfoProvider } from "./userInfo"
+import { RegisterModalProvider } from "./RegisterModal"
 
 const Providers = ({ children }) => {
     return (
-        <UserInfoProvider>
+      <UserInfoProvider>
+        <RegisterModalProvider>
             {children}
-        </UserInfoProvider>
+        </RegisterModalProvider>
+      </UserInfoProvider>
     )
 }
 
