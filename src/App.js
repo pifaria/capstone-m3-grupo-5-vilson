@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import EventsModal from "./components/EventsModal";
 import { useRegisterModal } from "./providers/RegisterModal";
 import { customStyles } from "./styles/global";
+import Routes from "./routes";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,6 +26,7 @@ function App() {
         <EventsModal />
       </Modal>
       <ToastContainer />
+      <Routes />
     </div>
   );
 }
