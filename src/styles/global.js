@@ -17,6 +17,9 @@ export default createGlobalStyle`
         --green: #28EB53;
         --red: #EC3E26;
 }
+    button{
+        cursor: pointer;
+    }
 `
 export const customStyles = {
     content: {

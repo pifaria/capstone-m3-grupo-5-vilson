@@ -26,4 +26,7 @@ export const Content = styled.div`
   p{
     margin: 10px;
   }
+  .buttons{
+    display: flex;
+  }
 `;
