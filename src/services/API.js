@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const requestApi = axios.create({
+const requestApi = axios.create({
   baseURL: "https://clickfinder-json-server.herokuapp.com/",
 });
 
-export const requestAuth = (url, token, method = "get", data = {}) => {
+requestApi.requestAuth = (url, token, method = "get", data = {}) => {
   const request = {
     method,
     url,
@@ -13,3 +13,17 @@ export const requestAuth = (url, token, method = "get", data = {}) => {
   };
   return requestApi(request);
 };
+
+requestApi.getAuth = (url, token) => {
+  return requestApi.requestAuth(url, token);
+};
+
+requestApi.postAuth = (url, data, token) => {
+  return requestApi.requestAuth(url, token, "post", data);
+};
+
+requestApi.patchAuth = (url, data, token) => {
+  return requestApi.requestAuth(url, token, "patch", data);
+};
+
+export default requestApi;

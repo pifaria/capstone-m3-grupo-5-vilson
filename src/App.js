@@ -1,7 +1,5 @@
 import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./styles/global";
-import { requestApi, requestAuth } from "./services/API";
-import { useState } from "react";
 import Modal from "react-modal";
 import EventsModal from "./components/EventsModal";
 import { useRegisterModal } from "./providers/RegisterModal";
