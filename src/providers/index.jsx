@@ -1,8 +1,10 @@
+import { UserInfoProvider } from "./userInfo"
+
 const Providers = ({ children }) => {
     return (
-        <div>
+        <UserInfoProvider>
             {children}
-        </div>
+        </UserInfoProvider>
     )
 }
 
