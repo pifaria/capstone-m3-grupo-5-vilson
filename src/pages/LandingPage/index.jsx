@@ -18,7 +18,7 @@ const LandingPage = () => {
   return (
     <Container>
       <Content>
-        <img src={logo}></img>
+        <img src={logo} alt="logo Click Finder"></img>
 
         <div className="text">
           <p>Encontre fotógrafos de forma rápida e eficaz</p>
