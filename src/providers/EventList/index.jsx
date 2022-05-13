@@ -9,7 +9,7 @@ export const EventListProvider = ({ children }) => {
   const { userInfo, saveUserInfo } = useContext(userInfoContext);
   const { type, accessToken, id } = userInfo;
 
-  const [eventList, setEventList] = useState(null);
+  const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
     async function getInitialState() {
