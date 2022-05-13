@@ -1,8 +1,7 @@
 import { Container, Content, Grid, Divider } from "./styles";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
-import LogoDark from "../../assets/LogoDark.svg";
-
+import logo from "../../assets/logo.png"
 import grid1 from "../../assets/grid1.png"
 import grid2 from "../../assets/grid2.png";
 import grid3 from "../../assets/grid3.png";
@@ -19,7 +18,8 @@ const LandingPage = () => {
   return (
     <Container>
       <Content>
-        <img src={LogoDark} alt="Click Finder logo"></img>
+        <img src={logo}></img>
+
         <div className="text">
           <p>Encontre fotógrafos de forma rápida e eficaz</p>
           <p>Encontra clientes para seus ensaios</p>
