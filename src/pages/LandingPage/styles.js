@@ -23,10 +23,67 @@ export const Content = styled.div`
     line-height: 19.36px;
     color: var(--vanilla);
   }
-  p{
+  p {
     margin: 10px;
   }
-  .buttons{
+  .buttons {
     display: flex;
+  }
+
+  @media (min-width: 1024px) {
+    img {
+      height: 115px;
+    }
+    .text {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 38px;
+      width: 350px;
+    }
+  }
+`;
+
+export const Grid = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 500px;
+
+    div {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      margin: 0px 10px;
+    }
+
+    .normal {
+      width: 182px;
+      height: 121px;
+      border-radius: 8px;
+      object-fit: fill;
+    }
+
+    .big {
+      width: 182px;
+      height: 268px;
+      border-radius: 8px;
+      object-fit: fill;
+    }
+  }
+`;
+
+export const Divider = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    height: 472.5px;
+    width: 2px;
+    background-color: var(--orange);
+    border: 3px solid #eb5e28;
+    margin: 0px 50px;
+  }
+  @media (min-width: 1440px) {
+    margin: 0px 75px;
   }
 `;
