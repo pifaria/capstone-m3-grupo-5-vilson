@@ -26,7 +26,7 @@ export const EventListProvider = ({ children }) => {
     }
 
     getInitialState();
-  }, []);
+  }, [userInfo]);
 
   //Filtra apenas os eventos criados pelo usuário logado
   function clientFilter(data) {
@@ -38,7 +38,7 @@ export const EventListProvider = ({ children }) => {
   function photographerFilter(data) {
     return data.filter(
       (event) =>
-        event.photographers?.includes(id) &&
+        event.photographers?.find((user) => user.id === id) &&
         !userInfo.refusedEvents?.includes(event.id)
     );
   }
