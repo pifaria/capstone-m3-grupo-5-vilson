@@ -19,6 +19,7 @@ const LandingPage = () => {
     <Container>
       <Content>
         <img src={logo}></img>
+
         <div className="text">
           <p>Encontre fotógrafos de forma rápida e eficaz</p>
           <p>Encontra clientes para seus ensaios</p>
@@ -35,13 +36,13 @@ const LandingPage = () => {
       <Divider />
       <Grid>
         <div>
-          <img className="normal" src={grid1}></img>
-          <img className="big" src={grid3}></img>
+          <img className="normal" src={grid1} alt="casal"></img>
+          <img className="big" src={grid3} alt="criança"></img>
         </div>
         <div>
-          <img className="normal" src={grid2}></img>
-          <img className="normal" src={grid4}></img>
-          <img style={{marginTop: 10}} className="normal" src={grid5}></img>
+          <img className="normal" src={grid2} alt="paisagem"></img>
+          <img className="normal" src={grid4} alt="cidade"></img>
+          <img style={{marginTop: 10}} className="normal" src={grid5} alt="lugar frio"></img>
         </div>
       </Grid>
     </Container>

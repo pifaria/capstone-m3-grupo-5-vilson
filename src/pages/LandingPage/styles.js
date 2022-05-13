@@ -28,7 +28,7 @@ export const Content = styled.div`
     width: 217px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19.36px;
     color: var(--beige);
   }
