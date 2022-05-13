@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BsEyeSlashFill } from "react-icons/bs";
+import { Container } from "./styles";
 
 export default function Input({
   label,
@@ -15,7 +16,7 @@ export default function Input({
     show === "text" ? setShow("password") : setShow("text");
   };
   return (
-    <div>
+    <Container>
       <input
         {...register(name)}
         {...rest}
@@ -28,6 +29,6 @@ export default function Input({
           <BsEyeSlashFill onClick={teste} />
         )
       ) : null}
-    </div>
+    </Container>
   );
 }

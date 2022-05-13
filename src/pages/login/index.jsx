@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Input from "../../components/input";
+import { AnimationContainer, Background, Container, Divider } from "./styles";
+import Button from "../../components/Button";
 
 export default function Login() {
   const schema = yup.object().shape({
@@ -34,31 +36,39 @@ export default function Login() {
       .catch((err) => console.log(err));
   };
   return (
-    <form onSubmit={handleSubmit(onSubmitFunction)}>
-      <div>
-        <h1>Login</h1>
-      </div>
+    <Container>
+      <AnimationContainer>
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <div>
+            <h1>Login</h1>
+          </div>
 
-      <Input
-        name="email"
-        error={errors.email?.message}
-        register={register}
-        placeholder="Digite aqui seu email"
-      />
-      <Input
-        label="Senha"
-        register={register}
-        placeholder="Digite aqui seu senha"
-        name="password"
-        type="password"
-        error={errors.password?.message}
-      />
+          <Input
+            name="email"
+            error={errors.email?.message}
+            register={register}
+            placeholder="Digite aqui seu email"
+          />
+          <Input
+            label="Senha"
+            register={register}
+            placeholder="Digite aqui seu senha"
+            name="password"
+            type="password"
+            error={errors.password?.message}
+          />
 
-      <button>Entrar</button>
+          <div className="buttonsBox">
+            <Button type="submit">Entrar</Button>
 
-      <p>Ainda não possui cadastro?</p>
+            <span>Ainda não possui cadastro?</span>
 
-      <button onClick={() => history.push("/signup")}>Cadastre-se</button>
-    </form>
+            <Button beigeSchema onClick={() => history.push("/signup")}>Cadastre-se</Button>
+          </div>
+        </form>
+      </AnimationContainer>
+      <Divider/>
+      <Background/>
+    </Container>
   );
 }
