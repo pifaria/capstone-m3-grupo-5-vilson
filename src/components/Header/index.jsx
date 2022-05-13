@@ -4,7 +4,7 @@ import HeaderInput from "../HeaderInput";
 import { HiOutlineUserCircle, HiLogout } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const Header = () => {
+const Header = ({placeholder}) => {
 
   const history = useHistory()
 
@@ -12,7 +12,7 @@ const Header = () => {
     <Container>
       <Content>
         <img alt="." src={Icon}></img>
-        <HeaderInput placeholder={"pesquisar (?)"} />
+        <HeaderInput placeholder={placeholder} />
       <div>
         <HiOutlineUserCircle className="icon" />
         <HiLogout className="icon" onClick={() => history.push("/")} />
