@@ -46,9 +46,11 @@ export default function Login() {
         placeholder="Digite aqui seu email"
       />
       <Input
+        label="Senha"
         register={register}
         placeholder="Digite aqui seu senha"
         name="password"
+        type="password"
         error={errors.password?.message}
       />
 
@@ -56,7 +58,7 @@ export default function Login() {
 
       <p>Ainda não possui cadastro?</p>
 
-      <button>Cadastre-se</button>
+      <button onClick={() => history.push("/signup")}>Cadastre-se</button>
     </form>
   );
 }
