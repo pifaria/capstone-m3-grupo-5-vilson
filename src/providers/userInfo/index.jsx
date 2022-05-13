@@ -3,8 +3,8 @@ import { createContext, useState } from "react";
 export const userInfoContext = createContext();
 
 export const UserInfoProvider = ({ children }) => {
-  const localUser = localStorage.getItem("userInfo");
-  const initialUser = localUser ? JSON.parse(localUser) : null;
+  const localUser = localStorage.getItem("userInfo") || [];
+  const initialUser = localUser.length > 0 && JSON.parse(localUser);
 
   const [userInfo, setUserInfo] = useState(initialUser);
 
