@@ -17,15 +17,26 @@ export default createGlobalStyle`
         --beige: #CCC5B9;
         --green: #28EB53;
         --red: #EC3E26;
-}
+    }
+    
     button{
         cursor: pointer;
         font-weight: 500;
     }
 
+    body{
+        background-color: var(--black);
+        color: var(--vanilla);
+        list-style: none;
+    }
+
     h1, h2, h3, h4, h5, h6{
         font-family: 'Roboto', sans-serif;
-        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    a{
+        text-decoration: none;
     }
 `
 export const customStyles = {

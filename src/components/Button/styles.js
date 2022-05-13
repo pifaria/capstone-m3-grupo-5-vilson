@@ -4,8 +4,8 @@ export const Container = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${(props) => (props.beigeSchema ? "var(--beige)" : props.greySchema ? 'var(--grey)' : 'var(--orange)')};
-  border: none;
+  background: ${(props) => (props.beigeSchema ? "var(--grey)" : 'var(--orange)')};
+  border: 1px solid ${(props) => (props.beigeSchema ? "var(--orange)" : 'var(--orange)')};
   border-radius: 4px;
   width: 100px;
   height: 35px;
@@ -14,6 +14,12 @@ export const Container = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  color: var(--black);
+  color: ${(props) => (props.beigeSchema ? "var(--vanilla)" : props.greySchema ? 'var(--black)' : 'var(--black)')};
   margin: 0px 5px;
+
+  :hover{
+    box-shadow: inset 0 0 1em ${(props) => (props.beigeSchema ? "var(--orange)" : 'var(--black)')};
+    background-color: ${(props) => (props.beigeSchema ? "var(--grey)" : 'var(--black)')};
+    color: ${(props) => (props.beigeSchema ? "var(--vanilla)" : 'var(--orange)')};
+  }
 `;
