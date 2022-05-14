@@ -1,8 +1,7 @@
 import { Container, Content, Grid, Divider } from "./styles";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
-import LogoDark from "../../assets/LogoDark.svg";
-
+import logo from "../../assets/logo.png"
 import grid1 from "../../assets/grid1.png"
 import grid2 from "../../assets/grid2.png";
 import grid3 from "../../assets/grid3.png";
@@ -19,7 +18,8 @@ const LandingPage = () => {
   return (
     <Container>
       <Content>
-        <img src={LogoDark}></img>
+        <img src={logo} alt="logo Click Finder"></img>
+
         <div className="text">
           <p>Encontre fotógrafos de forma rápida e eficaz</p>
           <p>Encontra clientes para seus ensaios</p>
@@ -36,13 +36,13 @@ const LandingPage = () => {
       <Divider />
       <Grid>
         <div>
-          <img className="normal" src={grid1}></img>
-          <img className="big" src={grid3}></img>
+          <img className="normal" src={grid1} alt="casal"></img>
+          <img className="big" src={grid3} alt="criança"></img>
         </div>
         <div>
-          <img className="normal" src={grid2}></img>
-          <img className="normal" src={grid4}></img>
-          <img style={{marginTop: 10}} className="normal" src={grid5}></img>
+          <img className="normal" src={grid2} alt="paisagem"></img>
+          <img className="normal" src={grid4} alt="cidade"></img>
+          <img style={{marginTop: 10}} className="normal" src={grid5} alt="lugar frio"></img>
         </div>
       </Grid>
     </Container>

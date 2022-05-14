@@ -1,19 +1,40 @@
 import Login from "../pages/login";
 import Register from "../pages/register";
-import LandingPage from "../pages/LandingPage"
+import LandingPage from "../pages/LandingPage";
+import Dashboard from "../pages/Dashboard";
 import { Route, Switch } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { userInfoContext } from "../providers/userInfo";
 
 const Routes = () => {
+  const { userInfo } = useContext(userInfoContext);
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (userInfo) {
+      setAuthenticated(true);
+    }
+  }, [userInfo]);
+
   return (
     <Switch>
       <Route exact path="/">
         <LandingPage />
       </Route>
       <Route path="/signup">
-        <Register />
+        <Register authenticated={authenticated} />
       </Route>
       <Route path="/login">
-        <Login />
+        <Login
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route path="/dashboard">
+        <Dashboard
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
     </Switch>
   );

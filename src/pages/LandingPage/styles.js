@@ -7,6 +7,15 @@ export const Container = styled.div`
   text-align: center;
   height: 100vh;
   background-color: var(--black);
+  @media (min-width: 1024px) {
+    background: rgb(37, 36, 34);
+    background: linear-gradient(
+      90deg,
+      rgba(37, 36, 34, 1) 0%,
+      rgba(93, 92, 86, 1) 70%,
+      rgba(108, 104, 96, 1) 100%
+    );
+  }
 `;
 
 export const Content = styled.div`
@@ -19,9 +28,9 @@ export const Content = styled.div`
     width: 217px;
     font-family: Inter;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19.36px;
-    color: var(--vanilla);
+    color: var(--beige);
   }
   p {
     margin: 10px;
