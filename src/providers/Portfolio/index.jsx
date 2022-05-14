@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import requestApi from "../../services/API";
 import { userInfoContext } from "../userInfo";
 
-export const PortfolioContext = createContext();
+const PortfolioContext = createContext();
 
 export const PortfolioProvider = ({ children }) => {
   const { userInfo, saveUserInfo } = useContext(userInfoContext);
@@ -54,3 +54,5 @@ export const PortfolioProvider = ({ children }) => {
     </PortfolioContext.Provider>
   );
 };
+
+export const usePortfolio = () => useContext(PortfolioContext);

@@ -20,4 +20,4 @@ export const IDGeneratorProvider = ({ children }) => {
   )
 }
 
-export const useIDGenerator = useContext(IDGeneratorContext);
+export const useIDGenerator = () => useContext(IDGeneratorContext);
