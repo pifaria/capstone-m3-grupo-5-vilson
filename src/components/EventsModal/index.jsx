@@ -1,13 +1,21 @@
 import { Container, Content, Header, FormContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { useRegisterModal } from "../../providers/RegisterModal";
+import { useContext } from "react";
+import { EventListContext } from "../../providers/EventList"
+import { userInfoContext } from "../../providers/userInfo"
+import SelectStates from "../SelectStates";
 
 const EventsModal = () => {
   const { closeModal } = useRegisterModal()
   const { register, handleSubmit } = useForm();
 
+  const { addEvent } = useContext(EventListContext)
+  const { userInfo } = useContext(userInfoContext)
+
   const onSubmitFunction = (data) => {
-    console.log(data);
+    const identifiedData = {...data, userId: userInfo.id }
+     addEvent(identifiedData)
   };
 
   return (
@@ -36,7 +44,7 @@ const EventsModal = () => {
             <label>Data</label>
             <input type="date" {...register("date")} />
             <label>Local</label>
-            <input {...register("local")} />
+            <SelectStates register={register} name="states" />
             <label>Expectativa de orçamento</label>
             <input type="number" {...register("budget")} />
             <label>Privacidade</label>
