@@ -5,7 +5,7 @@ const IDGeneratorContext = createContext();
 export const IDGeneratorProvider = ({ children }) => {
   const [lastId, setLastId] = useState(generateId())
 
-  const generateId = () => {
+  function generateId () {
     const newId = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
     setLastId(newId);
