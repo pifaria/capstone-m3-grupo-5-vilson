@@ -47,10 +47,12 @@ export const EventListProvider = ({ children }) => {
   //depois guarda a nova lista no state
   //Disponível apenas para o usuário do tipo cliente.
   const addEvent = async (eventData) => {
+    const data = {...eventData, userId: id}
+
     try {
       const response = await requestApi.postAuth(
         `/events`,
-        eventData,
+        data,
         accessToken
       );
       setEventList([...eventList, response.data]);
