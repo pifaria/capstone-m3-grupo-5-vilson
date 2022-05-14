@@ -19,6 +19,9 @@ export const Content = styled.div`
       display: flex;
       flex-direction: column;
   }
+  label{
+    color: black;
+  }
 `;
 
 export const Header = styled.div`
