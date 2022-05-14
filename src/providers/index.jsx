@@ -5,13 +5,15 @@ import { PortfolioProvider } from "./Portfolio";
 
 const Providers = ({ children }) => {
   return (
-    <UserInfoProvider>
-      <EventListProvider>
-        <PortfolioProvider>
-          <RegisterModalProvider>{children}</RegisterModalProvider>
-        </PortfolioProvider>
-      </EventListProvider>
-    </UserInfoProvider>
+    <IDGeneratorProvider>
+      <UserInfoProvider>
+        <EventListProvider>
+          <PortfolioProvider>
+            <RegisterModalProvider>{children}</RegisterModalProvider>
+          </PortfolioProvider>
+        </EventListProvider>
+      </UserInfoProvider>
+    </IDGeneratorProvider>
   );
 };
 
