@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -7,8 +7,10 @@ import Input from "../../components/input";
 import { AnimationContainer, Background, Container, Divider } from "./styles";
 import Button from "../../components/Button";
 import requestApi from "../../services/API";
+import { Redirect } from "react-router-dom";
+import { userInfoContext } from "../../providers/userInfo";
 
-export default function Login() {
+export default function Login({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
     password: yup
@@ -25,15 +27,23 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
+  const { saveUserInfo } = useContext(userInfoContext);
+
   const onSubmitFunction = (data) => {
     requestApi
       .post("login", data)
-      .then((show) => {
-        console.log(show);
+      .then((res) => {
+        saveUserInfo(res.data);
+
         return history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
+
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <Container>
       <AnimationContainer>
