@@ -1,13 +1,18 @@
 import { Container, Content, Header, FormContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { useRegisterModal } from "../../providers/RegisterModal";
+import { useEventList } from "../../providers/EventList";
 
 const EventsModal = () => {
   const { closeModal } = useRegisterModal()
   const { register, handleSubmit } = useForm();
+  const {userInfo} = useEventList();
+
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    const {name, email, number, avatar} = userInfo 
+    const eventInfo = {...data, ...userInfo}
+    return eventInfo;
   };
 
   return (

@@ -97,7 +97,7 @@ export default function Register() {
               : setShowInputs(false)
           }
         >
-          <option value="cliente">Cliente</option>
+          <option value="client">Cliente</option>
           <option value="photographer">Fotógrafo</option>
         </select>
 
@@ -105,11 +105,11 @@ export default function Register() {
           <div>
             <div>
               <select name="tags" {...register("tags")}>
-                <option value="casamentos">Casamentos</option>
-                <option value="ensaios">Ensaios</option>
+                <option value="wedding">Casamentos</option>
+                <option value="essay">Ensaios</option>
                 <option value="newborn">Newborn</option>
-                <option value="eventos">Eventos</option>
-                <option value="retratos">Retratos</option>
+                <option value="event">Eventos</option>
+                <option value="portrait">Retratos</option>
               </select>
             </div>
             <div>
