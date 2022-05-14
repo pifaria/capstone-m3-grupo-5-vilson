@@ -3,10 +3,10 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import Input from "../../components/input";
 import { AnimationContainer, Background, Container, Divider } from "./styles";
 import Button from "../../components/Button";
+import requestApi from "../../services/API";
 
 export default function Login() {
   const schema = yup.object().shape({
@@ -26,13 +26,12 @@ export default function Login() {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
-    axios({
-      method: "post",
-      url: "https://clickfinder-json-server.herokuapp.com/login",
-      data,
-    })
-      .then((response) => console.log(response))
+    requestApi
+      .post("login", data)
+      .then((show) => {
+        console.log(show);
+        return history.push("/dashboard");
+      })
       .catch((err) => console.log(err));
   };
   return (
@@ -63,12 +62,14 @@ export default function Login() {
 
             <span>Ainda não possui cadastro?</span>
 
-            <Button beigeSchema onClick={() => history.push("/signup")}>Cadastre-se</Button>
+            <Button beigeSchema onClick={() => history.push("/signup")}>
+              Cadastre-se
+            </Button>
           </div>
         </form>
       </AnimationContainer>
-      <Divider/>
-      <Background/>
+      <Divider />
+      <Background />
     </Container>
   );
 }
