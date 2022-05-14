@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { FaEye } from "react-icons/fa";
 import requestApi from "../../services/API";
 import SelectStates from "../../components/SelectStates";
-import { AnimationContainer, Background, Container, Divider, InputContainer } from "./styles";
+import { AnimationContainer, Background, Container, Divider, InputsContainer } from "./styles";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import { RiArrowDropDownLine } from "react-icons/ri"
@@ -82,7 +82,7 @@ export default function Register() {
             <div>
               <h1>Crie sua conta</h1>
             </div>
-          <InputContainer>
+          <InputsContainer>
             <Input
               register={register}
               placeholder={errors.name?.message || "Nome"}
@@ -178,7 +178,7 @@ export default function Register() {
                 </div>
               </div>
             )}
-          </InputContainer>
+          </InputsContainer>
           <div className="container-button">
             <Button>Cadastre-se</Button>
 
