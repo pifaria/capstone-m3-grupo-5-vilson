@@ -10,8 +10,8 @@ export const Container = styled.section`
 
   svg {
     color: var(--orange);
-    position: absolute;
-    margin-top: 6px;
+    margin: 20px 0 0 10px;
+
   }
 
   @media (min-width: 1024px) {
@@ -23,6 +23,12 @@ export const Container = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 16px;
+
+    p{
+      font-size: 10px;
+      margin-top: 16px;
+    }
   }
 
   button {
@@ -43,10 +49,10 @@ export const Container = styled.section`
     height: 35px;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid var(--orange);
-    caret-color: var(--orange);
+    box-shadow: 0 0 0.4em var(--orange);
+    margin-top: 16px;
     padding-left: 5px;
-    width: 220px;
+    width: 80%;
     color: var(--white);
     -webkit-appearance: none;
   }
@@ -72,7 +78,7 @@ export const Container = styled.section`
     padding-left: 5px;
     padding-top: 2px;
     border: 1px solid var(--orange);
-    margin-top: 8px;
+    margin-top: 16px;
     background-color: transparent;
     color: var(--white);
   }
@@ -143,5 +149,35 @@ export const AnimationContainer = styled.div`
         color: var(--beige);
       }
     }
+
+    .optionsBox{
+      display: flex;
+      justify-content: flex-start;
+
+      svg{
+        margin: 15px 0;
+      }
+    }
   }
 `;
+
+export const InputContainer = styled.section`
+  overflow-y: scroll;
+  padding: 10px;
+  max-height: 250px;
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--beige);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 10px;
+  }
+
+`
