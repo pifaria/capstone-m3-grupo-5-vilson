@@ -1,16 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import requestApi from "../../services/API";
 import { userInfoContext } from "../userInfo";
+import { useIDGenerator } from "../IDGenerator"
 
 const PortfolioContext = createContext();
 
 export const PortfolioProvider = ({ children }) => {
   const { userInfo, saveUserInfo } = useContext(userInfoContext);
+  const { generateId } = useIDGenerator();
   const [ portfolio, setPortfolio ] = useState(userInfo?.portfolio);
 
-  //Recebe como parametro um objeto photo com id e url
-  const addPhoto = async (photo) => {
+  const addPhoto = async (url) => {
+    const photoId = generateId();
+    const photo   = {id: photoId, url}
+
     const newPortfolio = userInfo.portfolio 
       ? [...userInfo.portfolio, photo]
       : [photo]

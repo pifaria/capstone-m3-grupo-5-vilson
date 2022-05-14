@@ -6,9 +6,7 @@ function PhotoGalery() {
   const { portfolio, addPhoto, deletePhoto } = useContext(PortfolioContext);
 
   function onAddPhoto(url) {
-    const id = portfolio.length + 1;
-
-    addPhoto({id, url});
+    addPhoto(url);
   }
 
   function onDeletePhoto(id) {
