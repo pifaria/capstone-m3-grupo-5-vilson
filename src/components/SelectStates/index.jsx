@@ -3,6 +3,7 @@ import React from "react";
 export default function SelectStates({ register }) {
   return (
     <select id="estado" name="estado" {...register("states")}>
+      <option value="">Qual o seu estado?</option>
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
       <option value="AP">Amapá</option>
