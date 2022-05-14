@@ -2,6 +2,7 @@ import { UserInfoProvider } from "./userInfo";
 import { RegisterModalProvider } from "./RegisterModal";
 import { EventListProvider } from "./EventList";
 import { PortfolioProvider } from "./Portfolio";
+import { IDGeneratorProvider } from "./IDGenerator";
 
 const Providers = ({ children }) => {
   return (
