@@ -55,6 +55,11 @@ export const Container = styled.section`
     width: 80%;
     color: var(--white);
     -webkit-appearance: none;
+    cursor: pointer;
+
+    :hover{
+      box-shadow: 0 0 0.8em var(--orange);
+    }
   }
 
   .start-value {
@@ -161,10 +166,10 @@ export const AnimationContainer = styled.div`
   }
 `;
 
-export const InputContainer = styled.section`
+export const InputsContainer = styled.section`
   overflow-y: scroll;
   padding: 10px;
-  max-height: 250px;
+  max-height: 300px;
 
   ::-webkit-scrollbar {
     width: 3px;
