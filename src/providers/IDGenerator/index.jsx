@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const IDGeneratorContext = createContext();
 
 export const IDGeneratorProvider = ({ children }) => {
-  const [lastId, setLastId] = useState(generateId())
+  const [lastId, setLastId] = useState("")
 
   function generateId () {
     const newId = Date.now().toString(36) + Math.random().toString(36).substring(2);
