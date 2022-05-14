@@ -8,9 +8,73 @@ export const Container = styled.section`
   align-items: center;
   justify-content: center;
 
+  svg {
+    color: var(--orange);
+    position: absolute;
+    margin-top: 6px;
+  }
+
   @media (min-width: 1024px) {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .container-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin: 5px 0 5px 0;
+    width: 220px;
+  }
+
+  span {
+    color: var(--orange);
+    cursor: pointer;
+
+    :hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  select {
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--orange);
+    caret-color: var(--orange);
+    padding-left: 5px;
+    width: 220px;
+    color: var(--white);
+    -webkit-appearance: none;
+  }
+
+  .start-value {
+    color: #757575;
+  }
+
+  select option {
+    background: var(--grey);
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .select-selected {
+    background-color: DodgerBlue;
+  }
+
+  textarea {
+    resize: none;
+    width: 220px;
+    height: 40px;
+    padding-left: 5px;
+    padding-top: 2px;
+    border: 1px solid var(--orange);
+    margin-top: 8px;
+    background-color: transparent;
+    color: var(--white);
   }
 `;
 
@@ -34,10 +98,10 @@ export const Background = styled.div`
   }
 `;
 
-const appearFromLeft = keyframes`
+const appearFromRight = keyframes`
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(50px);
     }
 
     to{
@@ -51,7 +115,7 @@ export const AnimationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: ${appearFromLeft} 1s;
+  animation: ${appearFromRight} 1s;
 
   form {
     display: flex;
@@ -61,7 +125,8 @@ export const AnimationContainer = styled.div`
     padding: 40px;
     border-radius: 8px;
     background-color: var(--grey);
-    height: 400px;
+    row-gap: 5px;
+    width: 300px;
 
     .buttonsBox {
       display: flex;
