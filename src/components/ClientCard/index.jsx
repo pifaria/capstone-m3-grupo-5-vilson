@@ -1,10 +1,11 @@
 import Button from "../Button";
 import { Container, Content } from "./styles";
-import { useEventList } from "../../providers/EventList/index.jsx";
+import { useContext } from "react";
+import { userInfoContext } from "../../providers/userInfo";
 
-const PhotographerCard = () => {
+const ClientCard = () => {
 
-    const {userInfo} = useEventList();
+    const {userInfo} = useContext(userInfoContext)
 
   return (
     <Container>
@@ -23,4 +24,4 @@ const PhotographerCard = () => {
   );
 };
 
-export default PhotographerCard;
+export default ClientCard;
