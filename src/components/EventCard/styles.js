@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
   width: 300px;
   height: 315px;
   background-color: var(--orange);
@@ -13,3 +14,6 @@ export const Container = styled.div`
     align-self: center;
   }
 `;
+
+
+
