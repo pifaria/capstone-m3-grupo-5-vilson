@@ -12,6 +12,10 @@ export const EventListProvider = ({ children }) => {
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
+    if (!userInfo) {
+      return
+    }
+    
     async function getInitialState() {
       //O estado inicial do provider é criado a partir de um get do endpoint events.
       const response = await requestApi.getAuth(`/events`, accessToken);
