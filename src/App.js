@@ -6,7 +6,6 @@ import { useRegisterModal } from "./providers/RegisterModal";
 import { customStyles } from "./styles/global";
 import Routes from "./routes";
 import "react-toastify/dist/ReactToastify.css";
-import PhotographerCard from './components/PhotographerCard'
 //Setando o pai do Modal, no nosso caso #root
 Modal.setAppElement("#root");
 
@@ -26,7 +25,6 @@ function App() {
       >
         <EventsModal />
       </Modal>
-      <PhotographerCard/>
       <ToastContainer />
       <Routes />
     </div>

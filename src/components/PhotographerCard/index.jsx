@@ -12,9 +12,7 @@ const PhotographerCard = () => {
           <div className="profile"><HiOutlineCamera className="icon" /><h3>Ver perfil</h3></div>
         <div className="buttons">
           <Button >Solicitar</Button>
-          <Button beigeSchema>
-            Dispensar
-          </Button>
+          <Button beigeSchema>Dispensar</Button>
         </div>
       </Content>
     </Container>
