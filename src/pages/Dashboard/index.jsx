@@ -6,9 +6,10 @@ import { useContext } from "react";
 import { userInfoContext } from "../../providers/userInfo";
 import { useRegisterModal } from "../../providers/RegisterModal";
 import Budget from "../../components/Budget";
+import EventList from "../../components/EventList";
+import UserCard from "../../components/userCard";
 
 const Dashboard = ({ authenticated, setAuthenticated }) => {
-  const { userInfo } = useContext(userInfoContext);
   const { openModal } = useRegisterModal();
 
   if (!authenticated) {
@@ -21,10 +22,18 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
         placeholder={"Pesquise um ?"}
         setAuthenticated={setAuthenticated}
       />
-
-      <Button onClick={() => openModal()}> Adicionar evento</Button>
-
-      {userInfo.type === "photographer" ? <Budget /> : null}
+      <main>
+        <UserCard />
+        <div className="container-dash">
+          <div className="container-top">
+            <p>Eventos</p>
+            <div className="orange-bar"></div>
+            <Button onClick={() => openModal()}> Adicionar evento</Button>
+          </div>
+          <EventList />
+        </div>
+        {/* {userInfo.type === "photographer" ? <Budget /> : null} */}
+      </main>
     </Container>
   );
 };
