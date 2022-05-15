@@ -17,18 +17,21 @@ export default function Input({
   };
   return (
     <Container>
-      <input
-        {...register(name)}
-        {...rest}
-        type={label === "Senha" || label === "Confirmar senha" ? show : "text"}
-      />
-      {Icon ? (
-        show === "text" ? (
-          <Icon size={15} onClick={handlePassword} />
-        ) : (
-          <BsEyeSlashFill size={15} onClick={handlePassword} />
-        )
-      ) : null}
+      <div>
+        <input
+          {...register(name)}
+          {...rest}
+          type={label === "Senha" || label === "Confirmar senha" ? show : "text"}
+        />
+        {Icon ? (
+          show === "text" ? (
+            <Icon size={15} onClick={handlePassword} />
+          ) : (
+            <BsEyeSlashFill size={15} onClick={handlePassword} />
+          )
+        ) : null}
+      </div>
+      {!!error && <span>{error}</span>}
     </Container>
   );
 }

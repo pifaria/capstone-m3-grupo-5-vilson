@@ -85,20 +85,20 @@ export default function Register() {
           <InputsContainer>
             <Input
               register={register}
-              placeholder={errors.name?.message || "Nome"}
+              placeholder="Nome"
               name="name"
               error={errors.name?.message}
             />
             <Input
               register={register}
-              placeholder={errors.email?.message || "Email"}
+              placeholder="Email"
               name="email"
               error={errors.email?.message}
             />
             <Input
               register={register}
               label="Senha"
-              placeholder={errors.password?.message || "Senha"}
+              placeholder="Senha"
               type="password"
               name="password"
               className="password"
@@ -109,7 +109,7 @@ export default function Register() {
             <Input
               register={register}
               label="Senha"
-              placeholder={errors.password?.message || "Confirmar senha"}
+              placeholder="Confirmar senha"
               type="password"
               name="passwordConfirm"
               className="password"
@@ -120,7 +120,7 @@ export default function Register() {
             <Input
               register={register}
               type="number"
-              placeholder={errors.phone?.message || "(xx) xxxxx-xxxx"}
+              placeholder="(xx) xxxxx-xxxx"
               name="number"
               error={errors.phone?.message}
             />

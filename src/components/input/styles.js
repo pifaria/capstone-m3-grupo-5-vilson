@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding-right: 5px;
+  
+  div{
+    display: flex;
+    justify-content: space-between;
+  }
 
   input {
     height: 35px;
@@ -19,5 +24,10 @@ export const Container = styled.div`
       box-shadow: 0 0 0.7em var(--orange);
       border-bottom: none;
     }
+  }
+
+  span{
+    font-size: 12px;
+    color: var(--orange);
   }
 `;
