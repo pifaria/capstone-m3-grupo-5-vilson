@@ -6,17 +6,12 @@ import { useRegisterModal } from "./providers/RegisterModal";
 import { customStyles } from "./styles/global";
 import Routes from "./routes";
 import "react-toastify/dist/ReactToastify.css";
-import { useContext } from "react";
-import { userInfoContext } from "./providers/userInfo";
-import { EventListContext } from "./providers/EventList";
 //Setando o pai do Modal, no nosso caso #root
 Modal.setAppElement("#root");
 
 function App() {
-  const { modalIsOpen, closeModal, openModal } = useRegisterModal();
-  const { saveUserInfo } = useContext(userInfoContext);
-  const { eventList, addEvent, deleteEvent, refuseEvent } =
-    useContext(EventListContext);
+  const { modalIsOpen, closeModal } = useRegisterModal();
+  
 
   return (
     <div className="App">
