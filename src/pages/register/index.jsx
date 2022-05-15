@@ -11,6 +11,7 @@ import { AnimationContainer, Background, Container, Divider, InputsContainer } f
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import { RiArrowDropDownLine } from "react-icons/ri"
+import { toast } from "react-toastify";
 
 export default function Register() {
   const schema = yup.object().shape({
@@ -53,6 +54,7 @@ export default function Register() {
           .post("register/users?type=fotografo", data)
           .then((_) => {
             setModal(true);
+            toast.success("Usuário cadastrado com sucesso")
             return history.push("/login");
           })
           .catch((err) => console.log(err))
