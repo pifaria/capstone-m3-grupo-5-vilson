@@ -18,7 +18,7 @@ const EventList = () => {
         eventsList.map((element, index) => (
           <li key={index}>
             <EventCard>
-              {userInfo.type === "client" ? (
+              {userInfo.type === "cliente" ? (
                 <>
                   <p> Tique </p>
                   <Button>Ver Evento</Button>
