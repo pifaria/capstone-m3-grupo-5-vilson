@@ -11,10 +11,9 @@ export default function UserCard() {
     <Container>
       <div>
         <img src={avatar} alt="user" />
-        <main>
-          <p>{name}</p>
-          <p>{email}</p>
-        </main>
+
+        <p>{name}</p>
+        <p>{email}</p>
       </div>
     </Container>
   );

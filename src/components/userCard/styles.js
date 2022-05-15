@@ -9,15 +9,12 @@ export const Container = styled.aside`
     background-color: black;
     width: 300px;
     display: flex;
-    justify-content: space-around;
-    height: 160px;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    row-gap: 10px;
+    height: 160px;
   }
 
   img {
@@ -29,22 +26,16 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 900px) {
-    justify-content: inherit;
-    margin-left: 50px;
     div {
       height: 600px;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
     }
 
     img {
-      position: absolute;
-      top: 120px;
       width: 220px;
       height: 220px;
-    }
-
-    main {
-      justify-content: flex-end;
-      row-gap: 150px;
     }
 
     p + p {
