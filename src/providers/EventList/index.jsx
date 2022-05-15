@@ -103,3 +103,5 @@ export const EventListProvider = ({ children }) => {
     </EventListContext.Provider>
   );
 };
+
+export const useEventList = () => useContext(EventListContext)

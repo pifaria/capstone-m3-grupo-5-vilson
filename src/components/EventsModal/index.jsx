@@ -10,6 +10,8 @@ import Button from "../Button";
 const EventsModal = () => {
   const { closeModal } = useRegisterModal();
   const { register, handleSubmit } = useForm();
+  const {userInfo} = useEventList();
+
 
   const { addEvent } = useContext(EventListContext)
   const { userInfo } = useContext(userInfoContext)
@@ -18,7 +20,6 @@ const EventsModal = () => {
   const onSubmitFunction = (data) => {
     const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
      addEvent(identifiedData)
-
   };
 
   return (
