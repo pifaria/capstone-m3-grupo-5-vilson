@@ -2,12 +2,13 @@ import { Container, Content, Header, FormContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { useRegisterModal } from "../../providers/RegisterModal";
 import { useContext } from "react";
-import { EventListContext } from "../../providers/EventList"
-import { userInfoContext } from "../../providers/userInfo"
+import { EventListContext } from "../../providers/EventList";
+import { userInfoContext } from "../../providers/userInfo";
 import SelectStates from "../SelectStates";
+import Button from "../Button";
 
 const EventsModal = () => {
-  const { closeModal } = useRegisterModal()
+  const { closeModal } = useRegisterModal();
   const { register, handleSubmit } = useForm();
 
   const { addEvent } = useContext(EventListContext)
@@ -17,13 +18,14 @@ const EventsModal = () => {
   const onSubmitFunction = (data) => {
     const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
      addEvent(identifiedData)
+
   };
 
   return (
     <Container>
       <Content>
         <Header>
-          <h3>Listar eventos</h3>
+          <h3>Cadastrar evento</h3>
           <button onClick={() => closeModal()}>X</button>
         </Header>
         <FormContainer>
@@ -53,7 +55,11 @@ const EventsModal = () => {
               <option value={true}>Público</option>
               <option value={false}>Privado</option>
             </select>
-            <button type="submit">Cadastrar evento</button>
+            <div className="submit">
+              <Button beigeSchema type="submit">
+                Enviar
+              </Button>
+            </div>
           </form>
         </FormContainer>
       </Content>
