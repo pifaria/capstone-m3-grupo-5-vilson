@@ -12,9 +12,10 @@ const EventsModal = () => {
 
   const { addEvent } = useContext(EventListContext)
   const { userInfo } = useContext(userInfoContext)
+  const {name, email, number, id} = userInfo
 
   const onSubmitFunction = (data) => {
-    const identifiedData = {...data, userId: userInfo.id }
+    const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
      addEvent(identifiedData)
   };
 
