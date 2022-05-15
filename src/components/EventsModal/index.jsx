@@ -11,12 +11,14 @@ const EventsModal = () => {
   const { closeModal } = useRegisterModal();
   const { register, handleSubmit } = useForm();
 
-  const { addEvent } = useContext(EventListContext);
-  const { userInfo } = useContext(userInfoContext);
+  const { addEvent } = useContext(EventListContext)
+  const { userInfo } = useContext(userInfoContext)
+  const {name, email, number, id} = userInfo
 
   const onSubmitFunction = (data) => {
-    const identifiedData = { ...data, userId: userInfo.id };
-    addEvent(identifiedData);
+    const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
+     addEvent(identifiedData)
+
   };
 
   return (
