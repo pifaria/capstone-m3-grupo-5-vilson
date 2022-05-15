@@ -7,18 +7,24 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { FaEye } from "react-icons/fa";
 import requestApi from "../../services/API";
 import SelectStates from "../../components/SelectStates";
-import { AnimationContainer, Background, Container, Divider, InputsContainer } from "./styles";
+import {
+  AnimationContainer,
+  Background,
+  Container,
+  Divider,
+  InputsContainer,
+} from "./styles";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
-import { RiArrowDropDownLine } from "react-icons/ri"
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
 export default function Register() {
   const schema = yup.object().shape({
     name: yup.string().required("Digite seu nome completo!"),
-    
+
     email: yup.string().email("Email inválido").required("Digite seu email!"),
-    
+
     password: yup
       .string()
       .min(8, "Mínimo de 8 caracteres")
@@ -29,18 +35,18 @@ export default function Register() {
       ),
 
     passwordConfirm: yup
-    .string()
-    .oneOf([yup.ref("password")], "Senhas não correspondem!")
-    .required("Campo obrigatório!"),
-    
+      .string()
+      .oneOf([yup.ref("password")], "Senhas não correspondem!")
+      .required("Campo obrigatório!"),
+
     type: yup.string().required("Selecione um campo"),
-    
+
     avatar: yup.string(), //.required("Url da imagem inválido"),
-    
+
     states: yup.string(),
-    
+
     phone: yup.string(),
-    
+
     bio: yup.string(),
   });
 
@@ -54,7 +60,7 @@ export default function Register() {
           .post("register/users?type=fotografo", data)
           .then((_) => {
             setModal(true);
-            toast.success("Usuário cadastrado com sucesso")
+            toast.success("Usuário cadastrado com sucesso");
             return history.push("/login");
           })
           .catch((err) => console.log(err))
@@ -81,9 +87,9 @@ export default function Register() {
       <Divider />
       <AnimationContainer>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
-            <div>
-              <h1>Crie sua conta</h1>
-            </div>
+          <div>
+            <h1>Crie sua conta</h1>
+          </div>
           <InputsContainer>
             <Input
               register={register}
@@ -126,14 +132,14 @@ export default function Register() {
               name="number"
               error={errors.phone?.message}
             />
-            
+
             <div className="optionsBox">
-              <RiArrowDropDownLine/>
+              <RiArrowDropDownLine />
               <SelectStates register={register} name="states" />
             </div>
-            
+
             <div className="optionsBox">
-              <RiArrowDropDownLine/>
+              <RiArrowDropDownLine />
               <select
                 name="type"
                 {...register("type")}
@@ -142,7 +148,7 @@ export default function Register() {
                     ? setShowInputs(true)
                     : setShowInputs(false)
                 }
-                >
+              >
                 <option value="" className="start-value">
                   Você é um cliente?
                 </option>
@@ -154,7 +160,7 @@ export default function Register() {
             {showInputs && (
               <div>
                 <div className="optionsBox">
-                  <RiArrowDropDownLine/>
+                  <RiArrowDropDownLine />
                   <select name="tags" {...register("tags")}>
                     <option value="casamentos">Casamentos</option>
                     <option value="ensaios">Ensaios</option>
@@ -184,8 +190,9 @@ export default function Register() {
           <div className="container-button">
             <Button>Cadastre-se</Button>
 
+            <p>Já possui uma conta?</p>
             <p>
-              Já possui uma conta? Faça seu <span onClick={() => history.push("/login")}>login</span>
+              Faça seu <span onClick={() => history.push("/login")}>login</span>
             </p>
           </div>
         </form>
