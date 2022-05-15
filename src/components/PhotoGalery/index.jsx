@@ -30,6 +30,7 @@ function PhotoGalery({photos, addPhoto, deletePhoto}) {
             );
           })}
         </ContentList>
+
         <Modal isOpen={openModal}>
           <form onSubmit={onSendPhoto}>
             <input onChange={({ target: { value } }) => setInputValue(value)} />
