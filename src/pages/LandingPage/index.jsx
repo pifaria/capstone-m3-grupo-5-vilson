@@ -1,8 +1,8 @@
 import { Container, Content, Grid, Divider } from "./styles";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
-import logo from "../../assets/logo.png"
-import grid1 from "../../assets/grid1.png"
+import logo from "../../assets/logo.png";
+import grid1 from "../../assets/grid1.png";
 import grid2 from "../../assets/grid2.png";
 import grid3 from "../../assets/grid3.png";
 import grid4 from "../../assets/grid4.png";
@@ -42,7 +42,12 @@ const LandingPage = () => {
         <div>
           <img className="normal" src={grid2} alt="paisagem"></img>
           <img className="normal" src={grid4} alt="cidade"></img>
-          <img style={{marginTop: 10}} className="normal" src={grid5} alt="lugar frio"></img>
+          <img
+            style={{ marginTop: 10 }}
+            className="normal"
+            src={grid5}
+            alt="lugar frio"
+          ></img>
         </div>
       </Grid>
     </Container>

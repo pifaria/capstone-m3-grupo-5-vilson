@@ -39,6 +39,14 @@ export const Content = styled.div`
     display: flex;
   }
 
+  img {
+    width: 250px;
+  }
+
+  button {
+    min-width: 80px;
+  }
+
   @media (min-width: 1024px) {
     img {
       height: 115px;

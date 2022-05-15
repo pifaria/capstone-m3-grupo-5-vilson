@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   main {
     display: flex;
-    justify-content: space-around;
+    column-gap: 55px;
   }
 
   @media (min-width: 900px) {
@@ -25,11 +25,17 @@ export const Container = styled.div`
     .container-top {
       display: flex;
       align-items: center;
+      column-gap: 15px;
+      margin-bottom: 5px;
     }
 
+    .container-top > p {
+      font-size: 25px;
+      color: var(--orange);
+    }
     .orange-bar {
-      width: 450px;
-      height: 5px;
+      width: 420px;
+      height: 2px;
       background-color: var(--orange);
     }
   }
