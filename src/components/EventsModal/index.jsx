@@ -25,7 +25,7 @@ const EventsModal = () => {
       <Content>
         <Header>
           <h3>Cadastrar evento</h3>
-          <button onClick={() => closeModal()}>X</button>
+          <button className="closeModal" onClick={() => closeModal()}>X</button>
         </Header>
         <FormContainer>
           <form onSubmit={handleSubmit(onSubmitFunction)}>
@@ -54,11 +54,9 @@ const EventsModal = () => {
               <option value={true}>Público</option>
               <option value={false}>Privado</option>
             </select>
-            <div className="submit">
               <Button beigeSchema type="submit">
                 Enviar
               </Button>
-            </div>
           </form>
         </FormContainer>
       </Content>

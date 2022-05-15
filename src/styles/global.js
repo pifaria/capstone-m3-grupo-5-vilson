@@ -13,6 +13,7 @@ export default createGlobalStyle`
         --orange: #EB5E28;
         --vanilla: #FFFCF2;
         --black: #252422;
+        --fullblack: #000000;
         --grey: #403D39;
         --beige: #CCC5B9;
         --green: #28EB53;
