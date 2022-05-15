@@ -8,6 +8,11 @@ export const Container = styled.header`
   background-color: var(--black);
   border-bottom: 1px solid #eb5e28;
   box-shadow: 0px 6px 6px rgba(235, 94, 40, 0.25);
+
+  input {
+    height: 40px;
+    margin-top: 5px;
+  }
 `;
 export const Content = styled.div`
   display: flex;
