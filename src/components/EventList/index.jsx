@@ -25,9 +25,9 @@ const EventList = () =>{
                             :
                                 <>
                                 <p> Tique </p> 
-                                <h3>{element.name}</h3>   
-                                <h4>{element.number}</h4>
-                                <h4>{element.email}</h4>
+                                <h3>{element.userInfos.name}</h3>   
+                                <h4>{element.userInfos.number}</h4>
+                                <h4>{element.userInfos.email}</h4>
                                 </>
                             } 
                             <h3>{element.tags}</h3>
