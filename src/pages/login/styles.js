@@ -78,5 +78,11 @@ export const AnimationContainer = styled.div`
         color: var(--beige);
       }
     }
+
+    svg{
+      margin-top: 25px;
+      color: var(--orange);
+      cursor: pointer;
+    }
   }
 `;

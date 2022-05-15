@@ -18,7 +18,6 @@ export const Container = styled.button`
 
   :hover{
     box-shadow: inset 0 0 1em ${(props) => (props.beigeSchema ? "var(--orange)" : 'var(--black)')};
-    /* background-color: ${(props) => (props.beigeSchema ? "var(--grey)" : 'var(--black)')}; */
     color: ${(props) => (props.beigeSchema ? "var(--vanilla)" : 'var(--black)')};
     border: 1px solid ${(props) => (props.beigeSchema ? "var(--orange)" : 'var(--black)')};;
   }

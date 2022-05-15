@@ -16,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <ToastContainer />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -25,8 +24,19 @@ function App() {
       >
         <EventsModal />
       </Modal>
-      <ToastContainer />
       <Routes />
+      <ToastContainer 
+        autoClose={3000}
+        theme='dark'
+        position="top-right"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

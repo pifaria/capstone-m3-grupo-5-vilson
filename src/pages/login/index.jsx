@@ -9,8 +9,10 @@ import Button from "../../components/Button";
 import requestApi from "../../services/API";
 import { Redirect } from "react-router-dom";
 import { userInfoContext } from "../../providers/userInfo";
+import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
 
-export default function Login({ authenticated, setAuthenticated }) {
+export default function Login({ authenticated }) {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
     password: yup
@@ -37,7 +39,7 @@ export default function Login({ authenticated, setAuthenticated }) {
 
         return history.push("/dashboard");
       })
-      .catch((err) => console.log(err));
+      .catch((_) => toast.error("Email ou senha inválidos!"));
   };
 
   if (authenticated) {
@@ -64,6 +66,7 @@ export default function Login({ authenticated, setAuthenticated }) {
             placeholder="Digite aqui seu senha"
             name="password"
             type="password"
+            icon={FaEye}
             error={errors.password?.message}
           />
 
