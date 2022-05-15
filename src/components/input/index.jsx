@@ -12,7 +12,7 @@ export default function Input({
 }) {
   const [show, setShow] = useState("password");
 
-  const teste = () => {
+  const handlePassword = () => {
     show === "text" ? setShow("password") : setShow("text");
   };
   return (
@@ -24,9 +24,9 @@ export default function Input({
       />
       {Icon ? (
         show === "text" ? (
-          <Icon onClick={teste} />
+          <Icon size={15} onClick={handlePassword} />
         ) : (
-          <BsEyeSlashFill onClick={teste} />
+          <BsEyeSlashFill size={15} onClick={handlePassword} />
         )
       ) : null}
     </Container>

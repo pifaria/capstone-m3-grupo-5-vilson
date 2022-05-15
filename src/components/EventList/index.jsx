@@ -2,10 +2,14 @@ import {Container} from "./styles.js"
 import { useEventList } from "../../providers/EventList/index.jsx";
 import EventCard from "../EventCard/index.jsx";
 import Button from "../Button/index";
+import { userInfoContext } from "../../providers/userInfo/index.jsx";
+import { useContext } from "react";
+
 
 const EventList = () =>{
 
-    const {eventList, userInfo} = useEventList();
+    const {eventList} = useEventList();
+    const {userInfo} = useContext(userInfoContext);
 
     return (
         <Container >
@@ -21,9 +25,9 @@ const EventList = () =>{
                             :
                                 <>
                                 <p> Tique </p> 
-                                <h3>{element.name}</h3>   
-                                <h4>{element.number}</h4>
-                                <h4>{element.email}</h4>
+                                <h3>{element.userInfos.name}</h3>   
+                                <h4>{element.userInfos.number}</h4>
+                                <h4>{element.userInfos.email}</h4>
                                 </>
                             } 
                             <h3>{element.tags}</h3>
@@ -44,4 +48,3 @@ const EventList = () =>{
 };
 
 export default EventList;
-

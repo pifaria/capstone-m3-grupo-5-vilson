@@ -1,25 +1,32 @@
 import { Container, Content, Header, FormContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { useRegisterModal } from "../../providers/RegisterModal";
-import { useEventList } from "../../providers/EventList";
+import { useContext } from "react";
+import { EventListContext } from "../../providers/EventList";
+import { userInfoContext } from "../../providers/userInfo";
+import SelectStates from "../SelectStates";
+import Button from "../Button";
 
 const EventsModal = () => {
-  const { closeModal } = useRegisterModal()
+  const { closeModal } = useRegisterModal();
   const { register, handleSubmit } = useForm();
   const {userInfo} = useEventList();
 
 
+  const { addEvent } = useContext(EventListContext)
+  const { userInfo } = useContext(userInfoContext)
+  const {name, email, number, id} = userInfo
+
   const onSubmitFunction = (data) => {
-    const {name, email, number, avatar} = userInfo 
-    const eventInfo = {...data, ...userInfo}
-    return eventInfo;
+    const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
+     addEvent(identifiedData)
   };
 
   return (
     <Container>
       <Content>
         <Header>
-          <h3>Listar eventos</h3>
+          <h3>Cadastrar evento</h3>
           <button onClick={() => closeModal()}>X</button>
         </Header>
         <FormContainer>
@@ -41,7 +48,7 @@ const EventsModal = () => {
             <label>Data</label>
             <input type="date" {...register("date")} />
             <label>Local</label>
-            <input {...register("local")} />
+            <SelectStates register={register} name="states" />
             <label>Expectativa de orçamento</label>
             <input type="number" {...register("budget")} />
             <label>Privacidade</label>
@@ -49,7 +56,11 @@ const EventsModal = () => {
               <option value={true}>Público</option>
               <option value={false}>Privado</option>
             </select>
-            <button type="submit">Cadastrar evento</button>
+            <div className="submit">
+              <Button beigeSchema type="submit">
+                Enviar
+              </Button>
+            </div>
           </form>
         </FormContainer>
       </Content>
