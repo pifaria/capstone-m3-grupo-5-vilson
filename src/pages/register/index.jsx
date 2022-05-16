@@ -60,17 +60,16 @@ export default function Register() {
           .post("register/users?type=fotografo", data)
           .then((_) => {
             setModal(true);
-            toast.success("Usuário cadastrado com sucesso");
             return history.push("/login");
           })
-          .catch((err) => console.log(err))
-      : requestApi
+          : requestApi
           .post("register/users?type=cliente", data)
           .then((_) => {
             setModal(true);
+            toast.success("Usuário cadastrado com sucesso");
             return history.push("/login");
           })
-          .catch((err) => console.log(err));
+          .catch((_) => toast.error("Email já cadastrado"))
   };
 
   const {
@@ -132,6 +131,12 @@ export default function Register() {
               name="number"
               error={errors.phone?.message}
             />
+            <Input
+              register={register}
+              placeholder="Link da sua foto"
+              name="avatar"
+              error={errors.avatar?.message}
+            />
 
             <div className="optionsBox">
               <RiArrowDropDownLine />
@@ -176,23 +181,15 @@ export default function Register() {
                     placeholder="Fale um pouco sobre você..."
                     name="bio"
                   />
-
-                  <Input
-                    register={register}
-                    placeholder={errors.avatar?.message || "Link da sua foto"}
-                    name="avatar"
-                    error={errors.avatar?.message}
-                  />
                 </div>
               </div>
             )}
           </InputsContainer>
           <div className="container-button">
             <Button>Cadastre-se</Button>
-
-            <p>Já possui uma conta?</p>
             <p>
-              Faça seu <span onClick={() => history.push("/login")}>login</span>
+              Já possui uma conta? Faça seu 
+              <span onClick={() => history.push("/login")}>login</span>
             </p>
           </div>
         </form>
