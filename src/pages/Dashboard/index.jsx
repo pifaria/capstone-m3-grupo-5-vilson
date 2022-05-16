@@ -11,7 +11,6 @@ import { Redirect } from "react-router-dom";
 const Dashboard = () => {
   const { openModal } = useRegisterModal();
   const { isAuthenticated } = useUserInfo();
-  console.log("oi")
   
   return (
     <Container>
