@@ -52,5 +52,6 @@ export const Content = styled.div`
 
   .buttons {
     display: flex;
+    flex-direction: column;
   }
 `;
