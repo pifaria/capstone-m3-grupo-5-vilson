@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { createContext, useContext, useEffect, useState } from "react";
-=======
-import { createContext, useEffect, useState } from "react";
->>>>>>> c6b4c3236b9b0c65d6799c1f7c29d20d779ae74f
 
 export const userInfoContext = createContext();
 
@@ -45,11 +41,7 @@ export const UserInfoProvider = ({ children }) => {
 
   return (
     <userInfoContext.Provider
-<<<<<<< HEAD
       value={{ isAuthenticated, userInfo, saveUserInfo, eraseUserInfo }}
-=======
-      value={{ isAuthenticated, userInfo, saveUserInfo }}
->>>>>>> c6b4c3236b9b0c65d6799c1f7c29d20d779ae74f
     >
       {children}
     </userInfoContext.Provider>

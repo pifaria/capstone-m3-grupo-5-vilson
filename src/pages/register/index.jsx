@@ -60,14 +60,14 @@ export default function Register() {
           .post("register/users?type=fotografo", data)
           .then((_) => {
             setModal(true);
-            return history.push("/login");
+            return history.push("/");
           })
           : requestApi
           .post("register/users?type=cliente", data)
           .then((_) => {
             setModal(true);
             toast.success("Usuário cadastrado com sucesso");
-            return history.push("/login");
+            return history.push("/");
           })
           .catch((_) => toast.error("Email já cadastrado"))
   };
