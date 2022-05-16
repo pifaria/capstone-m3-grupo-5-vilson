@@ -17,14 +17,15 @@ export const Content = styled.div`
   padding: 20px 0;
 
   img{
-    width: 35px;
+    width: auto;
     height: 35px;
+    cursor: pointer;
   }
 
   div {
     display: flex;
     .icon {
-      width: 30px;
+      width: auto;
       height: 30px;
       color: var(--orange);
       cursor: pointer;
@@ -36,7 +37,7 @@ export const Content = styled.div`
     justify-content: space-between;
 
     img{
-      width: 50px;
+      width: auto;
       height: 50px;
     }
   }
