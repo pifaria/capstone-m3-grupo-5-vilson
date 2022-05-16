@@ -7,12 +7,11 @@ import Input from "../../components/input";
 import { AnimationContainer, Background, Container, Divider } from "./styles";
 import Button from "../../components/Button";
 import requestApi from "../../services/API";
-import { Redirect } from "react-router-dom";
 import { userInfoContext } from "../../providers/userInfo";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 
-export default function Login({ authenticated }) {
+export default function Login() {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
     password: yup
@@ -41,10 +40,6 @@ export default function Login({ authenticated }) {
       })
       .catch((_) => toast.error("Email ou senha inválidos!"));
   };
-
-  if (authenticated) {
-    return <Redirect to="/dashboard" />;
-  }
 
   return (
     <Container>

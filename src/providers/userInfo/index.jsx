@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const userInfoContext = createContext();
 
@@ -28,6 +28,7 @@ export const UserInfoProvider = ({ children }) => {
     const newUserInfo = { ...user, accessToken };
 
     setUserInfo(newUserInfo);
+    setIsAuthenticated(true)
 
     localStorage.setItem("userInfo", JSON.stringify(newUserInfo));
   };
@@ -40,9 +41,11 @@ export const UserInfoProvider = ({ children }) => {
 
   return (
     <userInfoContext.Provider
-      value={{ isAuthenticated, userInfo, saveUserInfo }}
+      value={{ isAuthenticated, userInfo, saveUserInfo, eraseUserInfo }}
     >
       {children}
     </userInfoContext.Provider>
   );
 };
+
+export const useUserInfo = () => useContext(userInfoContext);
