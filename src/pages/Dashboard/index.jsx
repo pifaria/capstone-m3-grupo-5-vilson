@@ -25,7 +25,7 @@ const Dashboard = () => {
           <div className="container-top">
             <p>Eventos</p>
             <div className="orange-bar"></div>
-            <Button onClick={() => openModal()}> Adicionar evento</Button>
+            <Button onClick={() => openModal()}>Adicionar</Button>
           </div>
           <EventList />
         </div>

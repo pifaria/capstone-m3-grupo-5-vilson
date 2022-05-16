@@ -8,7 +8,27 @@ export const Container = styled.div`
 
   main {
     display: flex;
-    column-gap: 55px;
+    flex-direction: column;
+
+    .container-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+
+      button{
+        font-size: 0.7rem;
+        word-wrap: normal;
+        margin: 0;
+      }
+    }
+
+    .orange-bar{
+      width: 100%;
+      margin: 0 5px;
+      height: 2px;
+      background-color: var(--orange);
+    }
   }
 
   @media (min-width: 900px) {

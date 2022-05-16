@@ -5,16 +5,34 @@ export const Container = styled.aside`
   margin-top: 5px;
   justify-content: center;
 
-  div {
+  section {
     background-color: black;
-    width: 300px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
     justify-content: space-evenly;
-    row-gap: 10px;
-    height: 160px;
+    width: 100%;
+    padding: 20px 10px;
+    
+    div{
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    p{
+      font-size: 0.7rem;
+      color: var(--orange);
+      margin-bottom: 8px;
+      font-weight: 500;
+    
+      span{
+        color: var(--vanilla);
+      }
+    }
+
   }
 
   img {

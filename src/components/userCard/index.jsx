@@ -8,13 +8,15 @@ export default function UserCard() {
 
   return (
     <Container>
-      <div>
-        <img src={avatar} alt="user" />
+      <section>
+        <div>
+          <img src={avatar} alt="user" />
+          <h1>{name}</h1>
+        </div>
 
-        <p>{name}</p>
-        <p>Email: {email}</p>
-        <p>Telefone para contato: {number}</p>
-      </div>
+        <p>Email: <span>{email}</span></p>
+        <p>Telefone para contato: <span>{number}</span></p>
+      </section>
     </Container>
   );
 }
