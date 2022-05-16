@@ -4,8 +4,7 @@ import { Container } from "./styles";
 
 export default function UserCard() {
   const { userInfo } = useContext(userInfoContext);
-
-  const { avatar, name, email } = userInfo;
+  const { avatar, name, email, number } = userInfo;
 
   return (
     <Container>
@@ -13,7 +12,8 @@ export default function UserCard() {
         <img src={avatar} alt="user" />
 
         <p>{name}</p>
-        <p>{email}</p>
+        <p>Email: {email}</p>
+        <p>Telefone para contato: {number}</p>
       </div>
     </Container>
   );
