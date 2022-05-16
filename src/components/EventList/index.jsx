@@ -13,7 +13,7 @@ const EventList = () => {
     <Container>
       {eventsList.length > 0 &&
         eventsList.map((event) => (
-            <EventCard event={event} />
+            <EventCard key={event.id} event={event} />
         ))}
     </Container>
   );
