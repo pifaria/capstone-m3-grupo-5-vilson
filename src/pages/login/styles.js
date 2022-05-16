@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/LogoIconMD.png";
 
 export const Container = styled.section`
   height: 100vh;
@@ -29,7 +29,7 @@ export const Background = styled.div`
     flex: 1;
     background: url(${Logo}) no-repeat center var(--black);
     background-size: contain;
-    height: 20vh;
+    height: 50vh;
     max-width: 500px;
   }
 `;
