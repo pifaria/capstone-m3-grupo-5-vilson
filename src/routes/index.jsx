@@ -2,6 +2,7 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import LandingPage from "../pages/LandingPage";
 import Dashboard from "../pages/Dashboard";
+import Event from "../pages/Event"
 import { Route, Switch } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { userInfoContext } from "../providers/userInfo";
@@ -35,6 +36,9 @@ const Routes = () => {
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
+      </Route>
+      <Route path="/events/:id">
+        <Event/>
       </Route>
     </Switch>
   );
