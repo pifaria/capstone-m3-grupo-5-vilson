@@ -5,3 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100vh;
 `;
+
+export const Content = styled.div`
+  display: flex;
+  width: 90%;
+  margin: 30px 0 0 0;
+`;
