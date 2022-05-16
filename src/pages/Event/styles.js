@@ -43,6 +43,7 @@ export const EventinfoCard = styled.div`
       color: var(--orange);
       height: 23px;
       width: 23px;
+      margin: 0 10px 0 0;
     }
 
     .infos{

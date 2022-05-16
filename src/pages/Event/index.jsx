@@ -28,6 +28,16 @@ const Event = () => {
     return event.id === parseInt(params.id);
   });
 
+  function formatDate (input) {
+    var datePart = input.match(/\d+/g),
+    year = datePart[0].substring(2),
+    month = datePart[1], day = datePart[2];
+  
+    return day+'/'+month+'/'+year;
+  }
+
+  const formatedDate =  formatDate(found.date)
+
   return (
     <Container>
       <Header />
@@ -49,7 +59,7 @@ const Event = () => {
           <div className="infos">
             <div className="local-date">
               <HiOutlineCalendar className="icon" />
-              <h5>{found && found.date}</h5>
+              <h5>{found && formatedDate}</h5>
             </div>
             <div className="local-date">
               <HiOutlineLocationMarker className="icon" />
