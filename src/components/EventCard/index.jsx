@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { userInfoContext } from "../../providers/userInfo/index.jsx";
 import {useEventList} from "../../providers/EventList"
 
-const EventCard = ({event}) =>{
+const EventCard = ({event}) => {
     const history = useHistory()
     const { userInfo } = useContext(userInfoContext);
     const { deleteEvent } = useEventList()
