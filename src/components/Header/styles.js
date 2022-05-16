@@ -2,36 +2,42 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 130px;
+  justify-content: center;
   background-color: var(--black);
   border-bottom: 1px solid #eb5e28;
-  box-shadow: 0px 6px 6px rgba(235, 94, 40, 0.25);
-
-  input {
-    height: 40px;
-    margin-top: 5px;
-  }
+  box-shadow: 0 0 1em var(--orange);
 `;
+
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 
-  img {
-    height: 51px;
-    width: 61px;
-    border-radius: 0px;
+  img{
+    width: 35px;
+    height: 35px;
   }
 
   div {
     display: flex;
     .icon {
-      width: 56px;
-      height: 41px;
+      width: 30px;
+      height: 30px;
       color: var(--orange);
       cursor: pointer;
+    }
+  }
+
+  @media (min-width: 1024px){
+    width: 80%;
+    justify-content: space-between;
+
+    img{
+      width: 50px;
+      height: 50px;
     }
   }
 `;

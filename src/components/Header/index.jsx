@@ -12,7 +12,7 @@ const Header = ({ placeholder, setAuthenticated }) => {
   return (
     <Container>
       <Content>
-        <img alt="." src={Icon}></img>
+        <img alt="." src={Icon}/>
         <HeaderInput placeholder={placeholder} />
         <div>
           <HiOutlineUserCircle className="icon" />
