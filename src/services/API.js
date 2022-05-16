@@ -26,4 +26,8 @@ requestApi.patchAuth = (url, data, token) => {
   return requestApi.requestAuth(url, token, "patch", data);
 };
 
+requestApi.deleteAuth = (url, token) => {
+  return requestApi.requestAuth(url, token, "delete");
+};
+
 export default requestApi;
