@@ -19,7 +19,7 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
   return (
     <Container>
       <Header
-        placeholder={"Pesquise um ?"}
+        placeholder={"Pesquisar fotógrafo"}
         setAuthenticated={setAuthenticated}
       />
       <main>
