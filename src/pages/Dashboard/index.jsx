@@ -17,7 +17,7 @@ const Dashboard = () => {
     <Container>
       {!isAuthenticated && <Redirect to="/"/>}
       <Header
-        placeholder={"Pesquise um ?"}
+        placeholder={"Pesquisar fotógrafo"}
       />
       <main>
         <UserCard />

@@ -1,5 +1,6 @@
 import { Container, Input } from "../HeaderInput/styles";
 import { useState} from "react"
+import { BiSearch } from 'react-icons/bi'
 
 const HeaderInput = ({ placeholder }) => {
 
@@ -8,6 +9,7 @@ const HeaderInput = ({ placeholder }) => {
   return (
     <Container>
       <Input onChange={(evt) => setValue(evt.target.value)} placeholder={placeholder} />
+      <BiSearch type="submit"/>
     </Container>
   );
 };

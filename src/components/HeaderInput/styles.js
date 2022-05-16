@@ -2,21 +2,25 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-`;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  border-radius: 31px;
+  border: 3px solid var(--orange);
+  width: 50%;
+  `;
 
 export const Input = styled.input`
+  width: 100%;
   text-align: center;
-  border: 3px solid var(--orange);
-  border-radius: 31px;
-  background-color: var(--black);
+  background-color: transparent;
+  border: none;
   font-family: "Inter";
   height: 35px;
-  width: 80%;
   font-style: normal;
+  color: var(--vanilla);
   font-weight: 700;
   font-size: 0.7rem;
-  color: var(--vanilla);
-  margin-left: 20px;
 
   ::placeholder{
     color: var(--vanilla)
