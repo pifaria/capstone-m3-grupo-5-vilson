@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
   width: 300px;
-  height: 315px;
+  height: 270px;
   background-color: var(--orange);
   display: flex;
   flex-direction: column;
@@ -14,6 +13,3 @@ export const Container = styled.div`
     align-self: center;
   }
 `;
-
-
-

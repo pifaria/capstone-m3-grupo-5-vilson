@@ -26,8 +26,10 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 900px) {
+    margin-left: 30px;
+
     div {
-      height: 600px;
+      height: 592px;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;

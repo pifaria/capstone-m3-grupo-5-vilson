@@ -11,7 +11,6 @@ export const Container = styled.section`
   svg {
     color: var(--orange);
     margin: 20px 0 0 10px;
-
   }
 
   @media (min-width: 1024px) {
@@ -25,9 +24,12 @@ export const Container = styled.section`
     align-items: center;
     margin-top: 16px;
 
-    p{
-      font-size: 10px;
-      margin-top: 16px;
+    p {
+      margin-top: 5px;
+      font-size: 15px;
+    }
+
+    p + p {
     }
   }
 
@@ -57,7 +59,7 @@ export const Container = styled.section`
     -webkit-appearance: none;
     cursor: pointer;
 
-    :hover{
+    :hover {
       box-shadow: 0 0 0.8em var(--orange);
     }
   }
@@ -155,11 +157,11 @@ export const AnimationContainer = styled.div`
       }
     }
 
-    .optionsBox{
+    .optionsBox {
       display: flex;
       justify-content: flex-start;
 
-      svg{
+      svg {
         margin: 15px 0;
       }
     }
@@ -184,5 +186,4 @@ export const InputsContainer = styled.section`
     background: var(--orange);
     border-radius: 10px;
   }
-
-`
+`;
