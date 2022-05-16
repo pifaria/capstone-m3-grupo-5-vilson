@@ -1,9 +1,14 @@
-import { Container, Content, PhotographersList, EventCard} from "./styles";
+import { Container, Content, PhotographersList, EventinfoCard } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import PhotographerCard from "../../components/PhotographerCard";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import real_brasileiro from "../../assets/real_brasileiro.svg"
+
+import { useEventList } from "../../providers/EventList/index.jsx";
+
+import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
 
 const Event = () => {
   const params = useParams();
@@ -16,8 +21,13 @@ const Event = () => {
         setUserList(response.data);
       })
       .catch((err) => console.log(err));
-    }, []);
-    
+  }, []);
+
+  const { eventsList } = useEventList();
+  const found = eventsList.find((event) => {
+    return event.id === parseInt(params.id);
+  });
+
   return (
     <Container>
       <Header />
@@ -25,14 +35,32 @@ const Event = () => {
         <PhotographersList>
           {userList.length > 0 &&
             userList.map((photographer, index) => {
-              if (photographer.type === "fotógrafo"){
+              if (photographer.type === "photographer") {
                 return <PhotographerCard key={index} info={photographer} />;
               }
             })}
         </PhotographersList>
-        <EventCard>
-          <h1>Evento {params.id}</h1>
-        </EventCard>
+        <EventinfoCard>
+          <h1>{found && found.title}</h1>
+          <h3>{found && found.type}</h3>
+          <p>{found && found.description}</p>
+          <div className="infos">
+            <div className="local-date">
+              <HiOutlineCalendar className="icon" />
+              <h5>{found && found.date}</h5>
+            </div>
+            <div className="local-date">
+              <HiOutlineLocationMarker className="icon" />
+              <h5>{found && found.states}</h5>
+            </div>
+          </div>
+
+          <span>Expectativa de orçamento</span>
+          <div className="budget">
+            <img src={real_brasileiro} alt="real"></img>
+            <h2>{found && parseInt(found.budget).toFixed(2).replace(".",",")}</h2>
+          </div>
+        </EventinfoCard>
       </Content>
     </Container>
   );
