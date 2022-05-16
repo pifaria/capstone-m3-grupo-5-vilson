@@ -26,11 +26,14 @@ export const Container = styled.section`
 
     p {
       margin-top: 5px;
-      font-size: 15px;
+      font-size: 12px;
+      
+      span{
+        margin-left: 5px;
+        font-weight: 700;
+      }
     }
 
-    p + p {
-    }
   }
 
   button {
