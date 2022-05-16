@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import requestApi from "../../services/API";
 
 export const userInfoContext = createContext();
 
@@ -7,11 +9,22 @@ export const UserInfoProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const localUser = localStorage.getItem("userInfo");
+    const localUser   = localStorage.getItem("userInfo");
+
+    async function confirmToken(userData) {
+      try {
+        await requestApi.verifyToken(userData.accessToken);
+        setUserInfo(userData);
+        setIsAuthenticated(true);        
+      } catch {
+        toast.error("Sua sessão expirou, faça login novamente");
+        eraseUserInfo();
+      }
+    }
 
     if (localUser) {
-      setUserInfo(JSON.parse(localUser));
-      setIsAuthenticated(true);
+      const userData  = JSON.parse(localUser)
+      confirmToken(userData);
     }
   }, []);
 
