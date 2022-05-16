@@ -1,26 +1,23 @@
 import { Container } from "./styles";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import { Redirect } from "react-router-dom";
-import { useContext } from "react";
-import { userInfoContext } from "../../providers/userInfo";
 import { useRegisterModal } from "../../providers/RegisterModal";
-import Budget from "../../components/Budget";
 import EventList from "../../components/EventList";
 import UserCard from "../../components/userCard";
+import { useUserInfo } from "../../providers/userInfo";
+import { useState } from "react";
+import { Redirect } from "react-router-dom";
 
-const Dashboard = ({ authenticated, setAuthenticated }) => {
+const Dashboard = () => {
   const { openModal } = useRegisterModal();
-
-  if (!authenticated) {
-    return <Redirect to="/login" />;
-  }
-
+  const { isAuthenticated } = useUserInfo();
+  console.log("oi")
+  
   return (
     <Container>
+      {!isAuthenticated && <Redirect to="/"/>}
       <Header
         placeholder={"Pesquise um ?"}
-        setAuthenticated={setAuthenticated}
       />
       <main>
         <UserCard />
