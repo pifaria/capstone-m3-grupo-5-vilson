@@ -50,6 +50,7 @@ export const Content = styled.div`
   @media (min-width: 1024px) {
     img {
       height: 115px;
+      width: auto;
     }
     .text {
       font-weight: 500;
