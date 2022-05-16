@@ -7,7 +7,7 @@ import EventCard from "../EventCard/index.jsx";
 import { useContext } from "react";
 
 const EventList = () => {
-  const { eventsList } = useContext(EventListContext);
+  const { eventsList } = useEventList();
 
   return (
     <Container>
