@@ -9,9 +9,12 @@ import real_brasileiro from "../../assets/real_brasileiro.svg";
 import { useEventList } from "../../providers/EventList/index.jsx";
 
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
+import { useUserInfo } from "../../providers/userInfo";
+import { Redirect } from "react-router-dom";
 
 const Event = () => {
   const params = useParams();
+  const { isAuthenticated } = useUserInfo();
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
@@ -30,7 +33,10 @@ const Event = () => {
 
   return (
     <Container>
-      <Header />
+      {!isAuthenticated && <Redirect to="/"/>}
+      <Header
+        placeholder="Pesquisar evento"
+      />
       <Content>
         <PhotographersList>
           {userList.length > 0 &&

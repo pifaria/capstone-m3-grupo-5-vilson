@@ -3,19 +3,15 @@ import Icon from "../../assets/ClickFinder Icon.png";
 import HeaderInput from "../HeaderInput";
 import { HiOutlineUserCircle, HiLogout } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useUserInfo } from "../../providers/userInfo";
 
-const Header = ({ placeholder, setAuthenticated }) => {
+const Header = ({ placeholder }) => {
   const history = useHistory()
+  const { eraseUserInfo } = useUserInfo()
 
   const handleRedirectToHome = () => {
     return history.push("/dashboard")
   }
-  
-  const logout = () => {
-    localStorage.clear();
-    setAuthenticated(false);
-  };
-
 
   return (
     <Container>
@@ -24,7 +20,7 @@ const Header = ({ placeholder, setAuthenticated }) => {
         <HeaderInput placeholder={placeholder} />
         <div>
           <HiOutlineUserCircle className="icon" />
-          <HiLogout className="icon" onClick={logout} />
+          <HiLogout className="icon" onClick={() => eraseUserInfo()} />
         </div>
       </Content>
     </Container>
