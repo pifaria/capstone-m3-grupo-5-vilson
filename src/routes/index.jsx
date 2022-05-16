@@ -3,6 +3,7 @@ import Register from "../pages/register";
 import LandingPage from "../pages/LandingPage";
 import Dashboard from "../pages/Dashboard";
 import Event from "../pages/Event"
+import Profile from "../pages/Profile";
 import { Route, Switch } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { userInfoContext } from "../providers/userInfo";
@@ -39,6 +40,9 @@ const Routes = () => {
       </Route>
       <Route path="/events/:id">
         <Event/>
+      </Route>
+      <Route path="/profiles/:id">
+        <Profile/>
       </Route>
     </Switch>
   );
