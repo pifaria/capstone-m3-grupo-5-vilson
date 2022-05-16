@@ -4,7 +4,7 @@ import PhotographerCard from "../../components/PhotographerCard";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import real_brasileiro from "../../assets/real_brasileiro.svg"
+import real_brasileiro from "../../assets/real_brasileiro.svg";
 
 import { useEventList } from "../../providers/EventList/index.jsx";
 
@@ -42,8 +42,10 @@ const Event = () => {
         </PhotographersList>
         <EventinfoCard>
           <h1>{found && found.title}</h1>
+          <div className="divider1"></div>
           <h3>{found && found.type}</h3>
           <p>{found && found.description}</p>
+          <div className="divider2"></div>
           <div className="infos">
             <div className="local-date">
               <HiOutlineCalendar className="icon" />
@@ -58,7 +60,9 @@ const Event = () => {
           <span>Expectativa de orçamento</span>
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
-            <h2>{found && parseInt(found.budget).toFixed(2).replace(".",",")}</h2>
+            <h2>
+              {found && parseInt(found.budget).toFixed(2).replace(".", ",")}
+            </h2>
           </div>
         </EventinfoCard>
       </Content>

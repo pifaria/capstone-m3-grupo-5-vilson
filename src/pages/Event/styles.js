@@ -18,14 +18,27 @@ export const PhotographersList = styled.div`
 export const EventinfoCard = styled.div`
   @media (min-width: 1024px) {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 600px;
     width: 400px;
     border-radius: 0px;
     background-color: #000000;
     margin: 30px 0 0 0;
 
+    .divider1{
+      width: 330px;
+      height: 1px;
+      background-color: var(--vanilla);
+      margin: 30px 0 10px 0;
+    }
+    .divider2{
+      width: 330px;
+      height: 1px;
+      background-color: var(--orange);
+      margin: 20px 0px;
+    }
     .icon {
       color: var(--orange);
       height: 23px;
@@ -34,10 +47,15 @@ export const EventinfoCard = styled.div`
 
     .infos{
       display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 0 0 40px 0;
     }
 
     .local-date{
       display: flex;
+      align-items: center;
+      margin: 0 0 20px 0;
     }
     .budget{
       display: flex;
@@ -52,6 +70,7 @@ export const EventinfoCard = styled.div`
       line-height: 17px;
       text-align: center;
       color: var(--beige);
+      margin: 10px 0 30px 0;
     }
 
     p {
@@ -64,8 +83,6 @@ export const EventinfoCard = styled.div`
     }
 
     h1 {
-      width: 357px;
-      height: 47px;
       font-family: "Inter";
       font-style: normal;
       font-weight: 700;
@@ -77,18 +94,12 @@ export const EventinfoCard = styled.div`
   }
 
   h2 {
-    width: 100px;
-    height: 30px;
-    left: 1049px;
-    top: 683px;
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
     line-height: 30px;
     text-align: center;
-
     color: var(--orange);
   }
 
@@ -100,6 +111,7 @@ export const EventinfoCard = styled.div`
     line-height: 29px;
     text-align: center;
     color: var(--vanilla);
+    margin: 0 0 40px 0;
   }
 
   h5 {
