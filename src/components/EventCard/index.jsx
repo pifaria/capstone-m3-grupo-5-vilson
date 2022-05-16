@@ -1,4 +1,4 @@
-import {Container} from "./styles.js"
+import {Container, Content} from "./styles.js"
 import Button from "../Button/index.jsx";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useContext } from "react";
@@ -12,10 +12,11 @@ const EventCard = ({event}) => {
 
     return (
         <Container >
+          <Content>
             {userInfo.type === "cliente" ? (
                 <>
                   <p> Tique </p>
-                  <Button onClick={()=> history.push(`/events/${event.id}`)}>Ver Evento</Button>
+                  <Button beigeSchema onClick={()=> history.push(`/events/${event.id}`)}>Ver Evento</Button>
                 </>
               ) : (
                 <>
@@ -32,6 +33,7 @@ const EventCard = ({event}) => {
               <h4>{event.local}</h4>
               <h4>{event.state}</h4>
               <Button beigeSchema onClick={() => deleteEvent(event.id)}>Excluir</Button>
+          </Content>
         </Container>
     )
 };

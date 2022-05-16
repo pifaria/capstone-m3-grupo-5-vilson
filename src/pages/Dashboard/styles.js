@@ -10,6 +10,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+    .container-dash{
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+    }
+
     .container-top {
       display: flex;
       justify-content: space-between;
