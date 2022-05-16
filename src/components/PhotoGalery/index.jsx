@@ -2,9 +2,13 @@ import { useState } from "react";
 import Modal from "react-modal/lib/components/Modal";
 import { Container, Content, ContentList } from "./styles";
 
-function PhotoGalery({photos, addPhoto, deletePhoto}) {
+import { usePortfolio } from "../../providers/Portfolio"
+
+function PhotoGalery() {
   const [openModal, setOpenModal] = useState(false);
   const [inputValue, setInputValue] = useState("");
+
+  const { portfolio, addPhoto, deletePhoto } = usePortfolio()
 
   function onDeletePhoto(id) {
     deletePhoto(id);
@@ -21,7 +25,7 @@ function PhotoGalery({photos, addPhoto, deletePhoto}) {
       <Content>
         <button onClick={() => setOpenModal(true)}>+</button>
         <ContentList>
-          {photos.map(({ id, url }) => {
+          {portfolio && portfolio.map(({ id, url }) => {
             return (
               <li key={id}>
                 <img src={url} alt="photo" />
