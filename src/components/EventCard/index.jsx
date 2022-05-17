@@ -17,17 +17,17 @@ const EventCard = ({event}) => {
           <Content>
             {userInfo.type === "cliente" ? (
                 <>
-                  <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider round"></span>
+                  <label className="switch">
+                    <input type="checkbox" onChange={()=>{}}/> 
+                    <span className="slider round"></span>
                   </label>
                   <Button onClick={()=> history.push(`/events/${event.id}`)}>Ver Evento</Button>
                 </>
               ) : (
                 <>
-                  <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider round"></span>
+                  <label className="switch">
+                    <input type="checkbox" onChange={()=>{}}/>
+                    <span className="slider round"></span>
                   </label>
                   <h3>{event.userInfos.name}</h3>
                   <h4>{event.userInfos.number}</h4>
