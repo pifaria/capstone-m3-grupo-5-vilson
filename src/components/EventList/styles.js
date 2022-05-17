@@ -23,7 +23,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     overflow-y: scroll;
     justify-content: space-between;
-    height: 500px;
+    height: 600px;
     width: 640px;
     overflow-x: hidden;
     background-color: var(--fullblack);

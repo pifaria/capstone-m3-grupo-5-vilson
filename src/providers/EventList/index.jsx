@@ -39,6 +39,7 @@ export const EventListProvider = ({ children }) => {
         data,
         accessToken
       );
+      toast.success("Evento cadastrado com sucesso!")
       setEventList([...eventList, response.data]);
 
       if (onSuccess) onSuccess();

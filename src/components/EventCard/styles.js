@@ -6,6 +6,10 @@ export const Container = styled.div`
   text-align: center;
   padding-bottom: 16px;  
   margin-bottom: 15px;
+  
+  @media (min-width: 900px){
+    height: 350px;
+  }
 `;
 
 export const Content = styled.div`
@@ -15,11 +19,7 @@ export const Content = styled.div`
   background-color: var(--orange);
   width: 250px;
   height: 100%;
-
-  h4{
-    text-align: start;
-    margin-left: 20px;
-  }
+  padding: 20px;
 
   button{
     width: 80%;
@@ -29,8 +29,8 @@ export const Content = styled.div`
   .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 36px;
+  height: 20px;
   }
 
   .switch input { 
@@ -54,8 +54,8 @@ export const Content = styled.div`
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 13px;
+  width: 13px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -64,17 +64,17 @@ export const Content = styled.div`
 }
 
 input:checked + .slider {
-  background-color: #28EB53;
+  background-color: var(--green);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #28EB53;
+  box-shadow: 0 0 1px var(--green);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
 }
 
 /* Rounded sliders */
@@ -85,8 +85,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
+  
   @media (min-width: 900px){
-    width: 180px;
+    width: 290px;
   }
+
 `;
