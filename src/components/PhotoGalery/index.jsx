@@ -4,7 +4,7 @@ import { Container, ContainerButton, Content, ContentList } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import { usePortfolio } from "../../providers/Portfolio";
-//import { useUserInfo } from "../../providers/userInfo"
+import { useUserInfo } from "../../providers/userInfo";
 
 function PhotoGalery() {
   const params = useParams();
@@ -13,6 +13,11 @@ function PhotoGalery() {
   const [openModal, setOpenModal] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const { addPhoto, deletePhoto } = usePortfolio();
+
+  const { userInfo } = useUserInfo();
+
+  console.log(userInfo);
+  console.log(profileUser);
 
   useEffect(() => {
     axios
@@ -39,11 +44,22 @@ function PhotoGalery() {
 
   return (
     <Container>
-      <ContainerButton>
-        <button onClick={() => setOpenModal(true)}>+</button>
-        <div className="orange-bar"></div>
-        <p>Portfólio</p>
-      </ContainerButton>
+      {userInfo.id === profileUser.id ? (
+        <>
+          <ContainerButton>
+            <button onClick={() => setOpenModal(true)}>+</button>
+            <div className="orange-bar"></div>
+            <p>Portfólio</p>
+          </ContainerButton>
+        </>
+      ) : (
+        <>
+          <ContainerButton>
+            <div className="orange-bar"></div>
+            <p>Portfólio</p>
+          </ContainerButton>
+        </>
+      )}
       <Content>
         <ContentList>
           {profileUser.portfolio &&
