@@ -8,23 +8,36 @@ import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import { usePhotographerList } from "../providers/PhotographerList";
 import { toast } from "react-toastify";
+import { useUserInfo } from "../providers/userInfo";
+import { useEventList } from "../providers/EventList";
+import { usePortfolio } from "../providers/Portfolio";
 
 const Routes = () => {
   const { getPhotographers } = usePhotographerList();
+  const { getEventList } = useEventList();
+  const { getPortfolio } = usePortfolio();
+  const { userInfo, getUserInfo } = useUserInfo();
 
   useEffect(() => {
-    async function getInitialPhotographers() {
+    if(!userInfo){
+      return;
+    }
+
+    async function getInitialStates() {
       try {
+        getUserInfo();
+        getPortfolio();
         await getPhotographers();
+        await getEventList();
       } catch {
         toast.error(
-          "Houve um problema tentando acessar a lista de fotografos. Tente novamente."
+          "Houve um problema com o servidor. Tente Novamente mais tarde."
         );
       }
     }
 
-    getInitialPhotographers();
-  }, []);
+    getInitialStates();
+  }, [userInfo]);
 
   return (
     <Switch>

@@ -11,17 +11,11 @@ export const PortfolioProvider = ({ children }) => {
   const { generateId } = useIDGenerator();
   const [portfolio, setPortfolio] = useState();
 
-  useEffect(() => {
-    setPortfolio(userInfo.portfolio ? userInfo.portfolio : [])
-  }, [userInfo])
-
   const addPhoto = async (url) => {
     const {accessToken, id: userId} = userInfo;
 
     const photoId = generateId();
     const photo = { id: photoId, url };
-
-    console.log(portfolio)
 
     const newPortfolio = [...portfolio, photo];
 
@@ -60,8 +54,12 @@ export const PortfolioProvider = ({ children }) => {
     }
   };
 
+  const getPortfolio = () => {
+    setPortfolio(userInfo.portfolio ? userInfo.portfolio : [])
+  }
+
   return (
-    <PortfolioContext.Provider value={{ portfolio, addPhoto, deletePhoto }}>
+    <PortfolioContext.Provider value={{ portfolio, addPhoto, deletePhoto, getPortfolio }}>
       {children}
     </PortfolioContext.Provider>
   );
