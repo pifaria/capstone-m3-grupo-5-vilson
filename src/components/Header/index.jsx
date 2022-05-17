@@ -7,10 +7,14 @@ import { useUserInfo } from "../../providers/userInfo";
 
 const Header = ({ placeholder }) => {
   const history = useHistory()
-  const { eraseUserInfo } = useUserInfo()
+  const { eraseUserInfo, userInfo } = useUserInfo()
 
   const handleRedirectToHome = () => {
     return history.push("/dashboard")
+  }
+
+  const handleRedirectProfile = () => {
+    return history.push(`/profiles/${userInfo.id}`)
   }
 
   return (
@@ -19,7 +23,7 @@ const Header = ({ placeholder }) => {
         <img alt="." src={Icon} onClick={handleRedirectToHome}/>
         <HeaderInput placeholder={placeholder} />
         <div>
-          <HiOutlineUserCircle className="icon" onClick={handleRedirectToHome}/>
+          <HiOutlineUserCircle className="icon" onClick={handleRedirectProfile}/>
           <HiLogout className="icon" onClick={() => eraseUserInfo()} />
         </div>
       </Content>

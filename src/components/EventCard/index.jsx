@@ -38,8 +38,7 @@ const EventCard = ({event}) => {
               <h3>{event.title}</h3>
               <h4>{event.description}</h4>
               <h4>Data: {formatDate(event.date)}</h4>
-              <h4>Local: {event.local}</h4>
-              <h4>{event.state}</h4>
+              <h4>Local: {event.states}</h4>
               <Button beigeSchema onClick={() => deleteEvent(event.id)}>Excluir</Button>
           </Content>
         </Container>

@@ -22,6 +22,9 @@ export const typeTranslate = (type) => {
     case "marriage":
       response = "Casamento"
       break;
+    case "party":
+      response = "Festa"
+      break;
     case "essay":
       response = "Ensaio"
       break;
@@ -37,8 +40,8 @@ export const typeTranslate = (type) => {
     case "publicity":
       response = "Publicidade"
       break;
-    default :
-    break;
-    } 
-    return response
+    default:
+      break;
+  }
+  return response
 }
