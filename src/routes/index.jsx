@@ -19,14 +19,21 @@ const Routes = () => {
   const { userInfo, getUserInfo } = useUserInfo();
 
   useEffect(() => {
-    if(!userInfo){
+    async function getInitialUserInfo() {
+      await getUserInfo();
+    }
+
+    getInitialUserInfo();
+  },[]);
+
+  useEffect(() => {
+    if (!userInfo) {
       return;
     }
 
     async function getInitialStates() {
       try {
-        getUserInfo();
-        getPortfolio();
+        await getPortfolio();
         await getPhotographers();
         await getEventList();
       } catch {

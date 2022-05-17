@@ -18,6 +18,7 @@ import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { toast } from "react-toastify";
+import { useUserInfo } from "../../providers/userInfo";
 
 export default function Register() {
   const schema = yup.object().shape({
@@ -50,26 +51,20 @@ export default function Register() {
     bio: yup.string(),
   });
 
+  const { saveUserInfo } = useUserInfo();
   const history = useHistory();
   const [showInputs, setShowInputs] = useState(false);
   const [modal, setModal] = useState(false);
 
   const onSubmitFunction = (data) => {
-    data.type === "fotografo"
-      ? requestApi
-          .post("register/users?type=fotografo", data)
-          .then((_) => {
-            setModal(true);
-            return history.push("/");
-          })
-          : requestApi
-          .post("register/users?type=cliente", data)
-          .then((_) => {
-            setModal(true);
-            toast.success("Usuário cadastrado com sucesso");
-            return history.push("/");
-          })
-          .catch((_) => toast.error("Email já cadastrado"))
+    requestApi
+      .post("register/", data)
+      .then((response) => {
+        setModal(true);
+        saveUserInfo(response.data);
+        return history.push("/");
+      })
+      .catch(() => toast.error("Email já cadastrado"));
   };
 
   const {
@@ -188,7 +183,7 @@ export default function Register() {
           <div className="container-button">
             <Button>Cadastre-se</Button>
             <p>
-              Já possui uma conta? Faça seu 
+              Já possui uma conta? Faça seu
               <span onClick={() => history.push("/login")}>login</span>
             </p>
           </div>

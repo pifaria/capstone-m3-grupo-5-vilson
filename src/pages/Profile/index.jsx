@@ -11,6 +11,7 @@ const Profile = () => {
   const [user, setUser] = useState({})
 
   useEffect(() => {
+    
     axios
       .get(
         `https://clickfinder-json-server.herokuapp.com/users/${parseInt(
