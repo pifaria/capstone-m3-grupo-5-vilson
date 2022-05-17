@@ -3,6 +3,7 @@ import { RegisterModalProvider } from "./RegisterModal";
 import { EventListProvider } from "./EventList";
 import { PortfolioProvider } from "./Portfolio";
 import { IDGeneratorProvider } from "./IDGenerator";
+import { PhotographerListProvider } from "./PhotographerList";
 
 const Providers = ({ children }) => {
   return (
@@ -10,7 +11,9 @@ const Providers = ({ children }) => {
       <UserInfoProvider>
         <EventListProvider>
           <PortfolioProvider>
-            <RegisterModalProvider>{children}</RegisterModalProvider>
+            <PhotographerListProvider>
+              <RegisterModalProvider>{children}</RegisterModalProvider>
+            </PhotographerListProvider>
           </PortfolioProvider>
         </EventListProvider>
       </UserInfoProvider>

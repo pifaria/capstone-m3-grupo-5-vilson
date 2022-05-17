@@ -1,10 +1,12 @@
-import { Container, Content, PhotographersList, EventinfoCard } from "./styles";
+import { Container, Content, EventinfoCard } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import PhotographerCard from "../../components/PhotographerCard";
+import PhotographerList from "../../components/PhotographerList";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
+import { formatDate } from "../../utils";
 
 import { useEventList } from "../../providers/EventList/index.jsx";
 
@@ -31,14 +33,6 @@ const Event = () => {
     return event.id === parseInt(params.id);
   });
 
-  function formatDate (input) {
-    var datePart = input.match(/\d+/g),
-    year = datePart[0].substring(2),
-    month = datePart[1], day = datePart[2];
-  
-    return day+'/'+month+'/'+year;
-  }
-
   const formatedDate =  formatDate(found.date)
 
   return (
@@ -48,14 +42,7 @@ const Event = () => {
         placeholder="Pesquisar evento"
       />
       <Content>
-        <PhotographersList>
-          {userList.length > 0 &&
-            userList.map((photographer, index) => {
-              if (photographer.type === "photographer") {
-                return <PhotographerCard key={index} info={photographer} />;
-              }
-            })}
-        </PhotographersList>
+        <PhotographerList/>
         <EventinfoCard>
           <h1>{found && found.title}</h1>
           <div className="divider1"></div>

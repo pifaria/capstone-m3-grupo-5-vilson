@@ -1,36 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import requestApi from "../../services/API";
-import { userInfoContext } from "../userInfo";
+import { useUserInfo } from "../userInfo";
 
 export const EventListContext = createContext();
 
 export const EventListProvider = ({ children }) => {
-  const { userInfo, saveUserInfo } = useContext(userInfoContext);
-  const { type, accessToken, id } = userInfo;
+  const { userInfo, saveUserInfo } = useUserInfo();
+  const { type, accessToken, id } = userInfo || {};
 
   const [eventList, setEventList] = useState([]);
-
-  useEffect(() => {
-    if (!userInfo) {
-      return
-    }
-    
-    async function getInitialState() {
-      //O estado inicial do provider é criado a partir de um get do endpoint events.
-      const response = await requestApi.getAuth(`/events`, accessToken);
-
-      //A resposta dp servidor é filtrada baseado no tipo de usuário
-      const initialList =
-        type === "cliente"
-          ? clientFilter(response.data)
-          : photographerFilter(response.data);
-
-      setEventList(initialList);
-    }
-
-    getInitialState();
-  }, [userInfo]);
 
   //Filtra apenas os eventos criados pelo usuário logado
   function clientFilter(data) {
@@ -49,9 +28,10 @@ export const EventListProvider = ({ children }) => {
 
   //Adiciona um novo evento à lista de eventos da API,
   //depois guarda a nova lista no state
+  //Opcional: Recebe callbacks para sucesso e falha.
   //Disponível apenas para o usuário do tipo cliente.
-  const addEvent = async (eventData) => {
-    const data = {...eventData, userId: id}
+  const addEvent = async (eventData, onSuccess, onFailed) => {
+    const data    = {...eventData, userId: id};
 
     try {
       const response = await requestApi.postAuth(
@@ -60,8 +40,12 @@ export const EventListProvider = ({ children }) => {
         accessToken
       );
       setEventList([...eventList, response.data]);
+
+      if (onSuccess) onSuccess();
     } catch {
       toast.error("Ops! Houve um problema ao tentar cadastrar o evento.");
+
+      if (onFailed) onFailed();
     }
   };
 
@@ -99,9 +83,19 @@ export const EventListProvider = ({ children }) => {
     }
   };
 
+  const getEventList = async () => {
+    const response = await requestApi.getAuth(`/events`, accessToken);
+
+    const initialList = type === "cliente"
+        ? clientFilter(response.data)
+        : photographerFilter(response.data);
+
+    setEventList(initialList);
+  }
+
   return (
     <EventListContext.Provider
-      value={{ eventsList: eventList, addEvent, deleteEvent, refuseEvent }}
+      value={{ eventsList: eventList, addEvent, deleteEvent, refuseEvent, getEventList }}
     >
       {children}
     </EventListContext.Provider>

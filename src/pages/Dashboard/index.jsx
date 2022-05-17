@@ -5,23 +5,19 @@ import { useRegisterModal } from "../../providers/RegisterModal";
 import EventList from "../../components/EventList";
 import UserCard from "../../components/userCard";
 import { useUserInfo } from "../../providers/userInfo";
-import { useState } from "react";
 import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const { openModal } = useRegisterModal();
   const { isAuthenticated } = useUserInfo();
-  console.log("oi")
   
   return (
     <Container>
-      {!isAuthenticated && <Redirect to="/"/>}
-      <Header
-        placeholder={"Pesquisar fotógrafo"}
-      />
+      {!isAuthenticated && <Redirect to="/" />}
+      <Header placeholder={"Pesquisar fotógrafo"} />
       <main>
         <UserCard />
-        <section className="container-dash">
+        <div className="container-dash">
           <div className="container-top">
             <p>Eventos</p>
             <div className="orange-bar"></div>

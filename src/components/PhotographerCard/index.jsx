@@ -8,6 +8,10 @@ const PhotographerCard = ({ info }) => {
   return (
     <Container>
       <Content>
+      <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
         <div className="avatar"></div>
         <h4>{info.name}</h4>
         <div className="profile">

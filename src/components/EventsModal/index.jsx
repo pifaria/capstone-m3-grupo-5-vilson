@@ -17,7 +17,7 @@ const EventsModal = () => {
 
   const onSubmitFunction = (data) => {
     const identifiedData = {...data, userInfos:{name, email, number} , userId: id }
-     addEvent(identifiedData)
+     addEvent(identifiedData, closeModal)
   };
 
   return (
