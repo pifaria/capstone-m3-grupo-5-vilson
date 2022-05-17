@@ -1,0 +1,30 @@
+import { Container, Content } from "./styles";
+import Icon from "../../assets/ClickFinder Icon.png";
+import HeaderInput from "../HeaderInput";
+import { HiOutlineUserCircle, HiLogout } from "react-icons/hi";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useUserInfo } from "../../providers/userInfo";
+
+const Header = ({ placeholder }) => {
+  const history = useHistory()
+  const { eraseUserInfo } = useUserInfo()
+
+  const handleRedirectToHome = () => {
+    return history.push("/dashboard")
+  }
+
+  return (
+    <Container>
+      <Content>
+        <img alt="." src={Icon} onClick={handleRedirectToHome}/>
+        <HeaderInput placeholder={placeholder} />
+        <div>
+          <HiOutlineUserCircle className="icon" />
+          <HiLogout className="icon" onClick={() => eraseUserInfo()} />
+        </div>
+      </Content>
+    </Container>
+  );
+};
+
+export default Header;

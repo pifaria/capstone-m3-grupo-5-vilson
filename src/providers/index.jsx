@@ -1,9 +1,24 @@
-const Providers = ({ children }) => {
-    return (
-        <div>
-            {children}
-        </div>
-    )
-}
+import { UserInfoProvider } from "./userInfo";
+import { RegisterModalProvider } from "./RegisterModal";
+import { EventListProvider } from "./EventList";
+import { PortfolioProvider } from "./Portfolio";
+import { IDGeneratorProvider } from "./IDGenerator";
+import { PhotographerListProvider } from "./PhotographerList";
 
-export default Providers
+const Providers = ({ children }) => {
+  return (
+    <IDGeneratorProvider>
+      <UserInfoProvider>
+        <EventListProvider>
+          <PortfolioProvider>
+            <PhotographerListProvider>
+              <RegisterModalProvider>{children}</RegisterModalProvider>
+            </PhotographerListProvider>
+          </PortfolioProvider>
+        </EventListProvider>
+      </UserInfoProvider>
+    </IDGeneratorProvider>
+  );
+};
+
+export default Providers;
