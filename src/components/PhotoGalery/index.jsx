@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal/lib/components/Modal";
 import { Container, ContainerButton, Content, ContentList } from "./styles";
-
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 import { usePortfolio } from "../../providers/Portfolio";
+//import { useUserInfo } from "../../providers/userInfo"
 
 function PhotoGalery() {
+  const params = useParams();
+  const [profileUser, setProfileUser] = useState({});
+
   const [openModal, setOpenModal] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const { addPhoto, deletePhoto } = usePortfolio();
 
-  const { portfolio, addPhoto, deletePhoto } = usePortfolio();
+  useEffect(() => {
+    axios
+      .get(
+        `https://clickfinder-json-server.herokuapp.com/users/${parseInt(
+          params.id
+        )}`
+      )
+      .then((response) => {
+        setProfileUser(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   function onDeletePhoto(id) {
     deletePhoto(id);
@@ -29,8 +46,8 @@ function PhotoGalery() {
       </ContainerButton>
       <Content>
         <ContentList>
-          {portfolio &&
-            portfolio.map(({ id, url }) => {
+          {profileUser.portfolio &&
+            profileUser.portfolio.map(({ id, url }) => {
               return (
                 <li key={id}>
                   <img src={url} alt="photo" />

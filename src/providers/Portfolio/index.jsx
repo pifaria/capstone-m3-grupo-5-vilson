@@ -9,7 +9,7 @@ const PortfolioContext = createContext();
 export const PortfolioProvider = ({ children }) => {
   const { userInfo, saveUserInfo } = useContext(userInfoContext);
   const { generateId } = useIDGenerator();
-  const [portfolio, setPortfolio] = useState();
+  const [portfolio, setPortfolio] = useState([]);
 
   const addPhoto = async (url) => {
     const {accessToken, id: userId} = userInfo;
