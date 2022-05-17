@@ -28,9 +28,10 @@ export const EventListProvider = ({ children }) => {
 
   //Adiciona um novo evento à lista de eventos da API,
   //depois guarda a nova lista no state
+  //Opcional: Recebe callbacks para sucesso e falha.
   //Disponível apenas para o usuário do tipo cliente.
-  const addEvent = async (eventData) => {
-    const data = {...eventData, userId: id}
+  const addEvent = async (eventData, onSuccess, onFailed) => {
+    const data    = {...eventData, userId: id};
 
     try {
       const response = await requestApi.postAuth(
@@ -39,8 +40,12 @@ export const EventListProvider = ({ children }) => {
         accessToken
       );
       setEventList([...eventList, response.data]);
+
+      if (onSuccess) onSuccess();
     } catch {
       toast.error("Ops! Houve um problema ao tentar cadastrar o evento.");
+
+      if (onFailed) onFailed();
     }
   };
 
