@@ -6,6 +6,24 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
 
+  @media (min-width: 900px){
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px var(--beige);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--orange);
+      border-radius: 10px;
+    }
+  }
+
   main {
     display: flex;
     flex-direction: column;
@@ -44,8 +62,8 @@ export const Container = styled.div`
       justify-content: space-evenly;
       margin-top: 30px;
       padding-bottom: 50px;
-      width: 100%;
-      
+      height: 700px;
+
       .container-dash {
         display: flex;
         flex-direction: column;
