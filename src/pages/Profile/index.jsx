@@ -1,4 +1,4 @@
-import { Container, Content } from "./styles.js";
+import { Box, Container, Content } from "./styles.js";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import UserCard from "../../components/userCard";
 import Header from "../../components/Header";
@@ -12,10 +12,12 @@ const Profile = () => {
   return (
     <Container>
       <Header />
-      <Content>
-        <UserCard />
-        <PhotoGalery />
-      </Content>
+      <Box>
+        <Content>
+          <UserCard />
+          <PhotoGalery />
+        </Content>
+      </Box>
     </Container>
   );
 };
