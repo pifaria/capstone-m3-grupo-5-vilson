@@ -5,8 +5,6 @@ import {usePhotographerList} from "../../providers/PhotographerList/index";
 const PhotographerList = () => {
     const { photographerList } = usePhotographerList();
 
-    console.log(photographerList)
-
     return(
         <Container>        
             {photographerList.length > 0 &&
