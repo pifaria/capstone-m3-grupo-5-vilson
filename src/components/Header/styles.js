@@ -11,8 +11,9 @@ export const Container = styled.header`
 
 export const Content = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   padding: 20px 0;
 
@@ -32,7 +33,7 @@ export const Content = styled.div`
     }
   }
 
-  @media (min-width: 1024px){
+  @media (min-width: 900px){
     width: 80%;
     justify-content: space-between;
 

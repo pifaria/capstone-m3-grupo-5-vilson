@@ -21,14 +21,14 @@ const Dashboard = () => {
       />
       <main>
         <UserCard />
-        <div className="container-dash">
+        <section className="container-dash">
           <div className="container-top">
             <p>Eventos</p>
             <div className="orange-bar"></div>
             <Button onClick={() => openModal()}>Adicionar</Button>
           </div>
           <EventList />
-        </div>
+        </section>
         {/* {userInfo.type === "photographer" ? <Budget /> : null} */}
       </main>
     </Container>

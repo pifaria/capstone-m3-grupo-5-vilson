@@ -18,4 +18,19 @@ export const Container = styled.div`
     background: var(--orange);
     border-radius: 10px;
   }
+
+  @media (min-width: 900px){
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    justify-content: space-between;
+    height: 500px;
+    width: 640px;
+    overflow-x: hidden;
+    background-color: var(--fullblack);
+    padding: 20px 10px 20px 20px;
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+  }
 `;

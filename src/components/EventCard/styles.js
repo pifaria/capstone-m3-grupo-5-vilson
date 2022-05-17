@@ -5,6 +5,7 @@ export const Container = styled.div`
   margin-right: 8px;
   text-align: center;
   padding-bottom: 16px;  
+  margin-bottom: 15px;
 `;
 
 export const Content = styled.div`
@@ -17,6 +18,15 @@ export const Content = styled.div`
 
   h4{
     text-align: start;
-    margin-left: 5px;
+    margin-left: 20px;
+  }
+
+  button{
+    width: 80%;
+    align-self: center;
+  }
+
+  @media (min-width: 900px){
+    width: 180px;
   }
 `

@@ -44,10 +44,12 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 900px) {
-    margin-left: 30px;
+    width: 300px;
+    section{
+      align-items: center;
+    }
 
     div {
-      height: 592px;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;

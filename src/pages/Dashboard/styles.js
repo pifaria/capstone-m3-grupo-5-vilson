@@ -40,30 +40,37 @@ export const Container = styled.div`
 
   @media (min-width: 900px) {
     main {
-      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
       margin-top: 30px;
+      padding-bottom: 50px;
+      width: 100%;
+      
+      .container-dash {
+        display: flex;
+        flex-direction: column;
+        width: 640px;
+        margin: 0;
+      }
+  
+      .container-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        margin-top: 0;
+      }
+  
+      .container-top > p {
+        font-size: 25px;
+      }
+  
+      .orange-bar {
+        height: 2px;
+        width: 100%;
+        background-color: var(--orange);
+      }
     }
 
-    .container-dash {
-      display: flex;
-      flex-direction: column;
-    }
 
-    .container-top {
-      display: flex;
-      align-items: center;
-      column-gap: 15px;
-      margin-bottom: 5px;
-    }
-
-    .container-top > p {
-      font-size: 25px;
-      color: var(--orange);
-    }
-    .orange-bar {
-      width: 420px;
-      height: 2px;
-      background-color: var(--orange);
-    }
   }
 `;
