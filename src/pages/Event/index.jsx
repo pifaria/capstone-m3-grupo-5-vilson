@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
-import { formatDate } from "../../utils";
+import { formatDate, typeTranslate } from "../../utils";
 import { useEventList } from "../../providers/EventList/index.jsx";
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
 import { useUserInfo } from "../../providers/userInfo";
@@ -43,7 +43,7 @@ const Event = () => {
         <EventinfoCard>
           <h1>{found && found.title}</h1>
           <div className="divider1"></div>
-          <h3>{found && found.type}</h3>
+          <h3>{found && typeTranslate(found.type)}</h3>
           <p>{found && found.description}</p>
           <div className="divider2"></div>
           <div className="infos">

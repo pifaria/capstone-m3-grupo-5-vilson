@@ -15,7 +15,6 @@ import {
   InputsContainer,
 } from "./styles";
 import Button from "../../components/Button";
-import Modal from "../../components/Modal";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { useUserInfo } from "../../providers/userInfo";
@@ -54,15 +53,13 @@ export default function Register() {
   const { saveUserInfo } = useUserInfo();
   const history = useHistory();
   const [showInputs, setShowInputs] = useState(false);
-  const [modal, setModal] = useState(false);
 
   const onSubmitFunction = (data) => {
     requestApi
       .post("register/", data)
       .then((response) => {
-        setModal(true);
         saveUserInfo(response.data);
-        return history.push("/");
+        toast.success("Email cadastrado com sucesso!");
       })
       .catch(() => toast.error("Email já cadastrado"));
   };
@@ -189,7 +186,6 @@ export default function Register() {
           </div>
         </form>
       </AnimationContainer>
-      {modal && <Modal sucesso />}
     </Container>
   );
 }

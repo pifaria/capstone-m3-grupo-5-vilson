@@ -1,14 +1,16 @@
 import { Box, Container, Content } from "./styles.js";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Redirect, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import UserCard from "../../components/userCard";
 import Header from "../../components/Header";
 import PhotoGalery from "../../components/PhotoGalery";
 import axios from "axios";
 import {useState, useEffect} from "react"
+import { useUserInfo } from "../../providers/userInfo/index.jsx";
 
 const Profile = () => {
   const params = useParams();
   const [user, setUser] = useState({})
+  const { isAuthenticated } = useUserInfo();
 
   useEffect(() => {
     
@@ -27,6 +29,7 @@ const Profile = () => {
 
   return (
     <Container>
+       {!isAuthenticated && <Redirect to="/" />}
       <Header />
       <Box>
         <Content>
