@@ -6,7 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 400px;
+  height: auto;
+  padding: 20px 0;
   border-radius: 4px;
   background-color: var(--orange);
 `
@@ -78,7 +79,7 @@ export const FormContainer = styled.div`
   width: 100%;
   overflow-y: scroll;
   padding: 10px;
-  max-height: 300px;
+  max-height: 400px;
   background-color: var(--fullblack);
   border-radius: 4px;
 

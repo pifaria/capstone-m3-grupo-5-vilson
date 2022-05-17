@@ -1,4 +1,4 @@
-import {Container} from "./styles.js"
+import {Container, Content} from "./styles.js"
 import Button from "../Button/index.jsx";
 import { formatDate } from "../../utils/index.jsx";
 
@@ -14,6 +14,7 @@ const EventCard = ({event}) => {
 
     return (
         <Container >
+          <Content>
             {userInfo.type === "cliente" ? (
                 <>
                   <label class="switch">
@@ -40,6 +41,7 @@ const EventCard = ({event}) => {
               <h4>Local: {event.local}</h4>
               <h4>{event.state}</h4>
               <Button beigeSchema onClick={() => deleteEvent(event.id)}>Excluir</Button>
+          </Content>
         </Container>
     )
 };
