@@ -61,7 +61,7 @@ const Event = () => {
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
             <h2>
-              {found && parseInt(found.budget).toFixed(2).replace(".", ",")}
+              {found && parseInt(found.budget.replace(".", "")).toFixed(2).replace(".", ",")}
             </h2>
           </div>
         </EventinfoCard>
