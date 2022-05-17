@@ -6,6 +6,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
+import { formatDate } from "../../utils";
 
 import { useEventList } from "../../providers/EventList/index.jsx";
 
@@ -31,14 +32,6 @@ const Event = () => {
   const found = eventsList.find((event) => {
     return event.id === parseInt(params.id);
   });
-
-  function formatDate (input) {
-    var datePart = input.match(/\d+/g),
-    year = datePart[0].substring(2),
-    month = datePart[1], day = datePart[2];
-  
-    return day+'/'+month+'/'+year;
-  }
 
   const formatedDate =  formatDate(found.date)
 
