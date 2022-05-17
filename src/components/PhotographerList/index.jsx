@@ -1,9 +1,9 @@
 import { Container } from "./styles.js";
 import PhotographerCard from "../PhotographerCard/index.jsx";
-import {usePhotographersList} from "../../providers/PhotographerList/index";
+import {usePhotographerList} from "../../providers/PhotographerList/index";
 
 const PhotographersList = () => {
-    const { photographersList } = usePhotographersList();
+    const { photographersList } = usePhotographerList();
 
     return(
         <Container>        
