@@ -5,13 +5,11 @@ import { useRegisterModal } from "../../providers/RegisterModal";
 import EventList from "../../components/EventList";
 import UserCard from "../../components/userCard";
 import { useUserInfo } from "../../providers/userInfo";
-import { useState } from "react";
 import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const { openModal } = useRegisterModal();
   const { isAuthenticated } = useUserInfo();
-  console.log("oi")
   
   return (
     <Container>

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { userInfoContext } from "../../providers/userInfo";
+import React from "react";
+import { useUserInfo } from "../../providers/userInfo";
 import { Container } from "./styles";
 
 export default function UserCard() {
-  const { userInfo } = useContext(userInfoContext);
+  const { userInfo } = useUserInfo();
   const { avatar, name, email, number } = userInfo;
 
   return (
