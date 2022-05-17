@@ -62,15 +62,30 @@ function PhotoGalery() {
       )}
       <Content>
         <ContentList>
-          {profileUser.portfolio &&
-            profileUser.portfolio.map(({ id, url }) => {
-              return (
-                <li key={id}>
-                  <img src={url} alt="photo" />
-                  <button onClick={() => onDeletePhoto(id)}>x</button>
-                </li>
-              );
-            })}
+          {userInfo.id === profileUser.id ? (
+            <>
+              {profileUser.portfolio &&
+                profileUser.portfolio.map(({ id, url }) => {
+                  return (
+                    <li key={id}>
+                      <img src={url} alt="photo" />
+                      <button onClick={() => onDeletePhoto(id)}>x</button>
+                    </li>
+                  );
+                })}
+            </>
+          ) : (
+            <>
+              {profileUser.portfolio &&
+                profileUser.portfolio.map(({ id, url }) => {
+                  return (
+                    <li key={id}>
+                      <img src={url} alt="photo" />
+                    </li>
+                  );
+                })}
+            </>
+          )}
         </ContentList>
 
         <Modal isOpen={openModal}>
