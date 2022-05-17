@@ -8,6 +8,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  justify-content: center;
 `;
 export const PhotographersList = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const EventinfoCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 600px;
+    height: 481px;
     width: 400px;
     border-radius: 0px;
     background-color: #000000;
