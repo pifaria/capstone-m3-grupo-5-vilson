@@ -10,13 +10,15 @@ import { Redirect } from "react-router-dom";
 const Dashboard = () => {
   const { openModal } = useRegisterModal();
   const { isAuthenticated } = useUserInfo();
+
+  const { userInfo } = useUserInfo()
   
   return (
     <Container>
       {!isAuthenticated && <Redirect to="/" />}
       <Header placeholder={"Pesquisar evento"} />
       <main>
-        <UserCard />
+        <UserCard user={userInfo} />
         <div className="container-dash">
           <div className="container-top">
             <p>Eventos</p>
