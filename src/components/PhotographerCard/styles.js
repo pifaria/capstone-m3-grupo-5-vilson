@@ -32,12 +32,12 @@ export const Content = styled.div`
     margin: 0 0 25px 0;
   }
 
-  .profile{
+  .profile {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 
-    .icon{
+    .icon {
       width: 30px;
       height: 30px;
       color: var(--orange);
@@ -48,7 +48,6 @@ export const Content = styled.div`
       cursor: pointer;
     }
   }
-
 
   .buttons {
     display: flex;

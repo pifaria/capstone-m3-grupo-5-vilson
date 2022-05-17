@@ -1,6 +1,7 @@
-import { Container, Content, PhotographersList, EventinfoCard } from "./styles";
+import { Container, Content, EventinfoCard } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import PhotographerCard from "../../components/PhotographerCard";
+import PhotographerList from "../../components/PhotographerList";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -48,14 +49,7 @@ const Event = () => {
         placeholder="Pesquisar evento"
       />
       <Content>
-        <PhotographersList>
-          {userList.length > 0 &&
-            userList.map((photographer, index) => {
-              if (photographer.type === "photographer") {
-                return <PhotographerCard key={index} info={photographer} />;
-              }
-            })}
-        </PhotographersList>
+        <PhotographerList/>
         <EventinfoCard>
           <h1>{found && found.title}</h1>
           <div className="divider1"></div>
