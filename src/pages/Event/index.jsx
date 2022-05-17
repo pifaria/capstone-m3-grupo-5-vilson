@@ -1,15 +1,12 @@
 import { Container, Content, EventinfoCard } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import PhotographerCard from "../../components/PhotographerCard";
 import PhotographerList from "../../components/PhotographerList";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
 import { formatDate } from "../../utils";
-
 import { useEventList } from "../../providers/EventList/index.jsx";
-
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
 import { useUserInfo } from "../../providers/userInfo";
 import { Redirect } from "react-router-dom";
@@ -39,7 +36,7 @@ const Event = () => {
     <Container>
       {!isAuthenticated && <Redirect to="/"/>}
       <Header
-        placeholder="Pesquisar evento"
+        placeholder="Pesquisar tag"
       />
       <Content>
         <PhotographerList/>
