@@ -24,7 +24,7 @@ const Dashboard = () => {
             <Button onClick={() => openModal()}>Adicionar</Button>
           </div>
           <EventList />
-        </section>
+        </div>
         {/* {userInfo.type === "photographer" ? <Budget /> : null} */}
       </main>
     </Container>
