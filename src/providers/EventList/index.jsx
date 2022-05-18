@@ -81,6 +81,7 @@ export const EventListProvider = ({ children }) => {
       );
       saveUserInfo(response.data);
       setEventList(photographerFilter(eventList));
+      toast.success("Você recusou o evento!");
     } catch {
       toast.error("Ops! Houve um problema ao tentar recusar o evento.");
     }

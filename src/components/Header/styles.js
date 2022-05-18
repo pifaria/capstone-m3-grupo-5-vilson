@@ -39,7 +39,7 @@ export const Content = styled.div`
     }
 
     .icon {
-      width: auto;
+      width: 50px;
       height: 30px;
       color: var(--orange);
       cursor: pointer;
