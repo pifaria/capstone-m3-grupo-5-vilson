@@ -21,7 +21,8 @@ export const EventListProvider = ({ children }) => {
   function photographerFilter(data) {
     return data.filter(
       (event) =>
-        event.photographers?.find((user) => user.id === id) &&
+        (event.public === "true" ||
+          event.photographers?.find((user) => user.id === id)) &&
         !userInfo.refusedEvents?.includes(event.id)
     );
   }
@@ -31,15 +32,11 @@ export const EventListProvider = ({ children }) => {
   //Opcional: Recebe callbacks para sucesso e falha.
   //Disponível apenas para o usuário do tipo cliente.
   const addEvent = async (eventData, onSuccess, onFailed) => {
-    const data    = {...eventData, userId: id};
+    const data = { ...eventData, userId: id };
 
     try {
-      const response = await requestApi.postAuth(
-        `/events`,
-        data,
-        accessToken
-      );
-      toast.success("Evento cadastrado com sucesso!")
+      const response = await requestApi.postAuth(`/events`, data, accessToken);
+      toast.success("Evento cadastrado com sucesso!");
       setEventList([...eventList, response.data]);
 
       if (onSuccess) onSuccess();
@@ -87,20 +84,27 @@ export const EventListProvider = ({ children }) => {
   const getEventList = async () => {
     const response = await requestApi.getAuth(`/events`, accessToken);
 
-    const initialList = type === "cliente"
+    const initialList =
+      type === "cliente"
         ? clientFilter(response.data)
         : photographerFilter(response.data);
 
     setEventList(initialList);
-  }
+  };
 
   return (
     <EventListContext.Provider
-      value={{ eventsList: eventList, addEvent, deleteEvent, refuseEvent, getEventList }}
+      value={{
+        eventsList: eventList,
+        addEvent,
+        deleteEvent,
+        refuseEvent,
+        getEventList,
+      }}
     >
       {children}
     </EventListContext.Provider>
   );
 };
 
-export const useEventList = () => useContext(EventListContext)
+export const useEventList = () => useContext(EventListContext);
