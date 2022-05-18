@@ -25,7 +25,6 @@ const Event = () => {
     }
   }, [userInfo]);
 
-  console.log(event)
 
   return (
     <Container>
