@@ -7,9 +7,13 @@ const PhotographerList = ({ eventData }) => {
   const { photographerList, getPhotographers } = usePhotographerList();
 
   useEffect(() => {
+    console.log("Antes:", eventData)
+
     if(!eventData) {
       return; 
     }
+
+    console.log("Depois:", eventData)
 
     const { type, states } = eventData;
 

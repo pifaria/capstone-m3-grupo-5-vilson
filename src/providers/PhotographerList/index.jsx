@@ -11,8 +11,6 @@ export const PhotographerListProvider = ({ children }) => {
 
     params.type = "photographer";
 
-    console.log({...params, tags})
-
     const { data } = await requestApi.get("/users", {
       params: {...params, tags},
     });
