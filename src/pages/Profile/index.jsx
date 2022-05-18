@@ -1,5 +1,5 @@
 import { Box, Container, Content } from "./styles.js";
-import { Redirect, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import UserCard from "../../components/userCard";
 import Header from "../../components/Header";
 import PhotoGalery from "../../components/PhotoGalery";

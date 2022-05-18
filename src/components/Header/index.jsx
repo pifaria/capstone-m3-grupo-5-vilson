@@ -27,10 +27,16 @@ const Header = ({ placeholder }) => {
       <Content>
         <img alt="." src={Icon} onClick={handleRedirectToHome}/>
         <HeaderInput placeholder={placeholder} />
-        <div>
-          <HiOutlineUserCircle className="icon" onClick={handleRedirectProfile}/>
-          <HiLogout className="icon" onClick={handleLogout} />
-        </div>
+        <section>
+          <div>
+            <HiOutlineUserCircle className="icon" onClick={handleRedirectProfile}/>
+            <span>Meu perfil</span>
+          </div>
+          <div>
+            <HiLogout className="icon" onClick={handleLogout} />
+            <span>Sair</span>
+          </div>
+        </section>
       </Content>
     </Container>
   );
