@@ -12,7 +12,7 @@ const PhotographerCard = ({ info }) => {
           <input type="checkbox" />
           <span class="slider round"></span>
         </label>
-        <img src={info.avatar}></img>
+        <img src={info.avatar} alt="Foto de perfil"/>
         <h4>{info.name}</h4>
         <div className="profile">
           <HiOutlineCamera className="icon" />

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import Modal from "react-modal/lib/components/Modal";
+import PhotoModal from "../PhotoModal";
 import { Container, ContainerButton, Content, ContentList } from "./styles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { usePortfolio } from "../../providers/Portfolio";
 import { useUserInfo } from "../../providers/userInfo";
-import PhotoModal from "../PhotoModal";
 import requestApi from "../../services/API";
+import { BsPlusCircle } from 'react-icons/bs'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
 
 function PhotoGalery() {
   const params = useParams();
@@ -55,7 +57,7 @@ function PhotoGalery() {
         {userInfo.id === profileUser.id ? (
           <>
             <ContainerButton>
-              <button onClick={() => setOpenModal(true)}>+</button>
+              <button onClick={() => setOpenModal(true)}><BsPlusCircle size={20}/></button>
               <div className="orange-bar"></div>
               <p>Portfólio</p>
             </ContainerButton>
@@ -76,8 +78,11 @@ function PhotoGalery() {
                   portfolio.map(({ id, url }) => {
                     return (
                       <li key={id}>
-                        <img src={url} alt="photo" />
-                        <button onClick={() => onDeletePhoto(id)}>x</button>
+                        <img src={url} alt="photos" onClick={() => bigPicture(url)} />
+                        <button onClick={() => onDeletePhoto(id)}>
+                          <AiOutlineCloseCircle/>
+                          <p>excluir foto</p>
+                        </button>
                       </li>
                     );
                   })}

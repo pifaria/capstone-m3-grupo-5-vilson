@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const Box = styled.div`
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 `;
 
 export const Content = styled.div`

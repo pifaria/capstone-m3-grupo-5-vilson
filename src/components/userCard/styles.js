@@ -13,6 +13,11 @@ export const Container = styled.aside`
     justify-content: space-evenly;
     width: 100%;
     padding: 20px 10px;
+
+    h1{
+      border-bottom: 1px solid var(--orange);
+      padding-bottom: 5px;
+    }
     
     div{
       width: 80%;
@@ -42,13 +47,17 @@ export const Container = styled.aside`
     border: solid 1px var(--orange);
     background-color: black;
   }
-
+  
   @media (min-width: 900px) {
-    width: 300px;
     section{
+      width: 220px;
       align-items: center;
-    }
 
+      p{
+        font-size: 0.5rem;
+      }
+    }
+    
     div {
       flex-direction: column;
       justify-content: space-around;
@@ -56,9 +65,11 @@ export const Container = styled.aside`
     }
 
     img {
-      width: 220px;
-      height: 220px;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 16px;
     }
+
 
     p + p {
       margin-bottom: 20px;

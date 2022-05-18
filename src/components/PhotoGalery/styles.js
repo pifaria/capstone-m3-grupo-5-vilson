@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  margin-top: 20px;
 
   @media (min-width: 1024px) {
     margin-left: 10%;
@@ -14,21 +13,26 @@ export const Container = styled.div`
 export const ContainerButton = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 20px;
-  align-self: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 16px;
 
   button:nth-child(1) {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid 1px var(--orange);
+    border: none;
     color: var(--orange);
     background-color: transparent;
   }
 
+  svg:hover{
+    background-color: var(--orange);
+    color: var(--black);
+    border-radius: 100%;
+  }
+
+
   .orange-bar {
     height: 2px;
-    width: 170px;
+    width: 70%;
     background-color: var(--orange);
   }
 
@@ -37,12 +41,10 @@ export const ContainerButton = styled.div`
   }
 
   @media (min-width: 1024px) {
-    .orange-bar {
-      width: 480px;
-    }
+    margin-top: 0;
 
     p {
-      font-size: 40px;
+      font-size: 2rem;
     }
   }
 `;
@@ -50,8 +52,7 @@ export const ContainerButton = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: center;
-  height: 200px;
-  overflow-y: scroll;
+  
   ::-webkit-scrollbar {
     width: 3px;
   }
@@ -75,22 +76,55 @@ export const Content = styled.div`
 export const ContentList = styled.ul`
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   flex-wrap: wrap;
-
+  width: 100%;
+  
   li {
     display: flex;
+    flex-direction: column;
+
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--fullblack);
+      border: none;
+      color: var(--orange);
+      padding: 4px 0;
+      margin-bottom: 15px;
+      border-radius: 0 0 4px 4px;
+
+      p{
+        display: none;
+        font-size: 0.7rem;
+      }
+
+      :hover{
+        svg{
+          display: none;
+        }
+
+        p{
+          display: block;
+        }
+      }
+    }
   }
 
   img {
-    height: 80px;
-    width: 80px;
-    border-radius: 4px;
+    height: 100px;
+    width: 100px;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    
+    :hover{
+      border: 1px solid var(--orange);
+    }
   }
 
   @media (min-width: 1024px) {
-    max-height: 600px;
-    overflow-y: scroll;
+
     ::-webkit-scrollbar {
       width: 3px;
     }
@@ -104,12 +138,18 @@ export const ContentList = styled.ul`
       background: var(--orange);
       border-radius: 10px;
     }
-    li {
-      flex-direction: row;
-    }
+    
     img {
-      width: 230px;
-      height: 230px;
+      width: 200px;
+      height: 200px;
+    }
+
+    li{
+
+      button{
+        margin-bottom: 20px;
+        padding: 10px 0;
+      }
     }
   }
 `;

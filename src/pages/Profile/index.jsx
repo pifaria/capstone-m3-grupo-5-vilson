@@ -30,7 +30,7 @@ const Profile = () => {
       {!isAuthenticated && <Redirect to="/" />}
       {user.type === "photographer" ? (
         <>
-          <Header />
+          <Header placeholder="Pesquisar fotógrafo"/>
           <Box>
             <Content>
               <UserCard user={user} />
@@ -40,7 +40,7 @@ const Profile = () => {
         </>
       ) : (
         <>
-          <Header />
+          <Header placeholder="Pesquisar fotógrafo"/>
           <Box>
             <Content>
               <UserCard user={user} />

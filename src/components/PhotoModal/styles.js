@@ -3,22 +3,26 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 0;
+  align-items: center;
+  height: 100vh;
+  width: 90%;
   z-index: 2;
-  animation: myAnim 1s ease 0s 1 normal forwards;
-
+  position: absolute;
+  background: rgb(0, 0, 0, 0.7) ;
+  
   img {
-    position: absolute;
-    width: 200px;
-    height: 200px;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 4px;
     transition: 1s;
   }
 
   @media (min-width: 1024px) {
+
     img {
-      width: 500px;
-      height: 500px;
+      max-width: 400px;
+      max-height: 400px;
     }
   }
 
