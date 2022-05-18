@@ -15,13 +15,17 @@ const Event = () => {
   const [event, setEvent] = useState();
 
   useEffect(() => {
-    requestApi
-      .getAuth(`/events/${params.id}`, userInfo.accessToken)
-      .then((response) => {
-        setEvent(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if(userInfo){
+      requestApi
+        .getAuth(`/events/${params.id}`, userInfo && userInfo.accessToken)
+        .then((response) => {
+          setEvent(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [userInfo]);
+
+  console.log(event)
 
   return (
     <Container>
