@@ -17,6 +17,23 @@ export const ContainerButton = styled.div`
   justify-content: space-between;
   margin-top: 16px;
 
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    span{
+      display: none;
+      font-size: 0.4rem;
+    }
+
+    :hover > span{
+      display: block;
+    }
+  }
+
   button:nth-child(1) {
     border: none;
     color: var(--orange);
