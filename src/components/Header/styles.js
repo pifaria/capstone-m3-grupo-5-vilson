@@ -26,7 +26,7 @@ export const Content = styled.div`
   div {
     display: flex;
     .icon {
-      width: auto;
+      width: 50px;
       height: 30px;
       color: var(--orange);
       cursor: pointer;
