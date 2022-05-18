@@ -159,11 +159,13 @@ export default function Register() {
                 <div className="optionsBox">
                   <RiArrowDropDownLine />
                   <select name="tags" {...register("tags")}>
-                    <option value="casamentos">Casamentos</option>
-                    <option value="ensaios">Ensaios</option>
+                    <option value="marriage">Casamento</option>
+                    <option value="party">Festa</option>
+                    <option value="essay">Ensaio</option>
+                    <option value="children">Ensaio Infantil</option>
                     <option value="newborn">Newborn</option>
-                    <option value="eventos">Eventos</option>
-                    <option value="retratos">Retratos</option>
+                    <option value="fashion">Moda</option>
+                    <option value="publicity">Publicidade</option>
                   </select>
                 </div>
                 <div>
