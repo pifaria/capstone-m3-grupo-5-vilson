@@ -6,15 +6,11 @@ import Event from "../pages/Event";
 import Profile from "../pages/Profile";
 import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
 import { useUserInfo } from "../providers/userInfo";
-import { useEventList } from "../providers/EventList";
-import { usePortfolio } from "../providers/Portfolio";
 
 const Routes = () => {
-  const { getEventList } = useEventList();
-  const { getPortfolio } = usePortfolio();
-  const { userInfo, getUserInfo } = useUserInfo();
+
+  const { getUserInfo } = useUserInfo();
 
   useEffect(() => {
     async function getInitialUserInfo() {
@@ -23,24 +19,6 @@ const Routes = () => {
 
     getInitialUserInfo();
   },[]);
-
-  useEffect(() => {
-    if (!userInfo) {
-      return;
-    }
-
-    async function getInitialStates() {
-      try {
-        await getPortfolio();
-      } catch {
-        toast.error(
-          "Houve um problema com o servidor. Tente Novamente mais tarde."
-        );
-      }
-    }
-
-    getInitialStates();
-  }, [userInfo]);
 
   return (
     <Switch>

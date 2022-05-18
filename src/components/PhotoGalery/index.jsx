@@ -20,13 +20,14 @@ function PhotoGalery() {
   const [newUrl, setNewUrl] = useState("");
 
   useEffect(() => {
+    getPortfolio();
     requestApi
       .get(`/users/${parseInt(params.id)}`)
       .then((response) => {
         setProfileUser(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [userInfo]);
 
   function onDeletePhoto(id) {
     deletePhoto(id);
@@ -38,7 +39,6 @@ function PhotoGalery() {
     addPhoto(inputValue, ()=> {
       setOpenModal(false);
     });
-    getPortfolio();
   }
 
   const bigPicture = (imgUrl) => {
