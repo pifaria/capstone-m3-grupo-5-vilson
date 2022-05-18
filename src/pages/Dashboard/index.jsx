@@ -23,11 +23,11 @@ const Dashboard = () => {
           <div className="container-top">
             <p>Eventos</p>
             <div className="orange-bar"></div>
-            <Button onClick={() => openModal()}>Adicionar</Button>
+            {userInfo.type === "photographer" ? null: <Button onClick={() => openModal()}>Adicionar</Button>}  
           </div>
           <EventList />
         </div>
-        {/* {userInfo.type === "photographer" ? <Budget /> : null} */}
+        
       </main>
     </Container>
   );

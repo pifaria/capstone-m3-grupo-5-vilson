@@ -1,8 +1,5 @@
 import { Container } from "./styles.js";
-import {
-  EventListContext,
-  useEventList,
-} from "../../providers/EventList/index.jsx";
+import {useEventList} from "../../providers/EventList/index.jsx";
 import EventCard from "../EventCard/index.jsx";
 import { useState } from "react";
 import { useUserInfo } from "../../providers/userInfo/index.jsx";
