@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  margin-top: 20px;
 
   @media (min-width: 1024px) {
     margin-left: 10%;
@@ -83,26 +82,44 @@ export const ContentList = styled.ul`
 
   li {
     display: flex;
+    flex-direction: column;
 
     button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: var(--fullblack);
       border: none;
       color: var(--orange);
-      position: absolute;
-      padding: 1px;
+      padding: 4px 0;
+      margin-bottom: 15px;
+      border-radius: 0 0 4px 4px;
+
+      p{
+        display: none;
+        font-size: 0.7rem;
+      }
+
+      :hover{
+        svg{
+          display: none;
+        }
+
+        p{
+          display: block;
+        }
+      }
     }
   }
 
   img {
     height: 100px;
     width: 100px;
-    margin-bottom: 15px;
-    border-radius: 4px;
+    border-radius: 4px 4px 0 0;
   }
 
   @media (min-width: 1024px) {
-    max-height: 600px;
-    overflow-y: scroll;
+
     ::-webkit-scrollbar {
       width: 3px;
     }
@@ -116,12 +133,17 @@ export const ContentList = styled.ul`
       background: var(--orange);
       border-radius: 10px;
     }
-    li {
-      flex-direction: row;
-    }
+    
     img {
-      width: 230px;
-      height: 230px;
+      width: 200px;
+      height: 200px;
+    }
+
+    li{
+      button{
+        margin-bottom: 20px;
+        padding: 10px 0;
+      }
     }
   }
 `;

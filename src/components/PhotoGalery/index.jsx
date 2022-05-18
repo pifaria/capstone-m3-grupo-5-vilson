@@ -79,7 +79,10 @@ function PhotoGalery() {
                     return (
                       <li key={id}>
                         <img src={url} alt="photos" />
-                        <button onClick={() => onDeletePhoto(id)}><AiOutlineCloseCircle/></button>
+                        <button onClick={() => onDeletePhoto(id)}>
+                          <AiOutlineCloseCircle/>
+                          <p>excluir foto</p>
+                        </button>
                       </li>
                     );
                   })}
