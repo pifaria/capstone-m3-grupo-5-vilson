@@ -32,7 +32,6 @@ const Routes = () => {
     async function getInitialStates() {
       try {
         await getPortfolio();
-        await getEventList();
       } catch {
         toast.error(
           "Houve um problema com o servidor. Tente Novamente mais tarde."
