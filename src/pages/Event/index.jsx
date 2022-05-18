@@ -3,57 +3,48 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import PhotographerList from "../../components/PhotographerList";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
 import { formatDate, typeTranslate } from "../../utils";
-import { useEventList } from "../../providers/EventList/index.jsx";
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
 import { useUserInfo } from "../../providers/userInfo";
 import { Redirect } from "react-router-dom";
+import requestApi from "../../services/API";
 
 const Event = () => {
   const params = useParams();
-  const { isAuthenticated } = useUserInfo();
-  const [userList, setUserList] = useState([]);
+  const { userInfo, isAuthenticated } = useUserInfo();
+  const [event, setEvent] = useState();
 
   useEffect(() => {
-    axios
-      .get("https://clickfinder-json-server.herokuapp.com/users")
+    requestApi
+      .getAuth(`/events/${params.id}`, userInfo.accessToken)
       .then((response) => {
-        setUserList(response.data);
+        setEvent(response.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const { eventsList } = useEventList();
-  const found = eventsList.find((event) => {
-    return event.id === parseInt(params.id);
-  });
-
-  const formatedDate =  formatDate(found.date)
 
   return (
     <Container>
-      {!isAuthenticated && <Redirect to="/"/>}
-      <Header
-        placeholder="Pesquisar tag"
-      />
+      {!isAuthenticated && <Redirect to="/" />}
+      <Header placeholder="Pesquisar tag" />
       <Content>
-        <PhotographerList/>
+        <PhotographerList eventData={event}/>
         <EventinfoCard>
-          <h1>{found && found.title}</h1>
+          <h1>{event && event.title}</h1>
           <div className="divider1"></div>
-          <h3>{found && typeTranslate(found.type)}</h3>
-          <p>{found && found.description}</p>
+          <h3>{event && typeTranslate(event.type)}</h3>
+          <p>{event && event.description}</p>
           <div className="divider2"></div>
           <div className="infos">
             <div className="local-date">
               <HiOutlineCalendar className="icon" />
-              <h5>{found && formatedDate}</h5>
+              <h5>{event && formatDate(event.date)}</h5>
             </div>
             <div className="local-date">
               <HiOutlineLocationMarker className="icon" />
-              <h5>{found && found.states}</h5>
+              <h5>{event && event.states}</h5>
             </div>
           </div>
 
@@ -61,7 +52,10 @@ const Event = () => {
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
             <h2>
-              {found && parseInt(found.budget.replace(".", "")).toFixed(2).replace(".", ",")}
+              {event &&
+                parseInt(event.budget.replace(".", ""))
+                  .toFixed(2)
+                  .replace(".", ",")}
             </h2>
           </div>
         </EventinfoCard>

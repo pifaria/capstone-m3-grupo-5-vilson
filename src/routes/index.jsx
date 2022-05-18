@@ -6,14 +6,12 @@ import Event from "../pages/Event";
 import Profile from "../pages/Profile";
 import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
-import { usePhotographerList } from "../providers/PhotographerList";
 import { toast } from "react-toastify";
 import { useUserInfo } from "../providers/userInfo";
 import { useEventList } from "../providers/EventList";
 import { usePortfolio } from "../providers/Portfolio";
 
 const Routes = () => {
-  const { getPhotographers } = usePhotographerList();
   const { getEventList } = useEventList();
   const { getPortfolio } = usePortfolio();
   const { userInfo, getUserInfo } = useUserInfo();
@@ -34,7 +32,6 @@ const Routes = () => {
     async function getInitialStates() {
       try {
         await getPortfolio();
-        await getPhotographers();
         await getEventList();
       } catch {
         toast.error(

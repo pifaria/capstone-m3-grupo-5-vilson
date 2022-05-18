@@ -6,21 +6,28 @@ const PhotographerListContext = createContext();
 export const PhotographerListProvider = ({ children }) => {
   const [photographerList, setPhotographerList] = useState([]);
 
-  const filterPhotographers = (filter) => {
-    return photographerList.filter(photographer => photographer.tags === filter);
-  }
+  const getPhotographers = async (params = {}) => {
+    const {type: tags} = params;
 
-  const getPhotographers = async () => {
-    const { data } = await requestApi.get("/users?type=photographer");
+    params.type = "photographer";
+
+    console.log({...params, tags})
+
+    const { data } = await requestApi.get("/users", {
+      params: {...params, tags},
+    });
 
     setPhotographerList(data);
 
-    return data
-  }
+    return data;
+  };
 
   return (
     <PhotographerListContext.Provider
-      value={{ photographerList, filterPhotographers, getPhotographers }}
+      value={{
+        photographerList,
+        getPhotographers,
+      }}
     >
       {children}
     </PhotographerListContext.Provider>
