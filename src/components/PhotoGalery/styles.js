@@ -14,21 +14,25 @@ export const Container = styled.div`
 export const ContainerButton = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 20px;
-  align-self: center;
+  width: 100%;
+  justify-content: space-between;
 
   button:nth-child(1) {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid 1px var(--orange);
+    border: none;
     color: var(--orange);
     background-color: transparent;
   }
 
+  svg:hover{
+    background-color: var(--orange);
+    color: var(--black);
+    border-radius: 100%;
+  }
+
+
   .orange-bar {
     height: 2px;
-    width: 170px;
+    width: 70%;
     background-color: var(--orange);
   }
 
@@ -50,8 +54,7 @@ export const ContainerButton = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: center;
-  height: 200px;
-  overflow-y: scroll;
+  
   ::-webkit-scrollbar {
     width: 3px;
   }
@@ -75,16 +78,25 @@ export const Content = styled.div`
 export const ContentList = styled.ul`
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: space-around;
   flex-wrap: wrap;
 
   li {
     display: flex;
+
+    button{
+      background-color: var(--fullblack);
+      border: none;
+      color: var(--orange);
+      position: absolute;
+      padding: 1px;
+    }
   }
 
   img {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 15px;
     border-radius: 4px;
   }
 
