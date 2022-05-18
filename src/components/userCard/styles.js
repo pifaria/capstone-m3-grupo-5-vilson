@@ -42,13 +42,17 @@ export const Container = styled.aside`
     border: solid 1px var(--orange);
     background-color: black;
   }
-
+  
   @media (min-width: 900px) {
-    width: 300px;
     section{
+      width: 220px;
       align-items: center;
-    }
 
+      p{
+        font-size: 0.5rem;
+      }
+    }
+    
     div {
       flex-direction: column;
       justify-content: space-around;
@@ -58,7 +62,9 @@ export const Container = styled.aside`
     img {
       width: 150px;
       height: 150px;
+      margin-bottom: 16px;
     }
+
 
     p + p {
       margin-bottom: 20px;
