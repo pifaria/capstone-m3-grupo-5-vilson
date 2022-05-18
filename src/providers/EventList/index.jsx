@@ -19,12 +19,17 @@ export const EventListProvider = ({ children }) => {
   //Filtra os eventos que possuem o usuário logado na lista de fotógrafos
   //e que não foram recusados pelo usuário.
   function photographerFilter(data) {
-    return data.filter(
-      (event) =>
-        (event.public === "true" ||
-          event.photographers?.find((user) => user.id === id)) &&
-        !userInfo.refusedEvents?.includes(event.id)
-    );
+    return data.filter((event) => {
+      const canSee =
+        event.public === "true" ||
+        event.photographers?.find((userId) => userId === id);
+
+      const isRefused = userInfo.refusedEvents?.includes(event.id);
+
+      const recomended = event.states === userInfo.states && event.type === userInfo.tags
+
+      return canSee && !isRefused && recomended
+    });
   }
 
   //Adiciona um novo evento à lista de eventos da API,

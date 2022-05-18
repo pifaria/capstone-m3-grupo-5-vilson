@@ -1,18 +1,59 @@
 import Button from "../Button";
 import { Container, Content } from "./styles";
-import { HiOutlineCamera } from "react-icons/hi";
+import { HiOutlineCamera, HiBadgeCheck } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import requestApi from "../../services/API";
+import { useUserInfo } from "../../providers/userInfo";
 
-const PhotographerCard = ({ info }) => {
+const PhotographerCard = ({ info, event }) => {
   const history = useHistory();
+  const { userInfo } = useUserInfo();
+  const [foundEvent, setFoundEvent] = useState([]);
+  const [invited, setInvited] = useState(false)
+
+  useEffect(() => {
+    if(!event){
+      return 
+    }
+    requestApi
+      .getAuth(`/events/${event.id}`, userInfo && userInfo.accessToken)
+      .then((response) => {
+        setFoundEvent(response.data);
+        if (event.photographers.includes(info.id)) {
+          setInvited(true);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [event]);
+
+  const addPhotographerToEvent = () => {
+    if (event.photographers) {
+      if (event.photographers.includes(info.id)) {
+        console.log("ja foi solicitado");
+      } else {
+        requestApi.patchAuth(
+          `/events/${event.id}`,
+          { photographers: [...event.photographers, info.id] },
+          userInfo.accessToken
+        ).then(()=>setInvited(true));
+      }
+    } else {
+      requestApi.patchAuth(
+        `/events/${event.id}`,
+        { photographers: [info.id] },
+        userInfo.accessToken
+      ).then(()=>setInvited(true));
+    }
+  };
+
+
   return (
     <Container>
       <Content>
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
-        </label>
-        <img src={info.avatar} alt="Foto de perfil"/>
+        {invited ? (<><HiBadgeCheck/></>): null}
+        <img src={info.avatar} alt="Foto de perfil" />
         <h4>{info.name}</h4>
         <div className="profile">
           <HiOutlineCamera className="icon" />
@@ -21,7 +62,9 @@ const PhotographerCard = ({ info }) => {
           </h3>
         </div>
         <div className="buttons">
-          <Button>Solicitar orçamento</Button>
+          <Button onClick={() => addPhotographerToEvent()}>
+            Solicitar orçamento
+          </Button>
         </div>
       </Content>
     </Container>
