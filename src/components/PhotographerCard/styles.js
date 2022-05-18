@@ -14,8 +14,6 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 90%;
 
   img {
     height: 63px;

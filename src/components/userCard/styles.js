@@ -56,8 +56,8 @@ export const Container = styled.aside`
     }
 
     img {
-      width: 220px;
-      height: 220px;
+      width: 150px;
+      height: 150px;
     }
 
     p + p {

@@ -15,6 +15,7 @@ export const ContainerButton = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  margin-top: 16px;
 
   button:nth-child(1) {
     border: none;
@@ -40,6 +41,8 @@ export const ContainerButton = styled.div`
   }
 
   @media (min-width: 1024px) {
+    margin-top: 0;
+
     p {
       font-size: 2rem;
     }
