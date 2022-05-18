@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import { usePortfolio } from "../../providers/Portfolio";
 import { useUserInfo } from "../../providers/userInfo";
+import PhotoModal from "../PhotoModal";
 
 function PhotoGalery() {
   const params = useParams();
@@ -15,9 +16,8 @@ function PhotoGalery() {
   const { addPhoto, deletePhoto } = usePortfolio();
 
   const { userInfo } = useUserInfo();
-
-  console.log(userInfo);
-  console.log(profileUser);
+  const [maximizeEvent, setMaximizeEvent] = useState(false);
+  const [newUrl, setNewUrl] = useState("");
 
   useEffect(() => {
     axios
@@ -42,61 +42,122 @@ function PhotoGalery() {
     addPhoto(inputValue);
   }
 
-  return (
-    <Container>
-      {userInfo.id === profileUser.id ? (
-        <>
-          <ContainerButton>
-            <button onClick={() => setOpenModal(true)}>+</button>
-            <div className="orange-bar"></div>
-            <p>Portfólio</p>
-          </ContainerButton>
-        </>
-      ) : (
-        <>
-          <ContainerButton>
-            <div className="orange-bar"></div>
-            <p>Portfólio</p>
-          </ContainerButton>
-        </>
-      )}
-      <Content>
-        <ContentList>
-          {userInfo.id === profileUser.id ? (
-            <>
-              {profileUser.portfolio &&
-                profileUser.portfolio.map(({ id, url }) => {
-                  return (
-                    <li key={id}>
-                      <img src={url} alt="photo" />
-                      <button onClick={() => onDeletePhoto(id)}>x</button>
-                    </li>
-                  );
-                })}
-            </>
-          ) : (
-            <>
-              {profileUser.portfolio &&
-                profileUser.portfolio.map(({ id, url }) => {
-                  return (
-                    <li key={id}>
-                      <img src={url} alt="photo" />
-                    </li>
-                  );
-                })}
-            </>
-          )}
-        </ContentList>
+  const bigPicture = (imgUrl) => {
+    setMaximizeEvent(true);
+    setNewUrl(imgUrl);
+  };
 
-        <Modal isOpen={openModal}>
-          <form onSubmit={onSendPhoto}>
-            <input onChange={({ target: { value } }) => setInputValue(value)} />
-            <button type="submit">Enviar</button>
-          </form>
-          <button onClick={() => setOpenModal(false)}>X</button>
-        </Modal>
-      </Content>
-    </Container>
+  return (
+    <>
+      {maximizeEvent && (
+        <PhotoModal newUrl={newUrl} setMaximizeEvent={setMaximizeEvent} />
+      )}
+      <Container>
+        {userInfo.id === profileUser.id ? (
+          <>
+            <ContainerButton>
+              <button onClick={() => setOpenModal(true)}>+</button>
+              <div className="orange-bar"></div>
+              <p>Portfólio</p>
+            </ContainerButton>
+          </>
+        ) : (
+          <>
+            <ContainerButton>
+              <div className="orange-bar"></div>
+              <p>Portfólio</p>
+            </ContainerButton>
+          </>
+        )}
+        <Content>
+          <ContentList>
+            {userInfo.id === profileUser.id ? (
+              <>
+                {profileUser.portfolio &&
+                  profileUser.portfolio.map(({ id, url }) => {
+                    return (
+                      <li key={id}>
+                        <img src={url} alt="photo" />
+                        <button onClick={() => onDeletePhoto(id)}>x</button>
+                      </li>
+                    );
+                  })}
+              </>
+            ) : (
+              <>
+                {profileUser.portfolio &&
+                  profileUser.portfolio.map(({ id, url }) => {
+                    return (
+                      <>
+                        <li key={id}>
+                          <img
+                            src={url}
+                            alt="event"
+                            onClick={() => bigPicture(url)}
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                            onClick={() =>
+                              bigPicture(
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                              )
+                            }
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Taj_Mahal_N-UP-A28-a.jpg/1200px-Taj_Mahal_N-UP-A28-a.jpg"
+                            alt="taj"
+                          />
+                        </li>
+                      </>
+                    );
+                  })}
+              </>
+            )}
+          </ContentList>
+
+          <Modal isOpen={openModal}>
+            <form onSubmit={onSendPhoto}>
+              <input
+                onChange={({ target: { value } }) => setInputValue(value)}
+              />
+              <button type="submit">Enviar</button>
+            </form>
+            <button onClick={() => setOpenModal(false)}>X</button>
+          </Modal>
+        </Content>
+      </Container>
+    </>
   );
 }
 
