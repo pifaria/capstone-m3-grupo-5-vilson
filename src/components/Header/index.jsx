@@ -17,6 +17,11 @@ const Header = ({ placeholder }) => {
     return history.push(`/profiles/${userInfo.id}`)
   }
 
+  const handleLogout = () => {
+    eraseUserInfo()
+    return history.push("/")
+  }
+
   return (
     <Container>
       <Content>
@@ -24,7 +29,7 @@ const Header = ({ placeholder }) => {
         <HeaderInput placeholder={placeholder} />
         <div>
           <HiOutlineUserCircle className="icon" onClick={handleRedirectProfile}/>
-          <HiLogout className="icon" onClick={() => eraseUserInfo()} />
+          <HiLogout className="icon" onClick={handleLogout} />
         </div>
       </Content>
     </Container>

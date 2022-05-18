@@ -5,12 +5,11 @@ import Header from "../../components/Header";
 import PhotoGalery from "../../components/PhotoGalery";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useUserInfo } from "../../providers/userInfo/index.jsx";
 
 const Profile = () => {
   const params = useParams();
   const [user, setUser] = useState({});
-  const { isAuthenticated } = useUserInfo();
+
 
   useEffect(() => {
     axios
@@ -27,7 +26,6 @@ const Profile = () => {
 
   return (
     <Container>
-      {!isAuthenticated && <Redirect to="/" />}
       {user.type === "photographer" ? (
         <>
           <Header placeholder="Pesquisar fotógrafo"/>

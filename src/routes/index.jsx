@@ -7,10 +7,11 @@ import Profile from "../pages/Profile";
 import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import { useUserInfo } from "../providers/userInfo";
+import { Redirect } from "react-router-dom";
 
 const Routes = () => {
 
-  const { getUserInfo } = useUserInfo();
+  const { getUserInfo,isAuthenticated } = useUserInfo();
 
   useEffect(() => {
     async function getInitialUserInfo() {
@@ -20,21 +21,26 @@ const Routes = () => {
     getInitialUserInfo();
   },[]);
 
+
   return (
     <Switch>
       <Route exact path="/">
         <LandingPage />
       </Route>
       <Route path="/signup">
+      {isAuthenticated && <Redirect to="/dashboard" />}
         <Register />
       </Route>
       <Route path="/login">
+      {isAuthenticated && <Redirect to="/dashboard" />}
         <Login />
       </Route>
       <Route path="/dashboard">
+      {!isAuthenticated && <Redirect to="/" />}
         <Dashboard />
       </Route>
       <Route path="/events/:id">
+      {!isAuthenticated && <Redirect to="/" />}
         <Event />
       </Route>
       <Route path="/profiles/:id">

@@ -7,12 +7,11 @@ import real_brasileiro from "../../assets/real_brasileiro.svg";
 import { formatDate, typeTranslate } from "../../utils";
 import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
 import { useUserInfo } from "../../providers/userInfo";
-import { Redirect } from "react-router-dom";
 import requestApi from "../../services/API";
 
 const Event = () => {
   const params = useParams();
-  const { userInfo, isAuthenticated } = useUserInfo();
+  const { userInfo } = useUserInfo();
   const [event, setEvent] = useState();
 
   useEffect(() => {
@@ -24,10 +23,8 @@ const Event = () => {
       .catch((err) => console.log(err));
   }, []);
 
-
   return (
     <Container>
-      {!isAuthenticated && <Redirect to="/" />}
       <Header placeholder="Pesquisar tag" />
       <Content>
         <PhotographerList eventData={event}/>
