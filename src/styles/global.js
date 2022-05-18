@@ -39,16 +39,30 @@ export default createGlobalStyle`
     a{
         text-decoration: none;
     }
-`
+`;
 export const customStyles = {
-    content: {
-      padding: "0px",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      borderRadius: "5px"
-    },
+  content: {
+    padding: "0px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "5px",
+  },
+};
+
+export const galeryModalStyles = {
+  content: {
+    width: "300px",
+    padding: "0px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "5px",
+  },
 };
