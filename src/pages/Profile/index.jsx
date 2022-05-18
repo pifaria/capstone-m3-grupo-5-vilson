@@ -4,16 +4,15 @@ import UserCard from "../../components/userCard";
 import Header from "../../components/Header";
 import PhotoGalery from "../../components/PhotoGalery";
 import axios from "axios";
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 import { useUserInfo } from "../../providers/userInfo/index.jsx";
 
 const Profile = () => {
   const params = useParams();
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
   const { isAuthenticated } = useUserInfo();
 
   useEffect(() => {
-    
     axios
       .get(
         `https://clickfinder-json-server.herokuapp.com/users/${parseInt(
@@ -26,17 +25,29 @@ const Profile = () => {
       .catch((err) => console.log(err));
   }, []);
 
-
   return (
     <Container>
-       {!isAuthenticated && <Redirect to="/" />}
-      <Header />
-      <Box>
-        <Content>
-          <UserCard user={user} />
-          <PhotoGalery />
-        </Content>
-      </Box>
+      {!isAuthenticated && <Redirect to="/" />}
+      {user.type === "photographer" ? (
+        <>
+          <Header />
+          <Box>
+            <Content>
+              <UserCard user={user} />
+              <PhotoGalery />
+            </Content>
+          </Box>
+        </>
+      ) : (
+        <>
+          <Header />
+          <Box>
+            <Content>
+              <UserCard user={user} />
+            </Content>
+          </Box>
+        </>
+      )}
     </Container>
   );
 };
