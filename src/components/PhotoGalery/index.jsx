@@ -8,6 +8,8 @@ import { useUserInfo } from "../../providers/userInfo";
 import requestApi from "../../services/API";
 import { BsPlusCircle } from 'react-icons/bs'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { customStyles } from "../../styles/global"
+import GaleryModal from "../GaleryModal";
 
 function PhotoGalery() {
   const params = useParams();
@@ -105,14 +107,8 @@ function PhotoGalery() {
             )}
           </ContentList>
 
-          <Modal isOpen={openModal}>
-            <form onSubmit={onSendPhoto}>
-              <input
-                onChange={({ target: { value } }) => setInputValue(value)}
-              />
-              <button type="submit">Enviar</button>
-            </form>
-            <button onClick={() => setOpenModal(false)}>X</button>
+          <Modal isOpen={openModal} style={customStyles}>
+            <GaleryModal onSendPhoto={onSendPhoto} setInputValue={setInputValue} setOpenModal={setOpenModal} />
           </Modal>
         </Content>
       </Container>
