@@ -1,10 +1,6 @@
 import { Container } from "./styles.js";
-import {
-  EventListContext,
-  useEventList,
-} from "../../providers/EventList/index.jsx";
+import {useEventList} from "../../providers/EventList/index.jsx";
 import EventCard from "../EventCard/index.jsx";
-import { useContext } from "react";
 
 const EventList = () => {
   const { eventsList } = useEventList();
