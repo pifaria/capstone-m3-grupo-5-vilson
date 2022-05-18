@@ -21,7 +21,7 @@ export const Content = styled.div`
     height: 63px;
     width: 65px;
     border-radius: 50px;
-    border: 1.39264px solid var(--orange);
+    border: 2 solid var(--orange);
   }
 
   h4 {

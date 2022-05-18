@@ -40,12 +40,8 @@ export const ContainerButton = styled.div`
   }
 
   @media (min-width: 1024px) {
-    .orange-bar {
-      width: 480px;
-    }
-
     p {
-      font-size: 40px;
+      font-size: 2rem;
     }
   }
 `;
@@ -116,6 +112,11 @@ export const ContentList = styled.ul`
     height: 100px;
     width: 100px;
     border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    
+    :hover{
+      border: 1px solid var(--orange);
+    }
   }
 
   @media (min-width: 1024px) {
@@ -140,6 +141,7 @@ export const ContentList = styled.ul`
     }
 
     li{
+
       button{
         margin-bottom: 20px;
         padding: 10px 0;
