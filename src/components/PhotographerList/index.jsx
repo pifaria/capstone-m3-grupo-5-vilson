@@ -20,7 +20,7 @@ const PhotographerList = ({ eventData }) => {
     <Container>
       {photographerList.length > 0 &&
         photographerList.map((photographer, index) => {
-          return <PhotographerCard key={index} info={photographer} />;
+          return <PhotographerCard key={index} info={photographer} event={eventData} />;
         })}
     </Container>
   );
