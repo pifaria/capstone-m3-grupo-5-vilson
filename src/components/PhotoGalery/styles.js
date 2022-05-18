@@ -76,9 +76,10 @@ export const Content = styled.div`
 export const ContentList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-
+  width: 100%;
+  
   li {
     display: flex;
     flex-direction: column;

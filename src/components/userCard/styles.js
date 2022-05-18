@@ -13,6 +13,11 @@ export const Container = styled.aside`
     justify-content: space-evenly;
     width: 100%;
     padding: 20px 10px;
+
+    h1{
+      border-bottom: 1px solid var(--orange);
+      padding-bottom: 5px;
+    }
     
     div{
       width: 80%;
