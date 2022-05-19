@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { usePortfolio } from "../../providers/Portfolio";
 import { useUserInfo } from "../../providers/userInfo";
 import requestApi from "../../services/API";
-import { BsPlusCircle } from 'react-icons/bs'
-import { AiOutlineCloseCircle } from 'react-icons/ai'
-import { customStyles } from "../../styles/global"
+import { BsPlusCircle } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { customStyles } from "../../styles/global";
 import GaleryModal from "../GaleryModal";
 
 function PhotoGalery() {
@@ -40,7 +40,7 @@ function PhotoGalery() {
   function onSendPhoto(event) {
     event.preventDefault();
 
-    addPhoto(inputValue, ()=> {
+    addPhoto(inputValue, () => {
       setOpenModal(false);
     });
   }
@@ -60,7 +60,9 @@ function PhotoGalery() {
           <>
             <ContainerButton>
               <div>
-                <button onClick={() => setOpenModal(true)}><BsPlusCircle size={20}/></button>
+                <button onClick={() => setOpenModal(true)}>
+                  <BsPlusCircle size={20} />
+                </button>
                 <span>Adicionar foto</span>
               </div>
               <div className="orange-bar"></div>
@@ -77,15 +79,24 @@ function PhotoGalery() {
         )}
         <Content>
           <ContentList>
+            {(!userInfo || portfolio?.length === 0) && (
+              <span>
+                Não há nenhuma foto no seu portifólio. Mostre-nos seu trabalho!
+              </span>
+            )}
             {userInfo.id === profileUser.id ? (
               <>
                 {portfolio &&
                   portfolio.map(({ id, url }) => {
                     return (
                       <li key={id}>
-                        <img src={url} alt="photos" onClick={() => bigPicture(url)} />
+                        <img
+                          src={url}
+                          alt="photos"
+                          onClick={() => bigPicture(url)}
+                        />
                         <button onClick={() => onDeletePhoto(id)}>
-                          <AiOutlineCloseCircle/>
+                          <AiOutlineCloseCircle />
                           <p>excluir foto</p>
                         </button>
                       </li>
@@ -111,7 +122,11 @@ function PhotoGalery() {
           </ContentList>
 
           <Modal isOpen={openModal} style={customStyles}>
-            <GaleryModal onSendPhoto={onSendPhoto} setInputValue={setInputValue} setOpenModal={setOpenModal} />
+            <GaleryModal
+              onSendPhoto={onSendPhoto}
+              setInputValue={setInputValue}
+              setOpenModal={setOpenModal}
+            />
           </Modal>
         </Content>
       </Container>
