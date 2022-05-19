@@ -18,6 +18,8 @@ const EventCard = ({ event }) => {
     if(userInfo && event.photographers){
       setIsSolicited(event.photographers.includes(userInfo.id))
     }
+
+    console.log(event);
   }, [userInfo])
 
   return (
@@ -101,7 +103,7 @@ const EventCard = ({ event }) => {
                 {isSolicited ? (<div className="solicitation"><h4>Você foi solicitado</h4><HiExclamationCircle /></div>) : null}
                 </div>
               )}
-            <Button beigeSchema onClick={() =>{refuseEvent(event.id)}}>
+            <Button beigeSchema onClick={() =>{refuseEvent(event.hash, event.id)}}>
               Recusar evento
             </Button>
           </>
