@@ -30,7 +30,7 @@ export const PortfolioProvider = ({ children }) => {
       toast.success("Foto cadastrada com sucesso!");
       onSuccess && onSuccess();
     } catch {
-      toast.success("Houve um erro ao cadastrar a foto.")
+      toast.error("Houve um erro ao cadastrar a foto.")
       onFail && onFail();
     }
   };

@@ -1,6 +1,5 @@
 export const formatDate = (dateString) => {
-  const array = dateString.split("-")
-  return `${array[2]}/${array[1]}/${array[0]}`
+  return new Date(dateString).toLocaleDateString()
 }
 
 export const numberFormatter = (number) =>
