@@ -1,6 +1,6 @@
 import Button from "../Button";
 import { Container, Content } from "./styles";
-import { HiOutlineCamera, HiBadgeCheck } from "react-icons/hi";
+import { HiOutlineCamera, HiBadgeCheck, HiOutlineBan } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -11,11 +11,11 @@ const PhotographerCard = ({ info, event }) => {
   const history = useHistory();
   const { userInfo } = useUserInfo();
   const [foundEvent, setFoundEvent] = useState([]);
-  const [invited, setInvited] = useState(false)
+  const [invited, setInvited] = useState(false);
 
   useEffect(() => {
-    if(!event){
-      return 
+    if (!event) {
+      return;
     }
     requestApi
       .getAuth(`/events/${event.id}`, userInfo && userInfo.accessToken)
@@ -33,20 +33,25 @@ const PhotographerCard = ({ info, event }) => {
       if (event.photographers.includes(info.id)) {
         console.log("ja foi solicitado");
       } else {
-        requestApi.patchAuth(
-          `/events/${event.id}`,
-          { photographers: [...event.photographers, info.id] },
-          userInfo.accessToken
-        ).then(()=>setInvited(true));
+        requestApi
+          .patchAuth(
+            `/events/${event.id}`,
+            { photographers: [...event.photographers, info.id] },
+            userInfo.accessToken
+          )
+          .then(() => setInvited(true));
       }
     } else {
-      requestApi.patchAuth(
-        `/events/${event.id}`,
-        { photographers: [info.id] },
-        userInfo.accessToken
-      ).then(()=>setInvited(true));
+      requestApi
+        .patchAuth(
+          `/events/${event.id}`,
+          { photographers: [info.id] },
+          userInfo.accessToken
+        )
+        .then(() => setInvited(true));
     }
   };
+
 
 
   return (
@@ -61,15 +66,28 @@ const PhotographerCard = ({ info, event }) => {
           </h3>
         </div>
         <div className="buttons">
-        {invited ? 
-        (<div className="solicitation">Orçamento solicitado 
-        <HiBadgeCheck className="icon"/>
-        </div>)
-        : ( 
-        <Button onClick={() => addPhotographerToEvent()}>
-            Solicitar orçamento
-          </Button>)}
-         
+          {info.refusedEvents ? (
+            <>
+              <div className="solicitation">
+                <h5>Orçamento recusado</h5>
+                <HiOutlineBan className="icon" />
+              </div>
+              
+            </>
+          ) : (
+            <>
+              {invited ? (
+                <div className="solicitation">
+                  Orçamento solicitado
+                  <HiBadgeCheck className="icon" />
+                </div>
+              ) : (
+                <Button onClick={() => addPhotographerToEvent()}>
+                  Solicitar orçamento
+                </Button>
+              )}
+            </>
+          )}
         </div>
       </Content>
     </Container>
