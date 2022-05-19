@@ -47,3 +47,33 @@ export const typeTranslate = (type) => {
   }
   return response
 }
+
+export const typeTranslateToPT = (type) => {
+  let response = "any"
+  switch (type) {
+    case "Casamento":
+      response = "marriage"
+      break;
+    case "Festa":
+      response = "party"
+      break;
+    case "Ensaio":
+      response = "essay"
+      break;
+    case "Ensaio infantil":
+      response = "children"
+      break;
+    case "Ensaio de recém-nascido":
+      response = "newborn"
+      break;
+    case "Moda":
+      response = "fashion"
+      break;
+    case "Publicidade":
+      response = "publicity"
+      break;
+    default:
+      break;
+  }
+  return response
+}
