@@ -2,11 +2,10 @@ import React from "react";
 import { typeTranslate } from "../../utils";
 import Button from "../Button";
 import { Container } from "./styles";
-import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai"
-import { HiOutlineLocationMarker } from 'react-icons/hi'
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function UserCard({ user }) {
-
   return (
     <Container>
       {user.type === "photographer" ? (
@@ -18,25 +17,26 @@ export default function UserCard({ user }) {
           <div className="div-flex">
             <article>{user.bio}</article>
           </div>
-          
-          <h4>Especialidade - <span>{typeTranslate(user.tags)}</span></h4>
+
+          <h4>
+            Especialidade - <span>{typeTranslate(user.tags)}</span>
+          </h4>
 
           <label>Informações disponíveis</label>
           <div className="div-informations">
             <p>
-              <AiOutlineMail/>
+              <AiOutlineMail />
               Email - <span>{user.email}</span>
             </p>
             <p>
-              <AiOutlinePhone/>
+              <AiOutlinePhone />
               Contato - <span>{user.number}</span>
             </p>
             <p>
-              <HiOutlineLocationMarker/>
+              <HiOutlineLocationMarker />
               Estado - <span>{user.states}</span>
             </p>
           </div>
-         
         </section>
       ) : (
         <section>
@@ -47,15 +47,15 @@ export default function UserCard({ user }) {
           <label>Informações disponíveis</label>
           <div className="div-informations">
             <p>
-              <AiOutlineMail/>
+              <AiOutlineMail />
               Email - <span>{user.email}</span>
             </p>
             <p>
-              <AiOutlinePhone/>
+              <AiOutlinePhone />
               Contato - <span>{user.number}</span>
             </p>
             <p>
-              <HiOutlineLocationMarker/>
+              <HiOutlineLocationMarker />
               Estado - <span>{user.states}</span>
             </p>
           </div>
