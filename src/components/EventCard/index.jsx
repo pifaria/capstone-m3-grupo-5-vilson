@@ -99,7 +99,7 @@ const EventCard = ({ event }) => {
                 {isSolicited ? (<div className="solicitation"><h4>Você foi solicitado</h4><HiExclamationCircle /></div>) : null}
                 </div>
               )}
-            <Button beigeSchema onClick={() => refuseEvent(event.id)}>
+            <Button beigeSchema onClick={() =>{refuseEvent(event.id)}}>
               Recusar evento
             </Button>
           </>
