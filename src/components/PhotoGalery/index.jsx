@@ -79,13 +79,14 @@ function PhotoGalery() {
         )}
         <Content>
           <ContentList>
-            {(!userInfo || portfolio?.length === 0) && (
-              <span>
-                Não há nenhuma foto no seu portifólio. Mostre-nos seu trabalho!
-              </span>
-            )}
             {userInfo.id === profileUser.id ? (
               <>
+                {portfolio?.length === 0 && (
+                  <span>
+                    Você ainda não cadastrou nenhuma foto. Mostre-nos seu
+                    trabalho!
+                  </span>
+                )}
                 {portfolio &&
                   portfolio.map(({ id, url }) => {
                     return (
@@ -105,6 +106,9 @@ function PhotoGalery() {
               </>
             ) : (
               <>
+                {(!profileUser.portfolio || profileUser.portfolio.length === 0) && (
+                  <span>Este usuário ainda não cadastrou nenhuma foto</span>
+                )}
                 {profileUser.portfolio &&
                   profileUser.portfolio.map(({ id, url }) => {
                     return (
