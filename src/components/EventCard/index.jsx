@@ -24,6 +24,9 @@ const EventCard = ({ event }) => {
     }
   }, [userInfo]);
 
+    console.log(event);
+  }, [userInfo])
+
   return (
     <Container>
       <Content>
