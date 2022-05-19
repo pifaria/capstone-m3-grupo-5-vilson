@@ -35,7 +35,7 @@ const Event = () => {
     <Container>
       <Header placeholder="Pesquisar tag" />
       <Content>
-          <PhotographerList eventData={event} />
+        <PhotographerList eventData={event} />
         <EventinfoCard>
           <h1>{event && event.title}</h1>
           <div className="divider1"></div>
