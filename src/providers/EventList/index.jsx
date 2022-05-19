@@ -21,7 +21,7 @@ export const EventListProvider = ({ children }) => {
   function photographerFilter(data) {
     return data.filter((event) => {
       const canSee =
-        event.public === "true" ||
+        event.public === true ||
         event.photographers?.find((userId) => userId === id);
 
       const isRefused = userInfo.refusedEvents?.includes(event.id);

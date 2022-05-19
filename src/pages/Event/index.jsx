@@ -51,7 +51,7 @@ const Event = () => {
             </div>
           </div>
           <div className="local-date">
-          {event && event.public==="true"? 
+          {event && event.public? 
           (<> 
             <HiOutlineEye className="icon"/> 
             <h5>Visível</h5> 
@@ -65,10 +65,10 @@ const Event = () => {
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
             <h2>
-              {event &&
+              {/* {event &&
                 parseInt(event.budget.replace(".", ""))
                   .toFixed(2)
-                  .replace(".", ",")}
+                  .replace(".", ",")} */}
             </h2>
           </div> 
         </EventinfoCard>

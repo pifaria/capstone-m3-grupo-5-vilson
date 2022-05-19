@@ -45,15 +45,15 @@ const EventCard = ({ event }) => {
             <h4>Local: {event.states}</h4>
 
             <div className="local-date">
-              {event.public === "true" ? (
+              {event.public ? (
                 <>
                   <HiOutlineEye className="icon" />
-                  <h5>Visível</h5>
+                  <h5>Visível para todos</h5>
                 </>
               ) : (
                 <>
                   <HiOutlineEyeOff className="icon" />
-                  <h5>Privado</h5>
+                  <h5>Apenas convidados</h5>
                 </>
               )}
             </div>
@@ -67,7 +67,6 @@ const EventCard = ({ event }) => {
             <div className="div-switchToggle">
               <h4>Orçamento enviado</h4>
               <label className="switch">
-                <h4>teste</h4>
                 <input type="checkbox" />
                 <span className="slider round"></span>
               </label>
@@ -85,16 +84,19 @@ const EventCard = ({ event }) => {
             <h4>Contato: {event.userInfos.number}</h4>
             <h4>E-mail: {event.userInfos.email}</h4>
 
-            {event.public === "true" ? (
+            {event.public ? (
+              <>
                 <div className="local-date">
                   <HiOutlineEye className="icon" />
-                  <h5>Visível</h5>
+                  <h5>Visível para todos</h5>
                 </div>
+                 {isSolicited ? (<div className="solicitation"><h4>Você foi solicitado</h4><HiExclamationCircle /></div>) : null}
+                 </>
               ) : (
                 <div className="div-end">
                 <div className="local-date">
                   <HiOutlineEyeOff className="icon" />
-                  <h5>Privado</h5>
+                  <h5>Apenas convidados</h5>
                 </div>
                 {isSolicited ? (<div className="solicitation"><h4>Você foi solicitado</h4><HiExclamationCircle /></div>) : null}
                 </div>
