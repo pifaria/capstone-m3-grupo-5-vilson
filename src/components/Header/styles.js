@@ -23,10 +23,23 @@ export const Content = styled.div`
     cursor: pointer;
   }
 
-  div {
+  section {
     display: flex;
+
+    div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+
+      span{
+        font-size: 0.5rem;
+      }
+    }
+
     .icon {
-      width: auto;
+      width: 50px;
       height: 30px;
       color: var(--orange);
       cursor: pointer;
@@ -40,6 +53,19 @@ export const Content = styled.div`
     img{
       width: auto;
       height: 50px;
+    }
+
+    section{
+      div{
+        span{
+          font-size: 0.5rem;
+          display: none;
+        }
+
+        :hover > span{
+          display: block;
+        }
+      }
     }
   }
 `;

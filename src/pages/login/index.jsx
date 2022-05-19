@@ -7,7 +7,7 @@ import Input from "../../components/input";
 import { AnimationContainer, Background, Container, Divider } from "./styles";
 import Button from "../../components/Button";
 import requestApi from "../../services/API";
-import { userInfoContext } from "../../providers/userInfo";
+import { userInfoContext} from "../../providers/userInfo";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 

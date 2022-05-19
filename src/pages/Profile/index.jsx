@@ -3,26 +3,49 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import UserCard from "../../components/userCard";
 import Header from "../../components/Header";
 import PhotoGalery from "../../components/PhotoGalery";
-import { usePhotographerList } from "../../providers/PhotographerList/index.jsx";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Profile = () => {
-  const { photographerList } = usePhotographerList()
   const params = useParams();
-  
-  
-  const found = photographerList.find((photographer) => {
-    return photographer.id === parseInt(params.id);
-  });
+  const [user, setUser] = useState({});
+
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://clickfinder-json-server.herokuapp.com/users/${parseInt(
+          params.id
+        )}`
+      )
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Container>
-      <Header />
-      <Box>
-        <Content>
-          <UserCard user={found} />
-          <PhotoGalery />
-        </Content>
-      </Box>
+      {user.type === "photographer" ? (
+        <>
+          <Header placeholder="Pesquisar fotógrafo"/>
+          <Box>
+            <Content>
+              <UserCard user={user} />
+              <PhotoGalery />
+            </Content>
+          </Box>
+        </>
+      ) : (
+        <>
+          <Header placeholder="Pesquisar fotógrafo"/>
+          <Box>
+            <Content>
+              <UserCard user={user} />
+            </Content>
+          </Box>
+        </>
+      )}
     </Container>
   );
 };

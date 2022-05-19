@@ -1,11 +1,10 @@
 import Button from "../Button";
 import { Container, Content } from "./styles";
-import { useContext } from "react";
-import { userInfoContext } from "../../providers/userInfo";
+import { useUserInfo } from "../../providers/userInfo";
 
 const ClientCard = () => {
 
-    const {userInfo} = useContext(userInfoContext)
+    const {userInfo} = useUserInfo();
 
   return (
     <Container>

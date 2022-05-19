@@ -1,21 +1,54 @@
-import { Container } from "./styles.js";
-import {
-  EventListContext,
-  useEventList,
-} from "../../providers/EventList/index.jsx";
+import { EventContainer, EmptyEventContainer } from "./styles.js";
+import { useEventList } from "../../providers/EventList/index.jsx";
 import EventCard from "../EventCard/index.jsx";
-import { useContext } from "react";
+import { useState } from "react";
+import { useUserInfo } from "../../providers/userInfo/index.jsx";
 
 const EventList = () => {
-  const { eventsList } = useEventList();
+  const { userInfo } = useUserInfo();
+  const { eventsList, getEventList } = useEventList();
+
+  useState(() => {
+    if (!userInfo) {
+      return;
+    }
+
+    getEventList();
+  }, [userInfo]);
+
 
   return (
-    <Container>
-      {eventsList.length > 0 &&
-        eventsList.map((event) => (
-            <EventCard key={event.id} event={event} />
-        ))}
-    </Container>
+    <>
+      {userInfo.type === "photographer" ? (
+        <>
+          {eventsList.length > 0 ? (
+            <EventContainer>
+              {eventsList.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </EventContainer>
+          ) : (
+            <EmptyEventContainer>
+              <h1>Não há eventos disponíveis</h1>
+            </EmptyEventContainer>
+          )}
+        </>
+      ) : (
+        <>
+          {eventsList.length > 0 ? (
+            <EventContainer>
+              {eventsList.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </EventContainer>
+          ) : (
+            <EmptyEventContainer>
+              <h1>Sua lista está vazia</h1>
+            </EmptyEventContainer>
+          )}
+        </>
+      )}
+    </>
   );
 };
 

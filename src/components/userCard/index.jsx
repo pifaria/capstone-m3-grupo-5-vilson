@@ -1,37 +1,64 @@
 import React from "react";
+import { typeTranslate } from "../../utils";
+import Button from "../Button";
 import { Container } from "./styles";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function UserCard({ user }) {
   return (
     <Container>
       {user.type === "photographer" ? (
         <section>
-          <div>
-            <img src={user.avatar} alt="user" />
+          <div className="div-flex-center">
+            <img src={user.avatar} alt="Foto de perfil" />
             <h1>{user.name}</h1>
           </div>
+          <div className="div-flex">
+            <article>{user.bio}</article>
+          </div>
 
-          <p>
-            Email: <span>{user.email}</span>
-          </p>
-          <p>
-            Telefone para contato: <span>{user.number}</span>
-          </p>
-          <p>{user.bio}</p>
+          <h4>
+            Especialidade - <span>{typeTranslate(user.tags)}</span>
+          </h4>
+
+          <label>Informações disponíveis</label>
+          <div className="div-informations">
+            <p>
+              <AiOutlineMail />
+              Email - <span>{user.email}</span>
+            </p>
+            <p>
+              <AiOutlinePhone />
+              Contato - <span>{user.number}</span>
+            </p>
+            <p>
+              <HiOutlineLocationMarker />
+              Estado - <span>{user.states}</span>
+            </p>
+          </div>
         </section>
       ) : (
         <section>
-          <div>
-            <img src={user.avatar} alt="user" />
+          <div className="div-flex-center">
+            <img src={user.avatar} alt="Foto de perfil" />
             <h1>{user.name}</h1>
           </div>
-
-          <p>
-            Email: <span>{user.email}</span>
-          </p>
-          <p>
-            Telefone para contato: <span>{user.number}</span>
-          </p>
+          <label>Informações disponíveis</label>
+          <div className="div-informations">
+            <p>
+              <AiOutlineMail />
+              Email - <span>{user.email}</span>
+            </p>
+            <p>
+              <AiOutlinePhone />
+              Contato - <span>{user.number}</span>
+            </p>
+            <p>
+              <HiOutlineLocationMarker />
+              Estado - <span>{user.states}</span>
+            </p>
+          </div>
         </section>
       )}
     </Container>

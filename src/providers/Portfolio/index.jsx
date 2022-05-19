@@ -1,17 +1,16 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import requestApi from "../../services/API";
+import { generateId } from "../../utils";
 import { userInfoContext } from "../userInfo";
-import { useIDGenerator } from "../IDGenerator";
 
 const PortfolioContext = createContext();
 
 export const PortfolioProvider = ({ children }) => {
   const { userInfo, saveUserInfo } = useContext(userInfoContext);
-  const { generateId } = useIDGenerator();
-  const [portfolio, setPortfolio] = useState();
+  const [portfolio, setPortfolio] = useState([]);
 
-  const addPhoto = async (url) => {
+  const addPhoto = async (url, onSuccess, onFail) => {
     const {accessToken, id: userId} = userInfo;
 
     const photoId = generateId();
@@ -28,8 +27,11 @@ export const PortfolioProvider = ({ children }) => {
 
       saveUserInfo({user: {...response.data}, accessToken});
       setPortfolio(userInfo.portfolio);
+      toast.success("Foto cadastrada com sucesso!");
+      onSuccess && onSuccess();
     } catch {
-      toast.error("Ops, ocorreu um erro ao enviar sua foto.");
+      toast.error("Houve um erro ao cadastrar a foto.")
+      onFail && onFail();
     }
   };
 

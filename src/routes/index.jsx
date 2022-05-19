@@ -1,59 +1,51 @@
 import Login from "../pages/login";
 import Register from "../pages/register";
+import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import Dashboard from "../pages/Dashboard";
 import Event from "../pages/Event";
 import Profile from "../pages/Profile";
 import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
-import { usePhotographerList } from "../providers/PhotographerList";
-import { toast } from "react-toastify";
 import { useUserInfo } from "../providers/userInfo";
-import { useEventList } from "../providers/EventList";
-import { usePortfolio } from "../providers/Portfolio";
+import { Redirect } from "react-router-dom";
 
 const Routes = () => {
-  const { getPhotographers } = usePhotographerList();
-  const { getEventList } = useEventList();
-  const { getPortfolio } = usePortfolio();
-  const { userInfo, getUserInfo } = useUserInfo();
+
+  const { getUserInfo,isAuthenticated } = useUserInfo();
 
   useEffect(() => {
-    if(!userInfo){
-      return;
+    async function getInitialUserInfo() {
+      await getUserInfo();
     }
 
-    async function getInitialStates() {
-      try {
-        getUserInfo();
-        getPortfolio();
-        await getPhotographers();
-        await getEventList();
-      } catch {
-        toast.error(
-          "Houve um problema com o servidor. Tente Novamente mais tarde."
-        );
-      }
-    }
+    getInitialUserInfo();
+  },[]);
 
-    getInitialStates();
-  }, [userInfo]);
 
   return (
     <Switch>
       <Route exact path="/">
-        <LandingPage />
+        {!isAuthenticated ? <Redirect to="/home"/> : <Redirect to="/dashboard"/>}
+        <LandingPage/>
+      </Route>
+      <Route exact path="/home">
+        <Home />
       </Route>
       <Route path="/signup">
+      {isAuthenticated && <Redirect to="/dashboard" />}
         <Register />
       </Route>
       <Route path="/login">
+      {isAuthenticated && <Redirect to="/dashboard" />}
         <Login />
       </Route>
       <Route path="/dashboard">
+      {!isAuthenticated && <Redirect to="/" />}
         <Dashboard />
       </Route>
       <Route path="/events/:id">
+      {!isAuthenticated && <Redirect to="/" />}
         <Event />
       </Route>
       <Route path="/profiles/:id">

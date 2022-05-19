@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100vw;
 
   main {
@@ -40,12 +39,26 @@ export const Container = styled.div`
 
   @media (min-width: 900px) {
     main {
+      overflow-y: scroll;
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px var(--beige);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--orange);
+        border-radius: 10px;
+      }
       flex-direction: row;
       justify-content: space-evenly;
       margin-top: 30px;
       padding-bottom: 50px;
-      width: 100%;
-      
+      height: 700px;
+
       .container-dash {
         display: flex;
         flex-direction: column;

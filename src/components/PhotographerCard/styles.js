@@ -6,22 +6,26 @@ export const Container = styled.div`
   align-items: center;
   height: 232.97584533691406px;
   width: 200px;
+  min-width: 200px;
   border-radius: 0px;
   background-color: #000000;
+  margin: 0px 10px;
+
+  @media (min-width: 1024px){
+    margin: 0px;
+  }
 `;
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 90%;
 
   img {
     height: 63px;
     width: 65px;
     border-radius: 50px;
-    border: 1.39264px solid var(--orange);
+    border: 2 solid var(--orange);
   }
 
   h4 {
@@ -35,8 +39,8 @@ export const Content = styled.div`
     margin-bottom: 10px;
 
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       color: var(--orange);
     }
     h3 {
@@ -45,6 +49,18 @@ export const Content = styled.div`
       cursor: pointer;
     }
   }
+  
+  .solicitation{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .icon {
+        width: 30px;
+        height: 30px;
+        color: var(--orange);
+        align-items: center;
+      }
+    }
 
   .buttons {
     display: flex;

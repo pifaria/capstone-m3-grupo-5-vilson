@@ -1,14 +1,35 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 50%;
+`
+
+export const Content = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5px;
+  padding: 5px 0;
   border-radius: 31px;
   border: 3px solid var(--orange);
-  width: 50%;
-  `;
+  
+  button{
+    background-color: transparent;
+    border: none;
+    color: var(--vanilla);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (min-width: 1024px){
+    justify-content: space-around;
+  }
+`;
 
 export const Input = styled.input`
   width: 100%;
@@ -27,7 +48,7 @@ export const Input = styled.input`
   }
 
   @media (min-width: 1024px){
-    width: 100%;
+    width: 80%;
     margin: 0;
     font-size: 1rem;
   }
