@@ -5,6 +5,7 @@ import { usePhotographerList } from "../../providers/PhotographerList";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import SugestionsSearchBar from "../SugestionsSearchBar/index";
+import { typeTranslateToPT } from "../../utils"
 
 const HeaderInput = ({ placeholder }) => {
   const { userInfo } = useUserInfo()
@@ -18,15 +19,20 @@ const HeaderInput = ({ placeholder }) => {
     const { value } = e.target
     
     const searchFor = 
-      userInfo.type === "photographer" ?
-        console.log("oi")
-      :
-        photographerList.filter((photographer) => (
-          photographer.name.toLowerCase().includes(value.toLowerCase())||
-          photographer.tags.toLowerCase().includes(value.toLowerCase())
-        ))
+    userInfo.type === "photographer" ?
+    console.log("oi")
+    :
+    photographerList.filter(
+      (photographer) => (
+        photographer.name.toLowerCase().includes(value.toLowerCase())||
+        photographer.tags.toLowerCase().includes(typeTranslateToPT(value.toLowerCase()))
+      )
+    )
+    
+    value ?
     setFilteredList(searchFor)
-    console.log(filteredList)
+    : 
+    setFilteredList([])
   }
 
   return (
