@@ -10,11 +10,6 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const PhotographersList = styled.div`
-  display: flex;
-  width: 60%;
-  overflow-x: scroll;
-`;
 
 export const EventinfoCard = styled.div`
   @media (min-width: 1024px) {
@@ -131,5 +126,9 @@ export const EventinfoCard = styled.div`
     font-size: 14px;
     line-height: 17px;
     color: var(--vanilla);
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
