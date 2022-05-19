@@ -4,13 +4,15 @@ export const Container = styled.aside`
   display: flex;
   margin-top: 5px;
   justify-content: center;
+  border-radius: 5px;
 
   section {
-    background-color: black;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    background-color: black;
     width: 100%;
     padding: 20px 10px;
 
@@ -57,8 +59,11 @@ export const Container = styled.aside`
       justify-content: space-around;
     }
 
-    .div-informations{   
+    .div-informations{
+      display: flex;
+      align-items: center;
       margin-top: 10px;
+      width: 80%;
       p {
         font-size: 0.7rem;
         color: var(--orange);
@@ -82,7 +87,9 @@ export const Container = styled.aside`
   }
 
   img {
-    width: 80px;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
     align-self: center;
     border: solid 1px var(--orange);
     background-color: black;
@@ -91,6 +98,9 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 900px) {
+
+    width: 300px;
+
     section {
       .div-flex-center{
         margin: 0 auto;
@@ -109,6 +119,8 @@ export const Container = styled.aside`
 
     img {
       width: 150px;
+      height: 150px;
+      border-radius: 5px;
       margin-bottom: 16px;
       object-fit: cover;
     }
