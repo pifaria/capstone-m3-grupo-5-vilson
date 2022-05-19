@@ -29,7 +29,7 @@ const Routes = () => {
         {!isAuthenticated ? <Redirect to="/home"/> : <Redirect to="/dashboard"/>}
         <LandingPage/>
       </Route>
-      <Route exact path="/home">
+      <Route path="/home">
         <Home />
       </Route>
       <Route path="/signup">
