@@ -1,5 +1,6 @@
 import Login from "../pages/login";
 import Register from "../pages/register";
+import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import Dashboard from "../pages/Dashboard";
 import Event from "../pages/Event";
@@ -25,7 +26,11 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <LandingPage />
+        {!isAuthenticated ? <Redirect to="/home"/> : <Redirect to="/dashboard"/>}
+        <LandingPage/>
+      </Route>
+      <Route exact path="/home">
+        <Home />
       </Route>
       <Route path="/signup">
       {isAuthenticated && <Redirect to="/dashboard" />}
