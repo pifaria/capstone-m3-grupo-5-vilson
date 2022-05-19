@@ -1,7 +1,10 @@
 import React from "react";
+import Button from "../Button";
 import { Container } from "./styles";
 
 export default function UserCard({ user }) {
+
+
   return (
     <Container>
       {user.type === "photographer" ? (
@@ -10,14 +13,20 @@ export default function UserCard({ user }) {
             <img src={user.avatar} alt="user" />
             <h1>{user.name}</h1>
           </div>
+          <div className="div-flex">
+            <p>{user.bio}</p>
+          </div>
 
-          <p>
-            Email: <span>{user.email}</span>
-          </p>
-          <p>
-            Telefone para contato: <span>{user.number}</span>
-          </p>
-          <p>{user.bio}</p>
+          <div>
+            <p>Informações disponíveis</p>
+            <p>
+              Email: <span>{user.email}</span>
+            </p>
+            <p>
+              Telefone para contato: <span>{user.number}</span>
+            </p>
+          </div>
+         
         </section>
       ) : (
         <section>
@@ -25,13 +34,15 @@ export default function UserCard({ user }) {
             <img src={user.avatar} alt="user" />
             <h1>{user.name}</h1>
           </div>
-
-          <p>
-            Email: <span>{user.email}</span>
-          </p>
-          <p>
-            Telefone para contato: <span>{user.number}</span>
-          </p>
+          <div>
+            <p>Informações disponíveis</p>
+            <p>
+              Email: <span>{user.email}</span>
+            </p>
+            <p>
+              Telefone para contato: <span>{user.number}</span>
+            </p>
+          </div>
         </section>
       )}
     </Container>

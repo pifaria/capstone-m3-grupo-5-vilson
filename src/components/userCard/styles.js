@@ -10,34 +10,38 @@ export const Container = styled.aside`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     padding: 20px 10px;
 
-    h1{
+    h1 {
       border-bottom: 1px solid var(--orange);
       padding-bottom: 5px;
     }
-    
-    div{
-      width: 80%;
+
+    div {
+      width: 90%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       margin-bottom: 16px;
     }
-
-    p{
-      font-size: 0.7rem;
+    .div-flex{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+    p {
+      font-size: 0.9rem;
       color: var(--orange);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: 500;
-    
-      span{
+
+      span {
         color: var(--vanilla);
       }
     }
-
   }
 
   img {
@@ -47,17 +51,18 @@ export const Container = styled.aside`
     border: solid 1px var(--orange);
     background-color: black;
   }
-  
+
   @media (min-width: 900px) {
-    section{
+    section {
       width: 220px;
       align-items: center;
 
-      p{
-        font-size: 0.5rem;
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
       }
     }
-    
+
     div {
       flex-direction: column;
       justify-content: space-around;
@@ -69,7 +74,6 @@ export const Container = styled.aside`
       height: 150px;
       margin-bottom: 16px;
     }
-
 
     p + p {
       margin-bottom: 20px;

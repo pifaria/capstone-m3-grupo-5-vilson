@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import real_brasileiro from "../../assets/real_brasileiro.svg";
 import { formatDate, typeTranslate } from "../../utils";
-import { HiOutlineCalendar, HiOutlineLocationMarker } from "react-icons/hi";
+import { HiOutlineCalendar, HiOutlineLocationMarker, HiOutlineEye, HiOutlineEyeOff, HiOutlineClipboardList } from "react-icons/hi";
 import { useUserInfo } from "../../providers/userInfo";
 import requestApi from "../../services/API";
 
@@ -25,7 +25,7 @@ const Event = () => {
     }
   }, [userInfo]);
 
-
+  console.log(event)
   return (
     <Container>
       <Header placeholder="Pesquisar tag" />
@@ -35,7 +35,10 @@ const Event = () => {
           <h1>{event && event.title}</h1>
           <div className="divider1"></div>
           <h3>{event && typeTranslate(event.type)}</h3>
-          <p>{event && event.description}</p>
+          <div className="div-description" >
+            <HiOutlineClipboardList className="icon" />
+            <p>Descrição: {event && event.description}</p>
+          </div>
           <div className="divider2"></div>
           <div className="infos">
             <div className="local-date">
@@ -47,7 +50,17 @@ const Event = () => {
               <h5>{event && event.states}</h5>
             </div>
           </div>
-
+          <div className="local-date">
+          {event && event.public==="true"? 
+          (<> 
+            <HiOutlineEye className="icon"/> 
+            <h5>Visível</h5> 
+          </>) 
+          :(<>
+            <HiOutlineEyeOff className="icon"/>
+            <h5>Privado</h5>
+          </>)}
+          </div>
           <span>Expectativa de orçamento</span>
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
@@ -58,6 +71,9 @@ const Event = () => {
                   .replace(".", ",")}
             </h2>
           </div>
+         
+           
+       
         </EventinfoCard>
       </Content>
     </Container>

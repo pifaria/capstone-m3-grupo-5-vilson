@@ -40,6 +40,12 @@ export const EventinfoCard = styled.div`
       background-color: var(--orange);
       margin: 20px 0px;
     }
+    .div-description{
+      display: flex;
+      flex-direction: row;
+
+    }
+
     .icon {
       color: var(--orange);
       height: 23px;
@@ -49,7 +55,7 @@ export const EventinfoCard = styled.div`
 
     .infos{
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       width: 100%;
       margin: 0 0 40px 0;
     }
