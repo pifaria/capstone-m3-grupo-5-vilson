@@ -6,7 +6,6 @@ import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai"
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 
 export default function UserCard({ user }) {
-console.log(user)
 
   return (
     <Container>
