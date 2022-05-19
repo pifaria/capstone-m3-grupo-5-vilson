@@ -49,7 +49,7 @@ const EventsModal = () => {
             <SelectStates register={register} name="states" />
             <label>Expectativa de orçamento</label>
             <input type="number" {...register("budget")} />
-            <label>Privacidade</label>
+            <label>Visibilidade do evento</label>
             <select {...register("public")}>
               <option value={true}>Público</option>
               <option value={false}>Privado</option>

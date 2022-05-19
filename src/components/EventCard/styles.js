@@ -35,7 +35,7 @@ export const Content = styled.div`
     margin-bottom: 5px;
   }
   .divider1 {
-    width: 90%;
+    width: 99%;
     height: 1px;
     background-color: var(--vanilla);
     margin: 10px 0 10px 0;

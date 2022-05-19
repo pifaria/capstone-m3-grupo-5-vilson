@@ -33,8 +33,8 @@ export const Content = styled.div`
     margin-bottom: 10px;
 
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       color: var(--orange);
     }
     h3 {
@@ -43,6 +43,18 @@ export const Content = styled.div`
       cursor: pointer;
     }
   }
+  
+  .solicitation{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .icon {
+        width: 30px;
+        height: 30px;
+        color: var(--orange);
+        align-items: center;
+      }
+    }
 
   .buttons {
     display: flex;

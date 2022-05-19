@@ -1,5 +1,5 @@
 import { Container, Content } from "./styles";
-import Icon from "../../assets/ClickFinder Icon.png";
+import Icon from "../../assets/LogoIconMD.png";
 import HeaderInput from "../HeaderInput";
 import { HiOutlineUserCircle, HiLogout } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

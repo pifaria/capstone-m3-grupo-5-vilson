@@ -22,13 +22,14 @@ export const Container = styled.aside`
     div {
       width: 90%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       margin-bottom: 16px;
     }
     .div-flex{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: space-around;
     }

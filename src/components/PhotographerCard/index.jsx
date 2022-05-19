@@ -52,7 +52,6 @@ const PhotographerCard = ({ info, event }) => {
   return (
     <Container>
       <Content>
-        {invited ? (<><HiBadgeCheck/></>): null}
         <img src={info.avatar} alt="Foto de perfil" />
         <h4>{info.name}</h4>
         <div className="profile">
@@ -62,9 +61,15 @@ const PhotographerCard = ({ info, event }) => {
           </h3>
         </div>
         <div className="buttons">
-          <Button onClick={() => addPhotographerToEvent()}>
+        {invited ? 
+        (<div className="solicitation">Orçamento solicitado 
+        <HiBadgeCheck className="icon"/>
+        </div>)
+        : ( 
+        <Button onClick={() => addPhotographerToEvent()}>
             Solicitar orçamento
-          </Button>
+          </Button>)}
+         
         </div>
       </Content>
     </Container>
