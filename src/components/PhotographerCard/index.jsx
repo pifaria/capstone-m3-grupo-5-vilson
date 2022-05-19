@@ -2,7 +2,6 @@ import Button from "../Button";
 import { Container, Content } from "./styles";
 import { HiOutlineCamera, HiBadgeCheck, HiOutlineBan } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import requestApi from "../../services/API";
 import { useUserInfo } from "../../providers/userInfo";
