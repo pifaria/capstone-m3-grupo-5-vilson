@@ -92,8 +92,9 @@ export const Container = styled.aside`
 
   @media (min-width: 900px) {
     section {
-      width: 220px;
-      align-items: center;
+      .div-flex-center{
+        margin: 0 auto;
+      }
 
       p {
         font-size: 0.9rem;
@@ -103,7 +104,6 @@ export const Container = styled.aside`
 
     div {
       flex-direction: column;
-      justify-content: space-around;
       align-items: center;
     }
 

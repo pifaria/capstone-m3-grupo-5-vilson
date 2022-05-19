@@ -41,7 +41,7 @@ console.log(user)
         </section>
       ) : (
         <section>
-          <div>
+          <div className="div-flex-center">
             <img src={user.avatar} alt="Foto de perfil" />
             <h1>{user.name}</h1>
           </div>
