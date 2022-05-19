@@ -23,7 +23,7 @@ export const EventListProvider = ({ children }) => {
         event.public === true ||
         event.photographers?.find((userId) => userId === id);
 
-      const isRefused = user.refusedEvents?.includes(event.id);
+      const isRefused = user.refusedEvents?.includes(event.hash ? event.hash : event.id);
 
       const recomended = event.states === userInfo.states && event.type === userInfo.tags
 
@@ -56,12 +56,16 @@ export const EventListProvider = ({ children }) => {
     }
   };
 
-  const refuseEvent = async (eventId) => {
+  const refuseEvent = async (eventHash, eventId = 0) => {
+    if(!eventHash) {
+      eventHash = eventId;
+    }
+
     const {data: user} = await requestApi.get(`users/${id}`)
 
     const refusedEvents = user?.refusedEvents
-      ? [...user.refusedEvents, eventId]
-      : [eventId];
+      ? [...user.refusedEvents, eventHash]
+      : [eventHash];
 
     try {
       const response = await requestApi.patchAuth(

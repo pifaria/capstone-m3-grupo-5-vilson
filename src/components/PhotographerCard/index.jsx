@@ -10,8 +10,8 @@ import { useUserInfo } from "../../providers/userInfo";
 const PhotographerCard = ({ info, event }) => {
   const history = useHistory();
   const { userInfo } = useUserInfo();
-  const [foundEvent, setFoundEvent] = useState([]);
   const [invited, setInvited] = useState(false);
+  const [refused, setRefused] = useState(false);
 
   useEffect(() => {
     if (!event) {
@@ -20,13 +20,15 @@ const PhotographerCard = ({ info, event }) => {
     requestApi
       .getAuth(`/events/${event.id}`, userInfo && userInfo.accessToken)
       .then((response) => {
-        setFoundEvent(response.data);
-        if (event.photographers.includes(info.id)) {
+        if (response.data.photographers?.includes(info.id)) {
           setInvited(true);
+        }
+        if (info.refusedEvents?.includes(event.hash)){
+          setRefused(true);
         }
       })
       .catch((err) => console.log(err));
-  }, [event]);
+  }, [event, info]);
 
   const addPhotographerToEvent = () => {
     if (event.photographers) {
@@ -66,7 +68,7 @@ const PhotographerCard = ({ info, event }) => {
           </h3>
         </div>
         <div className="buttons">
-          {info.refusedEvents ? (
+          {refused ? (
             <>
               <div className="solicitation">
                 <h5>Orçamento recusado</h5>

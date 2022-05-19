@@ -9,6 +9,7 @@ import Button from "../Button";
 import * as yup from "yup";
 // import { isDate, parse } from "date-fns";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { generateId } from "../../utils";
 
 const EventsModal = () => {
   const schema = yup.object().shape({
@@ -45,6 +46,7 @@ const EventsModal = () => {
       ...data,
       userInfos: { name, email, number },
       userId: id,
+      hash: generateId()
     };
     addEvent(identifiedData, closeModal);
   };
