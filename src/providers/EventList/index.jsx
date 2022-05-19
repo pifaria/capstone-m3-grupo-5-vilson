@@ -15,13 +15,15 @@ export const EventListProvider = ({ children }) => {
     return data.filter((event) => event.userId === id);
   }
 
-  function photographerFilter(data) {
+  async function photographerFilter(data) {
+    const {data: user} = await requestApi.get(`/users/${id}`)
+
     return data.filter((event) => {
       const canSee =
         event.public === true ||
         event.photographers?.find((userId) => userId === id);
 
-      const isRefused = userInfo.refusedEvents?.includes(event.id);
+      const isRefused = user.refusedEvents?.includes(event.id);
 
       const recomended = event.states === userInfo.states && event.type === userInfo.tags
 
@@ -55,8 +57,10 @@ export const EventListProvider = ({ children }) => {
   };
 
   const refuseEvent = async (eventId) => {
-    const refusedEvents = userInfo.refuseEvents
-      ? [...userInfo.refuseEvents, eventId]
+    const {data: user} = await requestApi.get(`users/${id}`)
+
+    const refusedEvents = user?.refusedEvents
+      ? [...user.refusedEvents, eventId]
       : [eventId];
 
     try {
@@ -66,7 +70,7 @@ export const EventListProvider = ({ children }) => {
         accessToken
       );
       saveUserInfo({user: response.data, accessToken});
-      setEventList(photographerFilter(eventList));
+      getEventList();
       toast.success("Você recusou o evento!");
     } catch {
       toast.error("Ops! Houve um problema ao tentar recusar o evento.");
@@ -79,7 +83,7 @@ export const EventListProvider = ({ children }) => {
     const initialList =
       type === "cliente"
         ? clientFilter(response.data)
-        : photographerFilter(response.data);
+        : await photographerFilter(response.data);
 
     setEventList(initialList);
   };
