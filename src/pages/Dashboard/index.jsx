@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <Container>
       {!isAuthenticated && <Redirect to="/" />}
-      <Header placeholder={"Pesquisar evento"} />
+      <Header placeholder={"Pesquisar fotógrafo"} />
       <main>
         <UserCard user={userInfo} />
         <div className="container-dash">

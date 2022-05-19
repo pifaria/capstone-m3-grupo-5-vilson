@@ -16,6 +16,7 @@ const EventList = () => {
     getEventList();
   }, [userInfo]);
 
+
   return (
     <Container>
       {eventsList.length > 0 &&
