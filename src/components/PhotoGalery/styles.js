@@ -131,7 +131,7 @@ export const ContentList = styled.ul`
 
   img {
     height: 100px;
-    width: 100px;
+    object-fit: cover;
     border-radius: 4px 4px 0 0;
     cursor: pointer;
     
@@ -157,8 +157,8 @@ export const ContentList = styled.ul`
     }
     
     img {
-      width: 200px;
       height: 200px;
+      object-fit: cover;
     }
 
     li{
