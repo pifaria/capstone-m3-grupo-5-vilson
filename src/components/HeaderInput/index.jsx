@@ -4,7 +4,7 @@ import { useUserInfo } from "../../providers/userInfo";
 import { usePhotographerList } from "../../providers/PhotographerList";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import SugestionsSearchBar from "../SugestionsSearchBar";
+import SugestionsSearchBar from "../SugestionsSearchBar/index";
 
 const HeaderInput = ({ placeholder }) => {
   const { userInfo } = useUserInfo()

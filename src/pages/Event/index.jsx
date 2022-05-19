@@ -70,10 +70,7 @@ const Event = () => {
                   .toFixed(2)
                   .replace(".", ",")}
             </h2>
-          </div>
-         
-           
-       
+          </div> 
         </EventinfoCard>
       </Content>
     </Container>
