@@ -56,7 +56,12 @@ export const Container = styled.aside`
     .div-flex{
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-around;
+
+      p{
+        color: var(--orange);
+      }
     }
 
     .div-informations{
