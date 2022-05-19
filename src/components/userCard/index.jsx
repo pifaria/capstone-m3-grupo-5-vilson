@@ -1,9 +1,10 @@
 import React from "react";
+import { typeTranslate } from "../../utils";
 import Button from "../Button";
 import { Container } from "./styles";
 
 export default function UserCard({ user }) {
-
+console.log(user)
 
   return (
     <Container>
@@ -15,6 +16,7 @@ export default function UserCard({ user }) {
           </div>
           <div className="div-flex">
             <p>{user.bio}</p>
+            <p>Especialidade: <span>{typeTranslate(user.tags)}</span></p>
           </div>
 
           <div>
@@ -24,6 +26,9 @@ export default function UserCard({ user }) {
             </p>
             <p>
               Telefone para contato: <span>{user.number}</span>
+            </p>
+            <p>
+              Estado: <span>{user.states}</span>
             </p>
           </div>
          

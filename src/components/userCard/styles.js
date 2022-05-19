@@ -28,7 +28,7 @@ export const Container = styled.aside`
     }
     .div-flex{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: space-around;
     }
