@@ -63,7 +63,6 @@ function PhotoGalery() {
                 <button onClick={() => setOpenModal(true)}>
                   <BsPlusCircle size={20} />
                 </button>
-                <span>Adicionar foto</span>
               </div>
               <div className="orange-bar"></div>
               <p>Portfólio</p>
