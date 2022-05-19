@@ -26,6 +26,8 @@ const Profile = () => {
 
   return (
     <Container>
+      {user.type === "photographer" ? (
+        <>
           <Header placeholder="Pesquisar fotógrafo"/>
           <Box>
             <Content>
@@ -33,6 +35,17 @@ const Profile = () => {
               <PhotoGalery />
             </Content>
           </Box>
+        </>
+      ) : (
+        <>
+          <Header placeholder="Pesquisar fotógrafo"/>
+          <Box>
+            <Content>
+              <UserCard user={user} />
+            </Content>
+          </Box>
+        </>
+      )}
     </Container>
   );
 };
