@@ -79,7 +79,7 @@ export const EventListProvider = ({ children }) => {
         { refusedEvents },
         accessToken
       );
-      saveUserInfo(response.data);
+      saveUserInfo({user: response.data, accessToken});
       setEventList(photographerFilter(eventList));
       toast.success("Você recusou o evento!");
     } catch {
