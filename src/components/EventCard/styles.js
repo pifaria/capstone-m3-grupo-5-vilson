@@ -21,11 +21,18 @@ export const Content = styled.div`
   height: 100%;
   padding: 20px;
 
+  h2{
+    text-align: center;
+  }
+
   button {
     width: 80%;
     align-self: center;
   }
 
+  .buttons{
+    display: flex;
+  }
 
   .div-switchToggle {
     display: flex;
