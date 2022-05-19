@@ -7,6 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import { userInfoContext } from "../../providers/userInfo/index.jsx";
 import { useEventList } from "../../providers/EventList";
 import { HiExclamationCircle, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
+import { formatDistanceToNow } from "date-fns/esm";
+import { format } from "date-fns";
 
 const EventCard = ({ event }) => {
   const history = useHistory();
@@ -41,7 +43,7 @@ const EventCard = ({ event }) => {
 
             <h3>Evento: {event.title}</h3>
             <h4>Tipo: {typeTranslate(event.type)}</h4>
-            <h4>Data: {formatDate(event.date)}</h4>
+            <h4>Data: {new Date(event.date).toLocaleDateString()}</h4>
             <h4>Local: {event.states}</h4>
 
             <div className="local-date">
