@@ -7,7 +7,7 @@ import { userInfoContext } from "../../providers/userInfo";
 import SelectStates from "../SelectStates";
 import Button from "../Button";
 import * as yup from "yup";
-import { isDate, parse } from "date-fns";
+// import { isDate, parse } from "date-fns";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const EventsModal = () => {
@@ -25,7 +25,7 @@ const EventsModal = () => {
     date: yup
       .date()
       .required("Quando será seu evento?")
-      .transform(parseDateString)
+      // .transform(parseDateString)
       .min(new Date(), "Data do evento não pode ser antes de hoje."),
 
     states: yup.string().required("Selecione um estado."),
@@ -58,13 +58,13 @@ const EventsModal = () => {
   });
 
 
-  function parseDateString(_, originalValue) {
-    const parsedDate = isDate(originalValue)
-      ? originalValue
-      : parse(originalValue, "yyyy-MM-dd", new Date());
+  // function parseDateString(_, originalValue) {
+  //   const parsedDate = isDate(originalValue)
+  //     ? originalValue
+  //     : parse(originalValue, "yyyy-MM-dd", new Date());
 
-    return parsedDate;
-  }
+  //   return parsedDate;
+  // }
 
   return (
     <Container>
