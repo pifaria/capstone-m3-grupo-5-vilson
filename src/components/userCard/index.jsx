@@ -29,7 +29,7 @@ export default function UserCard({ user }) {
             </p>
             <p>
               <AiOutlinePhone/>
-              Telefone para contato - <span>{user.number}</span>
+              Contato - <span>{user.number}</span>
             </p>
             <p>
               <HiOutlineLocationMarker/>
@@ -52,7 +52,7 @@ export default function UserCard({ user }) {
             </p>
             <p>
               <AiOutlinePhone/>
-              Telefone para contato - <span>{user.number}</span>
+              Contato - <span>{user.number}</span>
             </p>
             <p>
               <HiOutlineLocationMarker/>
