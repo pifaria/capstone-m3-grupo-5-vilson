@@ -1,4 +1,4 @@
-import { Container } from "./styles.js";
+import { EventContainer, EmptyEventContainer } from "./styles.js";
 import { useEventList } from "../../providers/EventList/index.jsx";
 import EventCard from "../EventCard/index.jsx";
 import { useState } from "react";
@@ -18,17 +18,37 @@ const EventList = () => {
 
 
   return (
-    <Container>
-      {eventsList.length === 0 && (
-        <span>
-          {userInfo?.type === "cliente" || userInfo?.type === "client"
-            ? "Você ainda não cadastrou nenhum evento."
-            : "Ainda não há eventos disponíveis para você."}
-        </span>
+    <>
+      {userInfo.type === "photographer" ? (
+        <>
+          {eventsList.length > 0 ? (
+            <EventContainer>
+              {eventsList.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </EventContainer>
+          ) : (
+            <EmptyEventContainer>
+              <h1>Não há eventos disponíveis</h1>
+            </EmptyEventContainer>
+          )}
+        </>
+      ) : (
+        <>
+          {eventsList.length > 0 ? (
+            <EventContainer>
+              {eventsList.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </EventContainer>
+          ) : (
+            <EmptyEventContainer>
+              <h1>Sua lista está vazia</h1>
+            </EmptyEventContainer>
+          )}
+        </>
       )}
-      {eventsList.length > 0 &&
-        eventsList.map((event) => <EventCard key={event.id} event={event} />)}
-    </Container>
+    </>
   );
 };
 
