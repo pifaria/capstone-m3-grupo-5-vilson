@@ -13,5 +13,6 @@ margin: 90px 0 0 0;
   column-gap: 20px;
   justify-content: center;
   margin: 30px 15px 0 0;
+  overflow: hidden;
 }
 `;
