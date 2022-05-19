@@ -55,6 +55,8 @@ export default function Register() {
   const [showInputs, setShowInputs] = useState(false);
 
   const onSubmitFunction = (data) => {
+    delete data.passwordConfirm
+
     requestApi
       .post("register/", data)
       .then((response) => {

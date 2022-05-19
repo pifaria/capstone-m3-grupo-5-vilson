@@ -7,20 +7,29 @@ const PhotographerList = ({ eventData }) => {
   const { photographerList, getPhotographers } = usePhotographerList();
 
   useEffect(() => {
-    if(!eventData) {
-      return; 
+    if (!eventData) {
+      return;
     }
 
     const { type, states } = eventData;
 
-    getPhotographers({type, states});
+    getPhotographers({ type, states });
   }, [eventData]);
 
   return (
     <Container>
+      {photographerList.length === 0 && (
+        <span>Não há fotógrafos compatíveis perto de você.</span>
+      )}
       {photographerList.length > 0 &&
         photographerList.map((photographer, index) => {
-          return <PhotographerCard key={index} info={photographer} event={eventData} />;
+          return (
+            <PhotographerCard
+              key={index}
+              info={photographer}
+              event={eventData}
+            />
+          );
         })}
     </Container>
   );

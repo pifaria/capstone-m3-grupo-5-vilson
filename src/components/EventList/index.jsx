@@ -16,6 +16,7 @@ const EventList = () => {
     getEventList();
   }, [userInfo]);
 
+
   return (
     <>
       {userInfo.type === "photographer" ? (
