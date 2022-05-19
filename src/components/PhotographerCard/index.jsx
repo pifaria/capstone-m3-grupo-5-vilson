@@ -10,6 +10,7 @@ const PhotographerCard = ({ info, event }) => {
   const history = useHistory();
   const { userInfo } = useUserInfo();
   const [invited, setInvited] = useState(false);
+  const [refused, setRefused] = useState(false);
 
   useEffect(() => {
     if (!event) {
@@ -18,6 +19,10 @@ const PhotographerCard = ({ info, event }) => {
 
     if (event.photographers?.includes(info.id)) {
       setInvited(true);
+
+      if(info.refusedEvents?.includes(event.id)){
+        setRefused(true);
+      }
     }
   }, [event]);
 
@@ -48,11 +53,12 @@ const PhotographerCard = ({ info, event }) => {
   return (
     <Container>
       <Content>
-        {invited ? (
+        {invited && (
           <>
             <HiBadgeCheck />
           </>
-        ) : null}
+        )}
+        {refused && <span>Recusado</span>}
         <img src={info.avatar} alt="Foto de perfil" />
         <h4>{info.name}</h4>
         <div className="profile">
