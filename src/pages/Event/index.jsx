@@ -65,7 +65,7 @@ const Event = () => {
             <img src={real_brasileiro} alt="real"></img>
             <h2>
               {event &&
-                event.budget.replace(".", "")}
+                parseInt(event.budget.replace(".", ""))},00
             </h2>
           </div> 
         </EventinfoCard>
