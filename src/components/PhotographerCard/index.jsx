@@ -2,7 +2,6 @@ import Button from "../Button";
 import { Container, Content } from "./styles";
 import { HiOutlineCamera, HiBadgeCheck } from "react-icons/hi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import requestApi from "../../services/API";
 import { useUserInfo } from "../../providers/userInfo";
@@ -10,49 +9,50 @@ import { useUserInfo } from "../../providers/userInfo";
 const PhotographerCard = ({ info, event }) => {
   const history = useHistory();
   const { userInfo } = useUserInfo();
-  const [foundEvent, setFoundEvent] = useState([]);
-  const [invited, setInvited] = useState(false)
+  const [invited, setInvited] = useState(false);
 
   useEffect(() => {
-    if(!event){
-      return 
+    if (!event) {
+      return;
     }
-    requestApi
-      .getAuth(`/events/${event.id}`, userInfo && userInfo.accessToken)
-      .then((response) => {
-        setFoundEvent(response.data);
-        if (event.photographers.includes(info.id)) {
-          setInvited(true);
-        }
-      })
-      .catch((err) => console.log(err));
+
+    if (event.photographers?.includes(info.id)) {
+      setInvited(true);
+    }
   }, [event]);
 
-  const addPhotographerToEvent = () => {
-    if (event.photographers) {
-      if (event.photographers.includes(info.id)) {
-        console.log("ja foi solicitado");
-      } else {
-        requestApi.patchAuth(
-          `/events/${event.id}`,
-          { photographers: [...event.photographers, info.id] },
-          userInfo.accessToken
-        ).then(()=>setInvited(true));
-      }
-    } else {
-      requestApi.patchAuth(
-        `/events/${event.id}`,
-        { photographers: [info.id] },
-        userInfo.accessToken
-      ).then(()=>setInvited(true));
+  const addPhotographerToEvent = (event) => {
+    if (invited) {
+      return;
     }
-  };
 
+    requestApi
+      .getAuth(`/events/${event.id}`, userInfo.accessToken)
+      .then((response) => {
+        const eventData = response.data;
+        const photographers = eventData.photographers
+          ? [...eventData.photographers, info.id]
+          : [info.id];
+
+        requestApi
+          .patchAuth(
+            `/events/${event.id}`,
+            { photographers },
+            userInfo.accessToken
+          )
+          .then(() => setInvited(true))
+          .catch();
+      });
+  };
 
   return (
     <Container>
       <Content>
-        {invited ? (<><HiBadgeCheck/></>): null}
+        {invited ? (
+          <>
+            <HiBadgeCheck />
+          </>
+        ) : null}
         <img src={info.avatar} alt="Foto de perfil" />
         <h4>{info.name}</h4>
         <div className="profile">
@@ -62,7 +62,7 @@ const PhotographerCard = ({ info, event }) => {
           </h3>
         </div>
         <div className="buttons">
-          <Button onClick={() => addPhotographerToEvent()}>
+          <Button onClick={() => event && addPhotographerToEvent(event)}>
             Solicitar orçamento
           </Button>
         </div>
