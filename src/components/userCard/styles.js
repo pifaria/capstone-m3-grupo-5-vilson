@@ -46,10 +46,10 @@ export const Container = styled.aside`
 
   img {
     width: 80px;
-    height: 80px;
     align-self: center;
     border: solid 1px var(--orange);
     background-color: black;
+    object-fit: cover;
   }
 
   @media (min-width: 900px) {
@@ -71,8 +71,8 @@ export const Container = styled.aside`
 
     img {
       width: 150px;
-      height: 150px;
       margin-bottom: 16px;
+      object-fit: cover;
     }
 
     p + p {
