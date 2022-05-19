@@ -1,21 +1,25 @@
 import { Container, Content } from "./styles";
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SugestionsSearchBar = ({profilesList}) => {
-    
+    const history = useHistory()
     
     return (
         <Container>
             <Content>
                 {profilesList.length > 0 ?
                     profilesList.map((profile) => 
-                        <li key={profile.id}>
+                        <li key={profile.id} onClick={() => history.push(`/profiles/${profile.id}`)}>
                             <img src={profile.avatar} alt="Foto de perfil"/>
                             <div>
-                                <h1>{profile.name}</h1>
+                                <p>{profile.name}</p>
                                 <span>Tipo de serviço: {profile.tags}</span>
                             </div>
-                            <AiOutlineArrowRight/>
+                            <div>
+                                <AiOutlineArrowRight/>
+                                <label>Ver perfil</label>
+                            </div>
                         </li>
                     )
                     :
