@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
+  width: 50%;
+`
+
+export const Content = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 0;
   border-radius: 31px;
   border: 3px solid var(--orange);
-  width: 50%;
   
   button{
     background-color: transparent;
@@ -25,7 +28,6 @@ export const Container = styled.form`
 
   @media (min-width: 1024px){
     justify-content: space-around;
-    width: 40%;
   }
 `;
 
