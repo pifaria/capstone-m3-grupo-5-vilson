@@ -64,8 +64,7 @@ const Event = () => {
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
             <h2>
-              {event &&
-                event.budget.toFixed(2).replace(".", ",")}
+            {event && event.budget.toFixed(2).replace(".", ",")}
             </h2>
           </div> 
         </EventinfoCard>
