@@ -9,43 +9,46 @@ import { Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import { useUserInfo } from "../providers/userInfo";
 import { Redirect } from "react-router-dom";
+import { useLoading } from "../providers/LoadingProvider";
 
 const Routes = () => {
-
-  const { getUserInfo,isAuthenticated } = useUserInfo();
+  const { getUserInfo, isAuthenticated } = useUserInfo();
+  const { isLoading, finishLoading } = useLoading();
 
   useEffect(() => {
     async function getInitialUserInfo() {
       await getUserInfo();
+      finishLoading();
     }
 
     getInitialUserInfo();
-  },[]);
-
+  }, []);
 
   return (
     <Switch>
       <Route exact path="/">
-        {!isAuthenticated ? <Redirect to="/home"/> : <Redirect to="/dashboard"/>}
-        <LandingPage/>
+        {!isLoading && (
+          <Redirect to={isAuthenticated ? "/dashboard" : "/home"} />
+        )}
+        <LandingPage />
       </Route>
       <Route path="/home">
         <Home />
       </Route>
       <Route path="/signup">
-      {isAuthenticated && <Redirect to="/dashboard" />}
+        {isAuthenticated && <Redirect to="/dashboard" />}
         <Register />
       </Route>
       <Route path="/login">
-      {isAuthenticated && <Redirect to="/dashboard" />}
+        {isAuthenticated && <Redirect to="/dashboard" />}
         <Login />
       </Route>
       <Route path="/dashboard">
-      {!isAuthenticated && <Redirect to="/" />}
+        {!isAuthenticated && <Redirect to="/" />}
         <Dashboard />
       </Route>
       <Route path="/events/:id">
-      {!isAuthenticated && <Redirect to="/" />}
+        {(!isAuthenticated && !isLoading) && <Redirect to="/" />}
         <Event />
       </Route>
       <Route path="/profiles/:id">
