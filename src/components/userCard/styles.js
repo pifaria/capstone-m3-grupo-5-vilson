@@ -13,8 +13,9 @@ export const Container = styled.aside`
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    width: 100%;
+    min-width: 280px;
     padding: 20px 10px;
+    border-radius: 4px;
 
     h1 {
       padding-bottom: 5px;
@@ -27,39 +28,39 @@ export const Container = styled.aside`
       flex-direction: column;
       margin-bottom: 16px;
     }
-    .div-flex-center{
+    .div-flex-center {
       align-items: center;
     }
 
-    h4{
+    h4 {
       color: var(--orange);
       border-bottom: 1px solid var(--orange);
       padding-bottom: 16px;
-      span{
+      span {
         color: var(--vanilla);
       }
     }
 
-    article{
+    article {
       font-size: 0.8rem;
       border-left: 1px dashed var(--orange);
       padding-left: 10px;
     }
 
-    label{
+    label {
       align-self: center;
       font-size: 0.8rem;
       font-weight: 500;
       margin-top: 5px;
     }
 
-    .div-flex{
+    .div-flex {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
     }
 
-    .div-informations{
+    .div-informations {
       display: flex;
       align-items: center;
       margin-top: 10px;
@@ -71,8 +72,8 @@ export const Container = styled.aside`
         font-weight: 500;
         display: flex;
         align-items: center;
-        
-        svg{
+
+        svg {
           margin-right: 5px;
         }
 
@@ -80,10 +81,8 @@ export const Container = styled.aside`
           color: var(--vanilla);
           margin-left: 5px;
         }
-
       }
     }
-
   }
 
   img {
@@ -98,11 +97,10 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 900px) {
-
     width: 300px;
 
     section {
-      .div-flex-center{
+      .div-flex-center {
         margin: 0 auto;
       }
 
