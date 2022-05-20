@@ -7,11 +7,8 @@ import grid2 from "../../assets/grid2.png";
 import grid3 from "../../assets/grid3.png";
 import grid4 from "../../assets/grid4.png";
 import grid5 from "../../assets/grid5.png";
-import { useUserInfo } from "../../providers/userInfo";
-import { Redirect } from "react-router-dom";
 
 const Home = () => {
-  const { isAuthenticated } = useUserInfo();
 
   const history = useHistory();
 
@@ -21,7 +18,6 @@ const Home = () => {
 
   return (
     <Container>
-      {isAuthenticated && <Redirect to="/dashboard" />}
       <Content>
         <img src={logo} alt="logo Click Finder"></img>
 
