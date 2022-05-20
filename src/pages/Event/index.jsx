@@ -23,7 +23,7 @@ const Event = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [userInfo]);
+  }, [userInfo, params.id]);
 
   return (
     <Container>

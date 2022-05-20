@@ -21,7 +21,8 @@ const Dashboard = () => {
         <UserCard user={userInfo} />
         <div className="container-dash">
           <div className="container-top">
-            <p>Eventos</p>
+            {userInfo.type === "photographer" ? (<p>Eventos</p>) : (<p>Meus eventos</p>)}
+            
             <div className="orange-bar"></div>
             {userInfo.type === "photographer" ? null: <Button onClick={() => openModal()}>Adicionar</Button>}  
           </div>

@@ -30,7 +30,7 @@ const Home = () => {
           <p>Encontra clientes para seus ensaios</p>
         </div>
         <div className="buttons">
-          <Button beigeSchema onClick={() => handleNavigation("/login")}>
+          <Button landingSchema onClick={() => handleNavigation("/login")}>
             <h5>Login</h5>
           </Button>
           <Button onClick={() => handleNavigation("/signup")}>
