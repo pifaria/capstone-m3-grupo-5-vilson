@@ -23,5 +23,6 @@ export const Container = styled.div`
     width: 84px;
     color: var(--white);
     background-color: var(--white);
+    
   }
 `;

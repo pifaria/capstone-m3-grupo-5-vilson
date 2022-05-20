@@ -17,21 +17,24 @@ const EventsModal = () => {
 
     description: yup
       .string()
-      .required("A descrição do evento precisa de pelo menos 30 caracteres"),
-    //.min(30, "A descrição do evento precisa de pelo menos 30 caracteres")
-    //.max(1000, "A descrição do evento pode ter no máximo 30 caracteres"),
+      .required("Escreva uma descrição do seu evento"),
 
     type: yup.string().required("Selecione uma opção"),
 
     date: yup
       .date()
       .required("Quando será seu evento?")
-      // .transform(parseDateString)
       .min(new Date(), "Data do evento não pode ser antes de hoje."),
 
     states: yup.string().required("Selecione um estado."),
 
-    budget: yup.number(),
+    budget: yup
+      .string()
+      .required("Qual expectativa de orçamento?")
+      .matches(
+        /^([0-9]).{2,}$/,
+        "O orçamento precisa ter um valor numérico."
+      ),
 
     public: yup.bool().required("Por favor escolha quem pode ver esse evento."),
   });
@@ -58,15 +61,6 @@ const EventsModal = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-
-  // function parseDateString(_, originalValue) {
-  //   const parsedDate = isDate(originalValue)
-  //     ? originalValue
-  //     : parse(originalValue, "yyyy-MM-dd", new Date());
-
-  //   return parsedDate;
-  // }
 
   return (
     <Container>
@@ -98,7 +92,7 @@ const EventsModal = () => {
             <label>Local</label>
             <SelectStates register={register} name="states" />
             <label>Expectativa de orçamento</label>
-            <input type="number" {...register("budget")} />
+            <input type="string" {...register("budget")} />
             <label>Visível Para:</label>
             <select {...register("public")}>
               <option value={true}>Todos os fotógrafos</option>

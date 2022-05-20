@@ -13,7 +13,7 @@ const Event = () => {
   const params = useParams();
   const { userInfo } = useUserInfo();
   const [event, setEvent] = useState();
-
+ 
   useEffect(() => {
     if(userInfo){
       requestApi
@@ -23,7 +23,7 @@ const Event = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [userInfo]);
+  }, [userInfo, params.id]);
 
   return (
     <Container>
@@ -65,8 +65,8 @@ const Event = () => {
             <img src={real_brasileiro} alt="real"></img>
             {/* <h2>
               {event &&
-                event.budget.toFixed(2).replace(".", ",")}
-            </h2> */}
+                parseInt(event.budget.replace(".", ""))},00
+            </h2>
           </div> 
         </EventinfoCard>
       </Content>
