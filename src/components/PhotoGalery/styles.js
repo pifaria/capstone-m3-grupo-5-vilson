@@ -17,19 +17,19 @@ export const ContainerButton = styled.div`
   justify-content: space-between;
   margin-top: 16px;
 
-  div{
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 45px;
     height: 45px;
-    span{
+    span {
       display: none;
       font-size: 0.4rem;
     }
 
-    :hover > span{
+    :hover > span {
       display: block;
     }
   }
@@ -40,12 +40,18 @@ export const ContainerButton = styled.div`
     background-color: transparent;
   }
 
-  svg:hover{
+  svg:hover {
     background-color: var(--orange);
     color: var(--black);
-    border-radius: 100%;
+    border-radius: 100px;
   }
 
+  @media (min-width: 1024px) {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
 
   .orange-bar {
     height: 2px;
@@ -68,14 +74,16 @@ export const ContainerButton = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: center;
-  
+  justify-content: space-around;
+  overflow-y: scroll;
+  height: 300px;
+
   ::-webkit-scrollbar {
     width: 3px;
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px var(--beige);
+    box-shadow: inset 0 0 5px transparent;
     border-radius: 10px;
   }
 
@@ -85,7 +93,6 @@ export const Content = styled.div`
   }
 
   @media (min-width: 1024px) {
-    overflow: initial;
     height: 600px;
   }
 `;
@@ -93,15 +100,19 @@ export const Content = styled.div`
 export const ContentList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-  width: 100%;
-  
+  min-width: 280px;
+
+  @media (min-width: 1024px) {
+    max-width: 970px;
+  }
+
   li {
     display: flex;
     flex-direction: column;
 
-    button{
+    button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -111,18 +122,19 @@ export const ContentList = styled.ul`
       padding: 4px 0;
       margin-bottom: 15px;
       border-radius: 0 0 4px 4px;
+      height: 25px;
 
-      p{
+      p {
         display: none;
         font-size: 0.7rem;
       }
 
-      :hover{
-        svg{
+      :hover {
+        svg {
           display: none;
         }
 
-        p{
+        p {
           display: block;
         }
       }
@@ -130,18 +142,18 @@ export const ContentList = styled.ul`
   }
 
   img {
-    height: 100px;
+    height: 80px;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
     cursor: pointer;
-    
-    :hover{
+    border: solid 1px transparent;
+
+    :hover {
       border: 1px solid var(--orange);
     }
   }
 
   @media (min-width: 1024px) {
-
     ::-webkit-scrollbar {
       width: 3px;
     }
@@ -155,15 +167,14 @@ export const ContentList = styled.ul`
       background: var(--orange);
       border-radius: 10px;
     }
-    
+
     img {
       height: 200px;
       object-fit: cover;
     }
 
-    li{
-
-      button{
+    li {
+      button {
         margin-bottom: 20px;
         padding: 10px 0;
       }
