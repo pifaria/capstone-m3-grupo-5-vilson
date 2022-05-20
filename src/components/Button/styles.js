@@ -21,7 +21,6 @@ export const Container = styled.button`
     color: ${(props) => (props.beigeSchema ? "var(--black)" : props.landingSchema ? "var(--vanilla)" : 'var(--black)')};
     border: 1px solid ${(props) => (props.beigeSchema ? "var(--black)" : props.landingSchema ? "var(--orange)" : 'var(--black)')};;
   }
-
   :active{
     transform: scale(0.95);
   }
