@@ -100,9 +100,9 @@ const EventCard = ({ event }) => {
             )}
             <Button
               beigeSchema
-              onClick={() => {
-                refuseEvent(event.id);
-              }}
+              onClick={() => 
+                refuseEvent(event.hash, event.id)
+              }
             >
               Recusar evento
             </Button>

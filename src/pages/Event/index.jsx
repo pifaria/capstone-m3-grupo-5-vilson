@@ -63,7 +63,7 @@ const Event = () => {
           <span>Expectativa de orçamento</span>
           <div className="budget">
             <img src={real_brasileiro} alt="real"></img>
-            {/* <h2>
+             <h2>
               {event &&
                 parseInt(event.budget.replace(".", ""))},00
             </h2>
