@@ -22,6 +22,10 @@ export const Container = styled.div`
       align-items: center;
       margin-top: 16px;
 
+      p {
+      white-space : nowrap ;
+      }
+
       button{
         font-size: 0.7rem;
         word-wrap: normal;

@@ -1,7 +1,8 @@
 import { Container, Content } from "./styles";
 import Icon from "../../assets/LogoIconMD.png";
 import HeaderInput from "../HeaderInput";
-import { HiOutlineUserCircle, HiLogout } from "react-icons/hi";
+import { HiLogout } from "react-icons/hi";
+import { RiGalleryLine } from "react-icons/ri";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useUserInfo } from "../../providers/userInfo";
 
@@ -29,8 +30,9 @@ const Header = ({ placeholder }) => {
         <HeaderInput placeholder={placeholder} />
         <section>
           <div>
-            <HiOutlineUserCircle className="icon" onClick={handleRedirectProfile}/>
-            <span>Meu perfil</span>
+            {userInfo.type === "photographer" ? (<><RiGalleryLine className="icon" onClick={handleRedirectProfile}/><span>Portfólio</span></>) : (null)}
+            
+            
           </div>
           <div>
             <HiLogout className="icon" onClick={handleLogout} />

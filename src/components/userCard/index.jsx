@@ -15,7 +15,7 @@ export default function UserCard({ user }) {
             <h1>{user.name}</h1>
           </div>
           <div className="div-flex">
-            <article>{user.bio}</article>
+            <p>Sobre mim :</p><article>{user.bio}</article>
           </div>
 
           <h4>

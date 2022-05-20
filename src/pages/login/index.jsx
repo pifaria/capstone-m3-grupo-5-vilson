@@ -70,7 +70,7 @@ export default function Login() {
 
             <span>Ainda não possui cadastro?</span>
 
-            <Button beigeSchema onClick={() => history.push("/signup")}>
+            <Button landingSchema onClick={() => history.push("/signup")}>
               Cadastre-se
             </Button>
           </div>
