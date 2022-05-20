@@ -8,8 +8,8 @@ export const Container = styled.div`
   width: 90%;
   z-index: 2;
   position: absolute;
-  background: rgb(0, 0, 0, 0.7) ;
-  
+  background: rgb(0, 0, 0, 0.7);
+
   img {
     animation: myAnim 1s ease 0s 1 normal forwards;
     max-width: 300px;
@@ -19,10 +19,9 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1024px) {
-
     img {
-      max-width: 400px;
-      max-height: 400px;
+      max-width: 500px;
+      max-height: 500px;
     }
   }
 
