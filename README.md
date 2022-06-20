@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Click Finder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Tabela de Conteúdos</h2>
 
-## Available Scripts
+- [Click Finder](#click-finder)
+  - [1. Sobre](#1-sobre)
+  - [2. Links Relevantes](#2-links-relevantes)
+  - [3. O Problema A Ser Solucionado](#3-o-problema-a-ser-solucionado)
+  - [4. A Solução](#4-a-solução)
+  - [5. Tecnologias](#5-tecnologias)
+  - [6. Features](#6-features)
 
-In the project directory, you can run:
+<a name="sobre"></a>
 
-### `yarn start`
+## 1. Sobre
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este foi um Capstone Project para conclusão do curso de formação em desenvolvimento Front-end da Kenzie Academy Brasil. Desenvolvido em React.Js, este projeto colocou em prática todo o conhecimento adquirido no curso, testando as habilidades técnicas, com o uso de diversas tecnologias, e as soft skills, com a capacidade de trabalho em equipe na metodologia Scrum, dos alunos desenvolvedores. A aplicação é uma plataforma útil e amigável, que troca informações com uma API REST, e permite funções como Cadastro, Login, Cadastro de Envento, Cadastro e Exibição de Portifólio, interação entre rotas distintas de usuários e mais.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<a name="links"></a>
 
-### `yarn test`
+## 2. Links Relevantes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- <a name="deploy-vercel" href="https://" target="_blank">Deploy @ Vercel</a>
+- <a name="doc-api" href="https://clickfinder-docs.vercel.app/#req_9f77afa429a44aab926804e29cac2566" target="_blank">Documentação da API</a>
+- <a name="figma" href="https://www.figma.com/file/po5NrIzQKf3xGobj3056Ra/Click-Finder?node-id=0%3A1" target="_blank">Layout do Figma</a>
 
-### `yarn build`
+<a name="problema"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 3. O Problema A Ser Solucionado
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Fotógrafos de todo país e pessoas que tem interesse em contratar um serviço de fotografia enfrentam uma enorme dificuldade de se encontrarem. De um lado estão os fotógrafos, com seus portfólios e altamente capacitados para realizar os serviços, e de outro estão os clientes, à procura de profissionais dispostos a realizarem seus registros. Entretanto, as as duas pontas tem dificuldade em se conectar. Diante desse problema, esse nicho de profissionais e clientes precisam de uma solução que faça com que eles se encontrem e fechem novos negócios. O Click Finder aparece para preencher essa lacuna, com uma plataforma útil e amigável que pretende unir os clientes aos fotógrafos que mais se identificarem, e acabar assim com os contratos por conveniência ou falta de opção.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a name="solucao"></a>
 
-### `yarn eject`
+## 4. A Solução
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Uma aplicação que conecte as pessoas que desejam contratar um serviço de fotografia para seus eventos (os clientes) aos profissionais que prestam esses serviços (os fotógrafos). Sendo um espaço que centralize esse tipo de busca por profissional e negociação de serviço em um só lugar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<a name="techs"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 5. Tecnologias
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- <a name="react" href="https://pt-br.reactjs.org/" target="_blank">ReactJs</a>
+- <a name="context-api" href="https://pt-br.reactjs.org/docs/context.html" target="_blank">ContextApi</a>
+- <a name="axios" href="https://www.npmjs.com/package/axios" target="_blank">Axios</a>
+- <a name="yup" href="https://www.npmjs.com/package/yup" target="_blank">Yup</a>
+- <a name="react-router-dom" href="https://www.npmjs.com/package/react-router-dom" target="_blank">React-Router-DOM</a>
+- <a name="jwt-decode" href="https://www.npmjs.com/package/jwt-decode" target="_blank">JWT Decode</a>
+- <a name="styled-comp" href="https://styled-components.com/" target="_blank">Styled Components</a>
+- <a name="react-hook-form" href="https://www.npmjs.com/package/react-hook-form" target="_blank">React Hook Form</a>
+- <a name="hookform-resolvers" href="https://www.npmjs.com/package/@hookform/resolvers" target="_blank">@Hookform/Resolvers</a>
+- <a name="react-modal" href="https://www.npmjs.com/package/react-modal" target="_blank">React Modal</a>
+- <a name="react-icons" href="https://www.npmjs.com/package/react-icons" target="_blank">React Icons</a>
+- <a name="react-toastify" href="https://www.npmjs.com/package/react-toastify" target="_blank">React Toastify</a>
+- <a name="yarn" href="https://yarnpkg.com/" target="_blank">Yarn</a>
 
-## Learn More
+<a name="features"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 6. Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ <h4 align="center">Home Page</h4>
+ <div align="center">
+   <img src=></img>
+ </div>
+ <p align="center">
+ Landing Page da aplicação com opções de Cadastro e Login
+ </p>
+ 
+ ##
+ 
+ <h4 align="center">Página de Login</h4>
+ <div align="center">
+   <img src=></img>
+ </div>
+ <p align="center">
+ O usuário faz o Login com seu nome de usuário e senha.
+ </p>
+ 
+ ##
+ 
+ <h4 align="center">Página de Cadastro (Sign Up)</h4>
+ <div align="center">
+   <img src=></img>
+ </div>
+ <p align="center">
+ O usuário faz o seu Cadastro preenchendo o formulário de acordo com o que é necessário.
+ </p>
+ 
+ ##
+ 
+ <h4 align="center">Página de Dashboard do Cliente</h4>
+ <div align="center">
+   <img src=></img>
+ </div>
+ <p align="center">
+ Core da aplicação, aqui são dispostas diversas opções de navegação para o usuário.
+ </p>
+ 
+ ##
+ 
+ <h4 align="center">Página de Cadastro de Evento</h4>
+ <div align="center">
+   <img src=></img>
+ </div>
+ <p align="center">
+ Onde o usuário controla (registra, deleta, marca como feito) os seus hábitos.
+ </p>
+ 
+##
